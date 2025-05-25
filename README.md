@@ -3,7 +3,7 @@
     <h1> Hi there, I'm Mohamed Essam Abu Emira 👋<a href="#"></h1>
   </div>
 <p align="center">
-<a href="https://github.com/smuhabdullah"><img src="https://readme-typing-svg.herokuapp.com?lines=Experienced+ERP+Consultant;Financial+Manager;project+management;Product+Owner&center=true&width=500&height=50"></a>
+<a href="https://github.com/abuemira91"><img src="https://readme-typing-svg.herokuapp.com?lines=Experienced+ERP+Consultant;Financial+Manager;project+management;Product+Owner&center=true&width=500&height=50"></a>
 
 ### Welcome to My GitHub Profile!
 
@@ -27,9 +27,9 @@ specialist: financial, trade & logistics, discrete manufacturing, process manufa
 </table>
 </p>
 <p width="100" align='center'>
-<a href="https://www.linkedin.com/in/abuemira/"><img src="https://img.shields.io/badge/-Muhammad%20Abdullah-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
-<a href="mailto:abuemira91@gmail.com"><img src="https://img.shields.io/badge/-mabdullahuit19b@gmail.com-D14836?style=flat&logo=Gmail&logoColor=white"/></a>
-	<a href="https://abuemira.medium.com/"><img src="https://img.shields.io/badge/-smuhabdullah-black ?style=flat&logo=medium&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/abuemira/"><img src="https://img.shields.io/badge/-Mohamed%20AbuEmira-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<a href="mailto:abuemira91@gmail.com"><img src="https://img.shields.io/badge/-abuemira91@gmail.com-D14836?style=flat&logo=Gmail&logoColor=white"/></a>
+	<a href="https://abuemira.medium.com/"><img src="https://img.shields.io/badge/-abuemira91-black ?style=flat&logo=medium&logoColor=white"/></a>
  </p>
  
 <br>
@@ -40,10 +40,10 @@ specialist: financial, trade & logistics, discrete manufacturing, process manufa
 
 <p align="center">
 <a href="https://github.com/abuemira91">
-<!--   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=smuhabdullah&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/> -->
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=smuhabdullah&layout=compact&langs_count=8&theme=algolia"/>
+<!--   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abuemira91&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/> -->
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=abuemira91&layout=compact&langs_count=8&theme=algolia"/>
 </a>
-  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=smuhabdullah&show_icons=true&locale=en&layout=demo&theme=algolia" />
+  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=abuemira91&show_icons=true&locale=en&layout=demo&theme=algolia" />
 </p>
 </p>
 <br>
