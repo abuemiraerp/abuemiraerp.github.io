@@ -23,35 +23,49 @@
 specialist: financial, trade & logistics, discrete manufacturing, process manufacturing, HR, Real estate.
 
 
-    
-</table>
-</p>
-<p width="100" align='center'>
-<a href="https://www.linkedin.com/in/abuemira/"><img src="https://img.shields.io/badge/-Mohamed%20AbuEmira-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
-<a href="mailto:abuemira91@gmail.com"><img src="https://img.shields.io/badge/-abuemira91@gmail.com-D14836?style=flat&logo=Gmail&logoColor=white"/></a>
-	<a href="https://abuemira.medium.com/"><img src="https://img.shields.io/badge/-abuemira91-black ?style=flat&logo=medium&logoColor=white"/></a>
- </p>
- 
-<br>
-
- 
- <h2>GitHub Analytics
- </h2>
-
-<p align="center">
-<a href="https://github.com/abuemira91">
-<!--   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abuemira91&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/> -->
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=abuemira91&layout=compact&langs_count=8&theme=algolia"/>
-</a>
-  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=abuemira91&show_icons=true&locale=en&layout=demo&theme=algolia" />
-</p>
-</p>
-<br>
-	
-
-## 🐛Github Magic Game
-<p align="center">
-  <img src="https://github.com/mohamedabuemira/mohamedabuemira/raw/output/github-contribution-grid-snake.svg" alt="snake"></center>
-</p>
+## modules & apps  
+- Accounting, 
+- Supply chain management
+- Inventory and Manufacturing
+- Sales & CRM & POS
+- Human Resource
+- Project Management App
+- Website Apps
+- Services Apps
 
 
+## industries 
+- Food, 
+- Trade & Logistics , 
+- Manufacturing, 
+- Outsourcing, 
+- Construction, 
+- Real estate
+- Logistics
+
+## Skills
+### Top skills
+- ERP Solutions •
+- Odoo • 
+- Business Analyst •
+- User Training •
+- Financial Accounting •
+- consolidation multi-company •
+- Supply Chain Management •
+- Sales and CRM •
+- Business Process •
+- Project management •
+- consolidation multi-company •
+- Techno functional consultant •
+- ERP Integration Skills •
+   
+
+<div align="center">
+<a  href="https://www.youtube.com/channel/UCRbHttqDCt28Uv7-e18YEjQ" target="_blank"><img alt="YouTube" src="https://img.shields.io/badge/Youtube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white" /></a>
+<a  href="https://www.linkedin.com/in/abuemira/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://twitter.com/MohamedAbuemira" target="_blank"><img src="https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white&alt=twitter" /></a>
+<a href="mailto:mohamed.abuemira@gmail.com"><img  alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+<a href="https://www.facebook.com/mohamed.abuemira/" target="_blank"><img alt="Facebook" src="https://img.shields.io/badge/Facebook%20-%231877F2.svg?&style=for-the-badge&logo=Facebook&logoColor=white" />
+<a  href="https://t.me/mohamedabuemira"><img alt=" Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>  
+<a href="https://api.whatsapp.com/send?phone=+201005061349&text=Hi!" target="_blank"><img src="https://img.shields.io/badge/-Whatsapp-4CA143?&labelColor=4CA143&logo=whatsapp&logoColor=white&link=https://api.whatsapp.com/send?phone=+201005061349&text=Hi!" alt="Whatsapp"></a>
+</div>
