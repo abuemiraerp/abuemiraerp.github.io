@@ -1,71 +1,66 @@
-<body>
-  <div align="center">
-    <h1> Hi there, I'm Mohamed Essam Abu Emira 👋<a href="#"></h1>
-  </div>
-<p align="center">
-<a href="https://github.com/abuemira91"><img src="https://readme-typing-svg.herokuapp.com?lines=Experienced+ERP+Consultant;Financial+Manager;project+management;Product+Owner&center=true&width=500&height=50"></a>
+<div align="center">
+  <h1>Hi there, I'm Mohamed Essam Abu Emira 👋</h1>
 
-### Welcome to My GitHub Profile!
+  <a href="https://github.com/abuemira91">
+    <img src="https://readme-typing-svg.herokuapp.com?lines=Experienced+ERP+Consultant;Financial+Manager;Project+Management;Product+Owner&center=true&width=500&height=50" alt="Typing SVG" />
+  </a>
+</div>
 
-### I'm  ERP Functional Consultant passionate about ERP/eCommerce implementations.
+---
 
+## About Me
 
-- 🔭 telescope: Most of my experience in Odoo ERP and eCommerce implementations dates back to 10+ years.
-- 👀 During my free time, I enjoy working with studying accounting and studying Programming basics with Python.
-- 🌱 I’m currently learning Business Analyst and PMP.
-- 💞️ Goals: Start contributing to Open Source projects.
-- ⚡  Fun fact: I love to play games and watch Football.
--  💻 &nbsp;Goals: Improve my technical and soft skills. 
+I'm an **Odoo Techno-Functional Consultant** with 10+ years of hands-on experience delivering ERP and eCommerce implementations. I bridge the gap between business needs and technical solutions, specializing in financial management, supply chain, manufacturing, and HR modules.
 
+- 🔭 10+ years of experience in Odoo ERP and eCommerce implementations
+- 🌱 Currently expanding into Business Analysis and PMP certification
+- 💞️ Looking to contribute to open-source ERP projects
+- ⚡ Fun fact: I enjoy gaming and following football
 
-## About
-#I'm Odoo Techno Functional with real experience in implementing financial and  supply chain management, sales, CRM, planning, manufacturing and HRM. Technical and business skills keep understanding customer needs and perform successful implementation. with experience implementing financial and supply chain management, sales, CRM, planning, manufacturing and HRM. Technical and business skills keep understanding customer needs and perform successful implementation.
-specialist: financial, trade & logistics, discrete manufacturing, process manufacturing, HR, Real estate.
+---
 
+## Core Expertise
 
-## modules & apps  
-- Accounting, 
-- Supply chain management
-- Inventory and Manufacturing
-- Sales & CRM & POS
-- Human Resource
-- Project Management App
-- Website Apps
-- Services Apps
+**Functional Areas**
+- Financial Accounting & Multi-Company Consolidation
+- Supply Chain Management & Inventory
+- Sales, CRM & Point of Sale
+- Manufacturing (Discrete & Process)
+- Human Resources Management
+- Project Management
+- eCommerce & Website Apps
 
+**Industries Served**
+- Food & Beverage
+- Trade & Logistics
+- Manufacturing
+- Construction & Real Estate
+- Outsourcing & Services
 
-## industries 
-- Food, 
-- Trade & Logistics , 
-- Manufacturing, 
-- Outsourcing, 
-- Construction, 
-- Real estate
-- Logistics
+---
 
 ## Skills
-### Top skills
-- ERP Solutions •
-- Odoo • 
-- Business Analyst •
-- User Training •
-- Financial Accounting •
-- consolidation multi-company •
-- Supply Chain Management •
-- Sales and CRM •
-- Business Process •
-- Project management •
-- consolidation multi-company •
-- Techno functional consultant •
-- ERP Integration Skills •
-   
+
+| Domain | Skills |
+|---|---|
+| ERP | Odoo, ERP Solutions, ERP Integration |
+| Business | Business Analysis, Business Process Design, User Training |
+| Finance | Financial Accounting, Multi-Company Consolidation |
+| Operations | Supply Chain Management, Sales & CRM, Project Management |
+| Role | Techno-Functional Consultant, Product Owner |
+
+---
+
+## Connect With Me
 
 <div align="center">
-<a  href="https://www.youtube.com/channel/UCRbHttqDCt28Uv7-e18YEjQ" target="_blank"><img alt="YouTube" src="https://img.shields.io/badge/Youtube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white" /></a>
-<a  href="https://www.linkedin.com/in/abuemira/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://twitter.com/MohamedAbuemira" target="_blank"><img src="https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white&alt=twitter" /></a>
-<a href="mailto:mohamed.abuemira@gmail.com"><img  alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-<a href="https://www.facebook.com/mohamed.abuemira/" target="_blank"><img alt="Facebook" src="https://img.shields.io/badge/Facebook%20-%231877F2.svg?&style=for-the-badge&logo=Facebook&logoColor=white" />
-<a  href="https://t.me/mohamedabuemira"><img alt=" Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>  
-<a href="https://api.whatsapp.com/send?phone=+201005061349&text=Hi!" target="_blank"><img src="https://img.shields.io/badge/-Whatsapp-4CA143?&labelColor=4CA143&logo=whatsapp&logoColor=white&link=https://api.whatsapp.com/send?phone=+201005061349&text=Hi!" alt="Whatsapp"></a>
+
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/channel/UCRbHttqDCt28Uv7-e18YEjQ)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abuemira/)
+[![Twitter](https://img.shields.io/badge/Twitter-%2300acee.svg?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/MohamedAbuemira)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed.abuemira@gmail.com)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/mohamed.abuemira/)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/mohamedabuemira)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?phone=+201005061349&text=Hi!)
+
 </div>
