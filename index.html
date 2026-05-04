@@ -850,6 +850,57 @@ footer {
 }
 .footer-link:hover { border-color:var(--primary-bg); color:var(--primary-bg); background:rgba(237,233,250,.1); }
 
+/* ─── LANGUAGE TOGGLE ──────────────────────── */
+.lang-toggle {
+  width: auto; padding: 0 12px; height: 40px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border2);
+  background: var(--surface);
+  color: var(--primary);
+  display: flex; align-items:center; justify-content:center; gap:5px;
+  font-size: .78rem; font-weight: 700;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  flex-shrink: 0; letter-spacing:.04em;
+}
+.lang-toggle:hover { border-color: var(--primary); background: var(--primary-bg); }
+
+/* ─── RTL SUPPORT ──────────────────────────── */
+[dir="rtl"] body { font-family: 'Segoe UI', 'Tahoma', 'Cairo', var(--font-b), sans-serif; }
+[dir="rtl"] .hero-h1 { text-align: right; }
+[dir="rtl"] .hero-p { text-align: right; }
+[dir="rtl"] .hero-btns { justify-content: flex-start; }
+[dir="rtl"] .eyebrow { text-align: right; }
+[dir="rtl"] .sec-title { text-align: right; }
+[dir="rtl"] .sec-desc { text-align: right; }
+[dir="rtl"] .tl { padding-left: 0; padding-right: 30px; }
+[dir="rtl"] .tl::before { left: auto; right: 5px; }
+[dir="rtl"] .tl-item::before { left: auto; right: -30px; }
+[dir="rtl"] .tl-co-link { text-align: right; }
+[dir="rtl"] .tl-bullets li { text-align: right; }
+[dir="rtl"] .story-dot-col { order: -1; }
+[dir="rtl"] .story-line { flex-direction: row-reverse; }
+[dir="rtl"] .story-content { text-align: right; }
+[dir="rtl"] .skills-wrap { direction: rtl; }
+[dir="rtl"] .skill-item { text-align: right; }
+[dir="rtl"] .svc-card { text-align: right; }
+[dir="rtl"] .cta-box { text-align: right; }
+[dir="rtl"] .cta-btns { justify-content: center; }
+[dir="rtl"] .blog-body { text-align: right; }
+[dir="rtl"] .tl-header { flex-direction: row-reverse; }
+[dir="rtl"] .tl-tags { direction: rtl; }
+[dir="rtl"] .filter-row { direction: rtl; }
+[dir="rtl"] .hero-stats { direction: rtl; }
+[dir="rtl"] .hero-stat { text-align: center; }
+[dir="rtl"] .test-q { text-align: right; }
+[dir="rtl"] .test-author { flex-direction: row-reverse; }
+[dir="rtl"] .nav-links { direction: rtl; }
+[dir="rtl"] footer { direction: rtl; }
+[dir="rtl"] .about-grid { direction: rtl; }
+[dir="rtl"] .exp-cols { direction: rtl; }
+[dir="rtl"] .certs-grid { direction: rtl; }
+[dir="rtl"] .cert-info { text-align: right; }
+
 /* ─── RESPONSIVE ──────────────────────────── */
 @media(max-width:1024px){
   .hero-inner { grid-template-columns:1fr; }
@@ -880,15 +931,16 @@ footer {
 <nav id="mainNav">
   <a href="#home" class="nav-logo">Abu<span>Emira</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="https://calendly.com/abuemira/30min" target="_blank" class="nav-cta">Book a Call</a></li>
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+    <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+    <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+    <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
+    <li><a href="https://calendly.com/abuemira/30min" target="_blank" class="nav-cta" data-i18n="nav_book">Book a Call</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle" id="langToggle" title="Switch Language">🌐 AR</button>
     <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
   </div>
@@ -898,25 +950,25 @@ footer {
 <section id="home">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><span class="dot"></span>🏆 LinkedIn Top ERP Voice</div>
+      <div class="hero-badge"><span class="dot"></span>🏆 <span data-i18n="hero_badge">LinkedIn Top ERP Voice</span></div>
       <h1 class="hero-h1">
         Odoo ERP<br>
-        <em>Project Manager</em><br>
-        <span class="line-outline">&amp; Consultant</span>
+        <em data-i18n="hero_title_em">Project Manager</em><br>
+        <span class="line-outline" data-i18n="hero_title_span">&amp; Consultant</span>
       </h1>
-      <p class="hero-p">
+      <p class="hero-p" data-i18n="hero_p">
         I turn complex business operations into <strong>streamlined ERP systems</strong> — 
         12+ years delivering successful Odoo implementations across Egypt, Saudi Arabia &amp; the GCC.
       </p>
       <div class="hero-btns">
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary">📅 Book Free Consultation</a>
-        <a href="#projects" class="btn-outline">View 60+ Projects →</a>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" data-i18n="hero_btn1">📅 Book Free Consultation</a>
+        <a href="#projects" class="btn-outline" data-i18n="hero_btn2">View 60+ Projects →</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl">Years Experience</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="60">0<span>+</span></div><div class="hero-stat-lbl">ERP Projects</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl">Certifications</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl">Industries</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl" data-i18n="stat_years">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="60">0<span>+</span></div><div class="hero-stat-lbl" data-i18n="stat_projects">ERP Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl" data-i18n="stat_certs">Certifications</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl" data-i18n="stat_industries">Industries</div></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -926,8 +978,8 @@ footer {
       <div class="hero-card">
         <div class="hero-card-icon">🌍</div>
         <div class="hero-card-text">
-          <strong>GCC &amp; Egypt</strong>
-          <span>Saudi Arabia · UAE · Egypt</span>
+          <strong data-i18n="hero_card_title">GCC &amp; Egypt</strong>
+          <span data-i18n="hero_card_sub">Saudi Arabia · UAE · Egypt</span>
         </div>
       </div>
       <div class="hero-tag">Odoo v12 → v18 ✓</div>
@@ -940,50 +992,50 @@ footer {
   <div class="inner">
     <div class="about-grid">
       <div>
-        <div class="eyebrow rev">My Story</div>
-        <h2 class="sec-title rev rev-d1">From Accountant<br>to ERP Architect</h2>
+        <div class="eyebrow rev" data-i18n="about_eyebrow">My Story</div>
+        <h2 class="sec-title rev rev-d1" data-i18n="about_title">From Accountant<br>to ERP Architect</h2>
 
         <div class="story-line rev rev-d2">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar"></div></div>
           <div class="story-content">
-            <div class="story-period">2013 – 2019 · Foundation</div>
-            <h4>General &amp; Chief Accountant</h4>
-            <p>Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP.</p>
+            <div class="story-period" data-i18n="story1_period">2013 – 2019 · Foundation</div>
+            <h4 data-i18n="story1_title">General &amp; Chief Accountant</h4>
+            <p data-i18n="story1_desc">Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP.</p>
           </div>
         </div>
         <div class="story-line rev rev-d3">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar"></div></div>
           <div class="story-content">
-            <div class="story-period">2019 – 2023 · Growth</div>
-            <h4>Discovered Odoo ERP — Never Looked Back</h4>
-            <p>Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries.</p>
+            <div class="story-period" data-i18n="story2_period">2019 – 2023 · Growth</div>
+            <h4 data-i18n="story2_title">Discovered Odoo ERP — Never Looked Back</h4>
+            <p data-i18n="story2_desc">Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries.</p>
           </div>
         </div>
         <div class="story-line rev rev-d4">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar" style="background:none"></div></div>
           <div class="story-content">
-            <div class="story-period">2023 – Present · Leadership</div>
-            <h4>ERP Project Manager &amp; Independent Consultant</h4>
-            <p>Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 60+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
+            <div class="story-period" data-i18n="story3_period">2023 – Present · Leadership</div>
+            <h4 data-i18n="story3_title">ERP Project Manager &amp; Independent Consultant</h4>
+            <p data-i18n="story3_desc">Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 60+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
           </div>
         </div>
 
         <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;" class="rev">
-          <a href="https://docs.google.com/document/d/1ccBEAGXvXJ4mPisMsX01LdLDamh5EI5CYPhSRXfOPb0/edit?usp=sharing" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;">📄 Download CV</a>
-          <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;">💼 LinkedIn</a>
+          <a href="https://docs.google.com/document/d/1ccBEAGXvXJ4mPisMsX01LdLDamh5EI5CYPhSRXfOPb0/edit?usp=sharing" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;" data-i18n="about_cv">📄 Download CV</a>
+          <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;" data-i18n="about_li">💼 LinkedIn</a>
         </div>
       </div>
 
       <div>
-        <div class="eyebrow rev">Core Expertise</div>
-        <h2 class="sec-title rev rev-d1">What I Bring<br>to Your Project</h2>
+        <div class="eyebrow rev" data-i18n="skills_eyebrow">Core Expertise</div>
+        <h2 class="sec-title rev rev-d1" data-i18n="skills_title">What I Bring<br>to Your Project</h2>
         <div class="skills-wrap rev rev-d2">
-          <div class="skill-item"><div class="skill-em">📊</div><div class="skill-name">Accounting &amp; Finance</div><div class="skill-sub">Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting</div></div>
-          <div class="skill-item"><div class="skill-em">🏭</div><div class="skill-name">Supply Chain &amp; MFG</div><div class="skill-sub">Inventory, Manufacturing, Purchase, Warehouse Management</div></div>
-          <div class="skill-item"><div class="skill-em">👥</div><div class="skill-name">HR &amp; Payroll</div><div class="skill-sub">Odoo HR, Attendance Tracking, Payroll Configuration</div></div>
-          <div class="skill-item"><div class="skill-em">💼</div><div class="skill-name">Sales, CRM &amp; POS</div><div class="skill-sub">Sales Pipeline, CRM, Point of Sale, E-Commerce Integration</div></div>
-          <div class="skill-item"><div class="skill-em">🗂️</div><div class="skill-name">Project Management</div><div class="skill-sub">Requirements, UAT, Go-Live, Change Management, Training</div></div>
-          <div class="skill-item"><div class="skill-em">🔄</div><div class="skill-name">Data Migration</div><div class="skill-sub">Legacy ERP to Odoo, Version Upgrades, Data Integrity</div></div>
+          <div class="skill-item"><div class="skill-em">📊</div><div class="skill-name" data-i18n="sk1_name">Accounting &amp; Finance</div><div class="skill-sub" data-i18n="sk1_sub">Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting</div></div>
+          <div class="skill-item"><div class="skill-em">🏭</div><div class="skill-name" data-i18n="sk2_name">Supply Chain &amp; MFG</div><div class="skill-sub" data-i18n="sk2_sub">Inventory, Manufacturing, Purchase, Warehouse Management</div></div>
+          <div class="skill-item"><div class="skill-em">👥</div><div class="skill-name" data-i18n="sk3_name">HR &amp; Payroll</div><div class="skill-sub" data-i18n="sk3_sub">Odoo HR, Attendance Tracking, Payroll Configuration</div></div>
+          <div class="skill-item"><div class="skill-em">💼</div><div class="skill-name" data-i18n="sk4_name">Sales, CRM &amp; POS</div><div class="skill-sub" data-i18n="sk4_sub">Sales Pipeline, CRM, Point of Sale, E-Commerce Integration</div></div>
+          <div class="skill-item"><div class="skill-em">🗂️</div><div class="skill-name" data-i18n="sk5_name">Project Management</div><div class="skill-sub" data-i18n="sk5_sub">Requirements, UAT, Go-Live, Change Management, Training</div></div>
+          <div class="skill-item"><div class="skill-em">🔄</div><div class="skill-name" data-i18n="sk6_name">Data Migration</div><div class="skill-sub" data-i18n="sk6_sub">Legacy ERP to Odoo, Version Upgrades, Data Integrity</div></div>
         </div>
       </div>
     </div>
@@ -993,45 +1045,45 @@ footer {
 <!-- ═══ SERVICES ═══ -->
 <section id="services">
   <div class="inner">
-    <div class="eyebrow rev">What I Do</div>
-    <h2 class="sec-title rev rev-d1">Services &amp; Solutions</h2>
-    <p class="sec-desc rev rev-d2">End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond.</p>
+    <div class="eyebrow rev" data-i18n="svc_eyebrow">What I Do</div>
+    <h2 class="sec-title rev rev-d1" data-i18n="svc_title">Services &amp; Solutions</h2>
+    <p class="sec-desc rev rev-d2" data-i18n="svc_desc">End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond.</p>
     <div class="services-grid">
       <div class="svc-card rev">
         <div class="svc-icon">🚀</div>
-        <h3>ERP Implementation</h3>
-        <p>Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Start Your Project →</a>
+        <h3 data-i18n="svc1_title">ERP Implementation</h3>
+        <p data-i18n="svc1_desc">Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc1_btn">Start Your Project →</a>
       </div>
       <div class="svc-card rev rev-d1">
         <div class="svc-icon">⚙️</div>
-        <h3>ERP Customization &amp; Integration</h3>
-        <p>Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Discuss Customization →</a>
+        <h3 data-i18n="svc2_title">ERP Customization &amp; Integration</h3>
+        <p data-i18n="svc2_desc">Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc2_btn">Discuss Customization →</a>
       </div>
       <div class="svc-card rev rev-d2">
         <div class="svc-icon">🔁</div>
-        <h3>Data Migration &amp; Upgrade</h3>
-        <p>Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Plan Migration →</a>
+        <h3 data-i18n="svc3_title">Data Migration &amp; Upgrade</h3>
+        <p data-i18n="svc3_desc">Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc3_btn">Plan Migration →</a>
       </div>
       <div class="svc-card rev rev-d3">
         <div class="svc-icon">📈</div>
-        <h3>Financial Management</h3>
-        <p>Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Get Financial Advice →</a>
+        <h3 data-i18n="svc4_title">Financial Management</h3>
+        <p data-i18n="svc4_desc">Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc4_btn">Get Financial Advice →</a>
       </div>
       <div class="svc-card rev">
         <div class="svc-icon">🎓</div>
-        <h3>Training &amp; Support</h3>
-        <p>Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Book Training →</a>
+        <h3 data-i18n="svc5_title">Training &amp; Support</h3>
+        <p data-i18n="svc5_desc">Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc5_btn">Book Training →</a>
       </div>
       <div class="svc-card rev rev-d1">
         <div class="svc-icon">🔍</div>
-        <h3>ERP Audit &amp; Optimization</h3>
-        <p>Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Request Audit →</a>
+        <h3 data-i18n="svc6_title">ERP Audit &amp; Optimization</h3>
+        <p data-i18n="svc6_desc">Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-i18n="svc6_btn">Request Audit →</a>
       </div>
     </div>
   </div>
@@ -1040,20 +1092,20 @@ footer {
 <!-- ═══ PROJECTS ═══ -->
 <section id="projects">
   <div class="inner">
-    <div class="eyebrow rev">Track Record</div>
-    <h2 class="sec-title rev rev-d1">60+ ERP Projects Delivered</h2>
-    <p class="sec-desc rev rev-d2">Real Odoo implementations across Saudi Arabia, UAE &amp; Egypt — from startups to government entities.</p>
+    <div class="eyebrow rev" data-i18n="proj_eyebrow">Track Record</div>
+    <h2 class="sec-title rev rev-d1" data-i18n="proj_title">60+ ERP Projects Delivered</h2>
+    <p class="sec-desc rev rev-d2" data-i18n="proj_desc">Real Odoo implementations across Saudi Arabia, UAE &amp; Egypt — from startups to government entities.</p>
     <div class="filter-row rev rev-d3">
-      <button class="flt on" data-f="all">All</button>
-      <button class="flt" data-f="retail">Retail &amp; Trade</button>
-      <button class="flt" data-f="food">Food &amp; Beverage</button>
-      <button class="flt" data-f="manufacturing">Manufacturing</button>
-      <button class="flt" data-f="construction">Construction</button>
-      <button class="flt" data-f="logistics">Logistics</button>
-      <button class="flt" data-f="services">Services</button>
+      <button class="flt on" data-f="all" data-i18n="flt_all">All</button>
+      <button class="flt" data-f="retail" data-i18n="flt_retail">Retail &amp; Trade</button>
+      <button class="flt" data-f="food" data-i18n="flt_food">Food &amp; Beverage</button>
+      <button class="flt" data-f="manufacturing" data-i18n="flt_mfg">Manufacturing</button>
+      <button class="flt" data-f="construction" data-i18n="flt_const">Construction</button>
+      <button class="flt" data-f="logistics" data-i18n="flt_log">Logistics</button>
+      <button class="flt" data-f="services" data-i18n="flt_svc">Services</button>
     </div>
     <div class="proj-grid" id="projGrid"></div>
-    <div class="show-more-wrap rev"><button class="btn-outline" id="showMoreBtn" style="font-size:.85rem;">Show More Projects</button></div>
+    <div class="show-more-wrap rev"><button class="btn-outline" id="showMoreBtn" style="font-size:.85rem;" data-i18n="proj_more">Show More Projects</button></div>
   </div>
 </section>
 
@@ -1062,13 +1114,13 @@ footer {
   <div class="inner">
     <div class="exp-cols">
       <div>
-        <div class="eyebrow rev">Career Path</div>
-        <h2 class="sec-title rev rev-d1">Professional Experience</h2>
+        <div class="eyebrow rev" data-i18n="exp_eyebrow">Career Path</div>
+        <h2 class="sec-title rev rev-d1" data-i18n="exp_title">Professional Experience</h2>
         <div class="tl rev rev-d2">
 
           <!-- 1. Current Position — Self-Employed -->
           <div class="tl-item">
-            <div class="tl-current-badge"><span class="pulse"></span> Current Position</div>
+            <div class="tl-current-badge"><span class="pulse"></span> <span data-i18n="exp_current">Current Position</span></div>
             <div class="tl-header">
               <h4>ERP Operations Manager · Odoo Expert</h4>
               <span class="tl-date-badge">Sep 2024 – Present</span>
@@ -1199,8 +1251,8 @@ footer {
         </div>
       </div>
       <div>
-        <div class="eyebrow rev">Credentials</div>
-        <h2 class="sec-title rev rev-d1">Top Certifications</h2>
+        <div class="eyebrow rev" data-i18n="certs_eyebrow">Credentials</div>
+        <h2 class="sec-title rev rev-d1" data-i18n="certs_title">Top Certifications</h2>
         <div class="certs-grid rev rev-d2">
           <a href="https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view" target="_blank" class="cert-c">
             <div class="cert-logo-box"><img src="./assets/images/certificates/ODOO18FUNCTIONALCERTIFICATION.jpg" alt="Odoo 18"></div>
@@ -1236,7 +1288,7 @@ footer {
           </a>
         </div>
         <div style="margin-top:20px;text-align:center;" class="rev">
-          <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 24px;">View All 50+ Certifications →</a>
+          <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 24px;" data-i18n="certs_all">View All 50+ Certifications →</a>
         </div>
       </div>
     </div>
@@ -1248,10 +1300,10 @@ footer {
   <div class="inner">
     <div class="test-head">
       <div>
-        <div class="eyebrow rev">Social Proof</div>
-        <h2 class="sec-title rev rev-d1">What Clients &amp;<br>Colleagues Say</h2>
+        <div class="eyebrow rev" data-i18n="test_eyebrow">Social Proof</div>
+        <h2 class="sec-title rev rev-d1" data-i18n="test_title">What Clients &amp;<br>Colleagues Say</h2>
       </div>
-      <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline rev" style="font-size:.8rem;white-space:nowrap;align-self:flex-end;">All Recommendations →</a>
+      <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline rev" style="font-size:.8rem;white-space:nowrap;align-self:flex-end;" data-i18n="test_all">All Recommendations →</a>
     </div>
   </div>
   <div class="marquee-outer">
@@ -1262,34 +1314,34 @@ footer {
 <!-- ═══ BLOG ═══ -->
 <section id="blog">
   <div class="inner">
-    <div class="eyebrow rev">Insights</div>
-    <h2 class="sec-title rev rev-d1">ERP Knowledge Hub</h2>
-    <p class="sec-desc rev rev-d2">Practical insights on ERP implementation, financial management, and digital transformation.</p>
+    <div class="eyebrow rev" data-i18n="blog_eyebrow">Insights</div>
+    <h2 class="sec-title rev rev-d1" data-i18n="blog_title">ERP Knowledge Hub</h2>
+    <p class="sec-desc rev rev-d2" data-i18n="blog_desc">Practical insights on ERP implementation, financial management, and digital transformation.</p>
     <div class="blog-grid">
       <a href="https://medium.com/@abuemira/financial-strategy-for-successful-erp-implementation-08b2bd98b602" target="_blank" class="blog-card rev">
         <div class="blog-img"><img src="./assets/images/blog-2.jpg" alt="Financial Strategy" loading="lazy"></div>
         <div class="blog-body">
-          <span class="blog-tag-pill">ERP Implementation</span>
-          <h3>Financial Strategy for Successful ERP Implementation</h3>
-          <p>How a sound financial strategy enhances ERP implementation and drives lasting business success.</p>
+          <span class="blog-tag-pill" data-i18n="blog1_tag">ERP Implementation</span>
+          <h3 data-i18n="blog1_title">Financial Strategy for Successful ERP Implementation</h3>
+          <p data-i18n="blog1_desc">How a sound financial strategy enhances ERP implementation and drives lasting business success.</p>
           <div class="blog-meta">Nov 10, 2024 · Medium</div>
         </div>
       </a>
       <a href="https://medium.com/@abuemira/the-role-of-erp-in-financial-management-for-modern-businesses-c94017746811" target="_blank" class="blog-card rev rev-d1">
         <div class="blog-img"><img src="./assets/images/blog-1.png" alt="ERP Financial Management" loading="lazy"></div>
         <div class="blog-body">
-          <span class="blog-tag-pill">Financial Management</span>
-          <h3>The Role of ERP in Financial Management for Modern Businesses</h3>
-          <p>How ERP solutions optimize financial management and support better decision-making.</p>
+          <span class="blog-tag-pill" data-i18n="blog2_tag">Financial Management</span>
+          <h3 data-i18n="blog2_title">The Role of ERP in Financial Management for Modern Businesses</h3>
+          <p data-i18n="blog2_desc">How ERP solutions optimize financial management and support better decision-making.</p>
           <div class="blog-meta">Nov 01, 2024 · Medium</div>
         </div>
       </a>
       <a href="https://medium.com/@abuemira/5-key-challenges-in-erp-implementation-and-how-to-overcome-them-094a73d4d89a" target="_blank" class="blog-card rev rev-d2">
         <div class="blog-img"><img src="./assets/images/blog-3.png" alt="ERP Challenges" loading="lazy"></div>
         <div class="blog-body">
-          <span class="blog-tag-pill">ERP Challenges</span>
-          <h3>5 Key Challenges in ERP Implementation &amp; How to Overcome Them</h3>
-          <p>The most common ERP challenges — and proven strategies to overcome them effectively.</p>
+          <span class="blog-tag-pill" data-i18n="blog3_tag">ERP Challenges</span>
+          <h3 data-i18n="blog3_title">5 Key Challenges in ERP Implementation &amp; How to Overcome Them</h3>
+          <p data-i18n="blog3_desc">The most common ERP challenges — and proven strategies to overcome them effectively.</p>
           <div class="blog-meta">Oct 25, 2024 · Medium</div>
         </div>
       </a>
@@ -1301,18 +1353,18 @@ footer {
 <section id="contact">
   <div class="inner">
     <div class="cta-box rev">
-      <div class="cta-eyebrow">✦ Let's Work Together</div>
-      <h2>Ready to Transform<br>Your Business?</h2>
-      <p>Whether you need a new ERP system, an upgrade, or just expert advice — let's talk. Book a free 30-minute consultation and let's figure out the right path forward.</p>
+      <div class="cta-eyebrow" data-i18n="cta_eyebrow">✦ Let's Work Together</div>
+      <h2 data-i18n="cta_title">Ready to Transform<br>Your Business?</h2>
+      <p data-i18n="cta_desc">Whether you need a new ERP system, an upgrade, or just expert advice — let's talk. Book a free 30-minute consultation and let's figure out the right path forward.</p>
       <div class="cta-btns">
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white">📅 Book Free Consultation</a>
-        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline">💬 WhatsApp Me</a>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white" data-i18n="cta_btn1">📅 Book Free Consultation</a>
+        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline" data-i18n="cta_btn2">💬 WhatsApp Me</a>
       </div>
       <div class="cta-contact-row">
         <a href="mailto:abuemira91@gmail.com" class="cta-contact-link">📧 abuemira91@gmail.com</a>
         <a href="https://wa.me/201005061349" class="cta-contact-link">📱 +20 100 506 1349</a>
         <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="cta-contact-link">💼 LinkedIn</a>
-        <a href="https://linktr.ee/abuemira" target="_blank" class="cta-contact-link">🌐 All Links</a>
+        <a href="https://linktr.ee/abuemira" target="_blank" class="cta-contact-link">🌐 <span data-i18n="cta_links">All Links</span></a>
       </div>
     </div>
   </div>
@@ -1321,7 +1373,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Abu<span>Emira</span></div>
-  <div class="footer-copy">© 2025 Mohamed Essam Abu Emira · Odoo ERP Expert</div>
+  <div class="footer-copy" data-i18n="footer_copy">© 2025 Mohamed Essam Abu Emira · Odoo ERP Expert</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="footer-link" title="LinkedIn">in</a>
     <a href="https://github.com/mohamedabuemira/" target="_blank" class="footer-link" title="GitHub">gh</a>
@@ -1429,7 +1481,8 @@ function renderProjects() {
   const btn = document.getElementById('showMoreBtn');
   const remaining = list.length - visible;
   btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
-  btn.textContent = `Show More Projects (${remaining} remaining)`;
+  const t = TRANSLATIONS[currentLang];
+  btn.textContent = remaining > 0 ? (currentLang === 'ar' ? `عرض المزيد (${remaining} ${t.proj_remaining})` : `Show More Projects (${remaining} remaining)`) : '';
 }
 
 document.querySelectorAll('.flt').forEach(b => {
@@ -1505,7 +1558,155 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
-/* ── COUNTER ANIMATION ───────────────────── */
+/* ── LANGUAGE / i18n SYSTEM ──────────────── */
+const TRANSLATIONS = {
+  en: {
+    nav_about:"About", nav_services:"Services", nav_projects:"Projects",
+    nav_experience:"Experience", nav_testimonials:"Testimonials",
+    nav_blog:"Blog", nav_book:"Book a Call",
+    hero_badge:"LinkedIn Top ERP Voice",
+    hero_title_em:"Project Manager", hero_title_span:"& Consultant",
+    hero_p:`I turn complex business operations into <strong>streamlined ERP systems</strong> — 12+ years delivering successful Odoo implementations across Egypt, Saudi Arabia & the GCC.`,
+    hero_btn1:"📅 Book Free Consultation", hero_btn2:"View 60+ Projects →",
+    stat_years:"Years Experience", stat_projects:"ERP Projects",
+    stat_certs:"Certifications", stat_industries:"Industries",
+    hero_card_title:"GCC & Egypt", hero_card_sub:"Saudi Arabia · UAE · Egypt",
+    about_eyebrow:"My Story", about_title:"From Accountant<br>to ERP Architect",
+    story1_period:"2013 – 2019 · Foundation", story1_title:"General & Chief Accountant",
+    story1_desc:"Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP.",
+    story2_period:"2019 – 2023 · Growth", story2_title:"Discovered Odoo ERP — Never Looked Back",
+    story2_desc:"Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries.",
+    story3_period:"2023 – Present · Leadership", story3_title:"ERP Project Manager & Independent Consultant",
+    story3_desc:"Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 60+ projects across GCC & Egypt. LinkedIn Top ERP Voice.",
+    about_cv:"📄 Download CV", about_li:"💼 LinkedIn",
+    skills_eyebrow:"Core Expertise", skills_title:"What I Bring<br>to Your Project",
+    sk1_name:"Accounting & Finance", sk1_sub:"Odoo Accounting, Financial Reporting, Budgeting & Forecasting",
+    sk2_name:"Supply Chain & MFG", sk2_sub:"Inventory, Manufacturing, Purchase, Warehouse Management",
+    sk3_name:"HR & Payroll", sk3_sub:"Odoo HR, Attendance Tracking, Payroll Configuration",
+    sk4_name:"Sales, CRM & POS", sk4_sub:"Sales Pipeline, CRM, Point of Sale, E-Commerce Integration",
+    sk5_name:"Project Management", sk5_sub:"Requirements, UAT, Go-Live, Change Management, Training",
+    sk6_name:"Data Migration", sk6_sub:"Legacy ERP to Odoo, Version Upgrades, Data Integrity",
+    svc_eyebrow:"What I Do", svc_title:"Services & Solutions",
+    svc_desc:"End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond.",
+    svc1_title:"ERP Implementation", svc1_desc:"Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18.", svc1_btn:"Start Your Project →",
+    svc2_title:"ERP Customization & Integration", svc2_desc:"Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools.", svc2_btn:"Discuss Customization →",
+    svc3_title:"Data Migration & Upgrade", svc3_desc:"Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment.", svc3_btn:"Plan Migration →",
+    svc4_title:"Financial Management", svc4_desc:"Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo.", svc4_btn:"Get Financial Advice →",
+    svc5_title:"Training & Support", svc5_desc:"Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages.", svc5_btn:"Book Training →",
+    svc6_title:"ERP Audit & Optimization", svc6_desc:"Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance.", svc6_btn:"Request Audit →",
+    proj_eyebrow:"Track Record", proj_title:"60+ ERP Projects Delivered",
+    proj_desc:"Real Odoo implementations across Saudi Arabia, UAE & Egypt — from startups to government entities.",
+    flt_all:"All", flt_retail:"Retail & Trade", flt_food:"Food & Beverage",
+    flt_mfg:"Manufacturing", flt_const:"Construction", flt_log:"Logistics", flt_svc:"Services",
+    proj_more:"Show More Projects",
+    exp_eyebrow:"Career Path", exp_title:"Professional Experience", exp_current:"Current Position",
+    certs_eyebrow:"Credentials", certs_title:"Top Certifications", certs_all:"View All 50+ Certifications →",
+    test_eyebrow:"Social Proof", test_title:"What Clients &<br>Colleagues Say", test_all:"All Recommendations →",
+    blog_eyebrow:"Insights", blog_title:"ERP Knowledge Hub",
+    blog_desc:"Practical insights on ERP implementation, financial management, and digital transformation.",
+    blog1_tag:"ERP Implementation", blog1_title:"Financial Strategy for Successful ERP Implementation", blog1_desc:"How a sound financial strategy enhances ERP implementation and drives lasting business success.",
+    blog2_tag:"Financial Management", blog2_title:"The Role of ERP in Financial Management for Modern Businesses", blog2_desc:"How ERP solutions optimize financial management and support better decision-making.",
+    blog3_tag:"ERP Challenges", blog3_title:"5 Key Challenges in ERP Implementation & How to Overcome Them", blog3_desc:"The most common ERP challenges — and proven strategies to overcome them effectively.",
+    cta_eyebrow:"✦ Let's Work Together", cta_title:"Ready to Transform<br>Your Business?",
+    cta_desc:"Whether you need a new ERP system, an upgrade, or just expert advice — let's talk. Book a free 30-minute consultation and let's figure out the right path forward.",
+    cta_btn1:"📅 Book Free Consultation", cta_btn2:"💬 WhatsApp Me", cta_links:"All Links",
+    footer_copy:"© 2025 Mohamed Essam Abu Emira · Odoo ERP Expert",
+    proj_remaining:"remaining",
+  },
+  ar: {
+    nav_about:"عني", nav_services:"الخدمات", nav_projects:"المشاريع",
+    nav_experience:"الخبرة", nav_testimonials:"التوصيات",
+    nav_blog:"المدونة", nav_book:"احجز مكالمة",
+    hero_badge:"من أبرز أصوات ERP على LinkedIn",
+    hero_title_em:"مدير مشاريع", hero_title_span:"ومستشار",
+    hero_p:`أحوّل العمليات التجارية المعقدة إلى <strong>أنظمة ERP متكاملة</strong> — أكثر من 12 عامًا في تنفيذ حلول Odoo بنجاح في مصر والمملكة العربية السعودية ومنطقة الخليج.`,
+    hero_btn1:"📅 احجز استشارة مجانية", hero_btn2:"استعرض 60+ مشروع →",
+    stat_years:"سنوات خبرة", stat_projects:"مشروع ERP",
+    stat_certs:"شهادة احترافية", stat_industries:"قطاع صناعي",
+    hero_card_title:"الخليج ومصر", hero_card_sub:"السعودية · الإمارات · مصر",
+    about_eyebrow:"قصتي", about_title:"من محاسب<br>إلى مهندس ERP",
+    story1_period:"2013 – 2019 · التأسيس", story1_title:"محاسب عام ورئيس حسابات",
+    story1_desc:"ست سنوات في إدارة الدورات المالية الكاملة بشركة النيل للصناعات البلاستيكية. أتقنت التقارير المالية والتسويات، وعشت معاناة العمليات اليدوية — مما دفعني نحو عالم ERP.",
+    story2_period:"2019 – 2023 · النمو", story2_title:"اكتشفت Odoo ERP — ولم أعد أتراجع",
+    story2_desc:"انتقلت إلى استشارات ERP، وانضممت إلى OdooTec، وبدأت تطبيق Odoo للشركات في مصر والمملكة العربية السعودية. بنيت خبرتي عبر أكثر من 15 قطاعًا.",
+    story3_period:"2023 – الآن · القيادة", story3_title:"مدير مشاريع ERP ومستشار مستقل",
+    story3_desc:"أقود التطبيقات الشاملة بصفة مدير مشاريع — معتمد Odoo v16/17/18، Google PM، IBM PM، McKinsey Forward. أكثر من 60 مشروعًا في الخليج ومصر. من أبرز أصوات ERP على LinkedIn.",
+    about_cv:"📄 تحميل السيرة الذاتية", about_li:"💼 LinkedIn",
+    skills_eyebrow:"الخبرات الأساسية", skills_title:"ما أقدمه<br>لمشروعك",
+    sk1_name:"المحاسبة والمالية", sk1_sub:"محاسبة Odoo، التقارير المالية، الميزانيات والتوقعات",
+    sk2_name:"سلسلة التوريد والتصنيع", sk2_sub:"المخزون، التصنيع، المشتريات، إدارة المستودعات",
+    sk3_name:"الموارد البشرية والرواتب", sk3_sub:"HR في Odoo، تتبع الحضور، إعداد الرواتب",
+    sk4_name:"المبيعات وCRM ونقاط البيع", sk4_sub:"خط أنابيب المبيعات، CRM، نقاط البيع، التجارة الإلكترونية",
+    sk5_name:"إدارة المشاريع", sk5_sub:"المتطلبات، UAT، الإطلاق، إدارة التغيير، التدريب",
+    sk6_name:"هجرة البيانات", sk6_sub:"الترحيل من الأنظمة القديمة إلى Odoo، ترقيات الإصدارات",
+    svc_eyebrow:"ما أقدمه", svc_title:"الخدمات والحلول",
+    svc_desc:"استشارات Odoo ERP شاملة مصممة لاحتياجات عملك — من الاكتشاف حتى الإطلاق وما بعده.",
+    svc1_title:"تطبيق ERP", svc1_desc:"نشر Odoo بالدورة الكاملة — المتطلبات، الإعداد، الاختبار، التدريب، الإطلاق، والدعم. Odoo v12 حتى v18.", svc1_btn:"ابدأ مشروعك →",
+    svc2_title:"تخصيص وتكامل ERP", svc2_desc:"تخصيص Odoo لسير عملك. التكامل مع Shopify وeZee PMS ومحركات الحجز وغيرها.", svc2_btn:"ناقش التخصيص →",
+    svc3_title:"هجرة البيانات والترقية", svc3_desc:"ترحيل آمن من الأنظمة القديمة أو ترقيات إصدارات Odoo مع التحقق الكامل من البيانات وضمان عدم الفقدان.", svc3_btn:"خطط للهجرة →",
+    svc4_title:"الإدارة المالية", svc4_desc:"استشارات مالية متخصصة — الميزانيات، التوقعات، تحليل التكاليف، ودمج العمليات المالية في Odoo.", svc4_btn:"احصل على استشارة مالية →",
+    svc5_title:"التدريب والدعم", svc5_desc:"مكّن فريقك بتدريب Odoo المنظم — للمستخدم والمسؤول، وحزم الدعم الوظيفي والتقني المستمر.", svc5_btn:"احجز تدريبًا →",
+    svc6_title:"تدقيق وتحسين ERP", svc6_desc:"مراجعة إعداد Odoo الحالي — تحديد الاختناقات والأخطاء، ثم التحسين لأداء أمثل.", svc6_btn:"اطلب تدقيقًا →",
+    proj_eyebrow:"سجل الإنجازات", proj_title:"أكثر من 60 مشروع ERP منجز",
+    proj_desc:"تطبيقات Odoo حقيقية في السعودية والإمارات ومصر — من الشركات الناشئة إلى الجهات الحكومية.",
+    flt_all:"الكل", flt_retail:"التجزئة والتجارة", flt_food:"الأغذية والمشروبات",
+    flt_mfg:"التصنيع", flt_const:"المقاولات", flt_log:"اللوجستيات", flt_svc:"الخدمات",
+    proj_more:"عرض المزيد من المشاريع",
+    exp_eyebrow:"المسار الوظيفي", exp_title:"الخبرة المهنية", exp_current:"الوظيفة الحالية",
+    certs_eyebrow:"الاعتمادات", certs_title:"أبرز الشهادات", certs_all:"عرض كل الشهادات (50+) →",
+    test_eyebrow:"آراء العملاء", test_title:"ماذا يقول العملاء<br>والزملاء",  test_all:"كل التوصيات →",
+    blog_eyebrow:"رؤى ومعرفة", blog_title:"مركز معرفة ERP",
+    blog_desc:"رؤى عملية حول تطبيق ERP والإدارة المالية والتحول الرقمي.",
+    blog1_tag:"تطبيق ERP", blog1_title:"الاستراتيجية المالية لتطبيق ERP الناجح", blog1_desc:"كيف تعزز الاستراتيجية المالية السليمة تطبيق ERP وتحقق نجاحًا تجاريًا دائمًا.",
+    blog2_tag:"الإدارة المالية", blog2_title:"دور ERP في الإدارة المالية للشركات الحديثة", blog2_desc:"كيف تحسّن حلول ERP الإدارة المالية وتدعم اتخاذ قرارات أفضل.",
+    blog3_tag:"تحديات ERP", blog3_title:"5 تحديات رئيسية في تطبيق ERP وكيفية التغلب عليها", blog3_desc:"أكثر تحديات ERP شيوعًا — واستراتيجيات مجربة للتغلب عليها بفاعلية.",
+    cta_eyebrow:"✦ لنعمل معًا", cta_title:"هل أنت مستعد لتحويل<br>أعمالك؟",
+    cta_desc:"سواء احتجت نظام ERP جديدًا، ترقية، أو مجرد استشارة خبير — دعنا نتحدث. احجز استشارة مجانية لمدة 30 دقيقة ولنحدد المسار الصحيح معًا.",
+    cta_btn1:"📅 احجز استشارة مجانية", cta_btn2:"💬 تواصل على WhatsApp", cta_links:"كل الروابط",
+    footer_copy:"© 2025 محمد عصام أبو عميرة · خبير Odoo ERP",
+    proj_remaining:"متبقي",
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLanguage(lang) {
+  const t = TRANSLATIONS[lang];
+  const isAr = lang === 'ar';
+
+  // Update HTML dir and lang
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update toggle button
+  const btn = document.getElementById('langToggle');
+  btn.textContent = isAr ? '🌐 EN' : '🌐 AR';
+
+  // Update Show More button dynamic text
+  const smBtn = document.getElementById('showMoreBtn');
+  if (smBtn && smBtn.style.display !== 'none') {
+    const list = activeFilter === 'all' ? PROJECTS : PROJECTS.filter(p => p.cat === activeFilter);
+    const remaining = list.length - visible;
+    if (remaining > 0) smBtn.textContent = isAr ? `عرض المزيد (${remaining} ${t.proj_remaining})` : `Show More Projects (${remaining} remaining)`;
+  }
+
+  // Save preference
+  localStorage.setItem('lang', lang);
+  currentLang = lang;
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  applyLanguage(currentLang === 'en' ? 'ar' : 'en');
+});
+
+// Apply on load
+applyLanguage(currentLang);
 const counterObs = new IntersectionObserver(entries => {
   if(!entries[0].isIntersecting) return;
   document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
