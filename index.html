@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohamed Abu Emira | Odoo ERP Expert | 60+ Implementations</title>
-  <meta name="description" content="Mohamed Essam Abu Emira — Odoo ERP Project Manager & Financial Manager. 10+ years, 60+ implementations across GCC & Egypt.">
+  <meta name="description" content="Mohamed Essam Abu Emira — Odoo ERP Project Manager & Financial Manager. 12+ years, 60+ implementations across GCC & Egypt.">
   <link rel="shortcut icon" href="./assets/images/abu-emira.jpg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -630,6 +630,40 @@ h2.sec-title {
   flex-shrink: 0;
 }
 .tl-desc { font-size:.83rem; color:var(--muted); line-height:1.65; }
+.tl-bullets { margin:8px 0 10px 0; padding-left:14px; }
+.tl-bullets li { font-size:.82rem; color:var(--muted); line-height:1.7; margin-bottom:3px; list-style:disc; }
+.tl-bullets li strong { color:var(--text-md); }
+.tl-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.tl-tag {
+  font-size:.7rem; font-weight:600; padding:3px 10px;
+  border-radius:20px; background:var(--primary-bg);
+  color:var(--primary); border:1px solid var(--border);
+  letter-spacing:.02em;
+}
+.tl-current-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.7rem; font-weight:700; color:var(--accent);
+  background:var(--accent-bg); border:1px solid #6ee7b7;
+  border-radius:20px; padding:3px 10px; margin-bottom:10px;
+}
+.tl-current-badge .pulse { width:7px;height:7px;border-radius:50%;background:var(--accent);animation:waPulse 2s ease infinite; display:inline-block; }
+.tl-date-badge {
+  font-size:.7rem; font-weight:700; padding:3px 12px;
+  border-radius:20px; background:var(--surface2);
+  color:var(--primary); border:1px solid var(--border2);
+  white-space:nowrap;
+}
+.tl-header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:6px; margin-bottom:3px; }
+.tl-header h4 { margin-bottom:0; }
+.tl-co-link {
+  color: var(--primary-lt);
+  font-size: .8rem; font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--border2);
+  transition: color .2s, border-color .2s;
+  display: inline;
+}
+.tl-co-link:hover { color: var(--accent); border-color: var(--accent); }
 
 /* Certs */
 .certs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
@@ -872,14 +906,14 @@ footer {
       </h1>
       <p class="hero-p">
         I turn complex business operations into <strong>streamlined ERP systems</strong> — 
-        10+ years delivering successful Odoo implementations across Egypt, Saudi Arabia &amp; the GCC.
+        12+ years delivering successful Odoo implementations across Egypt, Saudi Arabia &amp; the GCC.
       </p>
       <div class="hero-btns">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary">📅 Book Free Consultation</a>
         <a href="#projects" class="btn-outline">View 60+ Projects →</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num" data-count="10">0<span>+</span></div><div class="hero-stat-lbl">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl">Years Experience</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="60">0<span>+</span></div><div class="hero-stat-lbl">ERP Projects</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl">Certifications</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl">Industries</div></div>
@@ -1031,42 +1065,137 @@ footer {
         <div class="eyebrow rev">Career Path</div>
         <h2 class="sec-title rev rev-d1">Professional Experience</h2>
         <div class="tl rev rev-d2">
+
+          <!-- 1. Current Position — Self-Employed -->
           <div class="tl-item">
-            <div class="tl-when">2023 – Present · Riyadh, Saudi Arabia</div>
-            <h4>ERP Project Manager &amp; Consultant</h4>
-            <div class="tl-co">
-              <img src="./assets/images/company/expert.jpeg" alt="Self-Employed" class="co-logo" onerror="this.style.display='none'">
-              Self-Employed / Independent
+            <div class="tl-current-badge"><span class="pulse"></span> Current Position</div>
+            <div class="tl-header">
+              <h4>ERP Operations Manager · Odoo Expert</h4>
+              <span class="tl-date-badge">Sep 2024 – Present</span>
             </div>
-            <p class="tl-desc">Leading end-to-end Odoo implementations for clients across Saudi Arabia &amp; GCC. Built 50+ functional specifications covering Finance, Supply Chain, and HR modules.</p>
+            <div class="tl-co">
+              <img src="./assets/images/company/selfemployed.jpeg" alt="Self-Employed" class="co-logo" onerror="this.style.display='none'">
+              Self-Employed · Egypt &amp; GCC Region
+            </div>
+            <ul class="tl-bullets">
+              <li>Leading independent Odoo ERP consultancy for clients across Egypt, Saudi Arabia &amp; GCC — full project lifecycle ownership</li>
+              <li>Delivering end-to-end implementations: discovery, design, configuration, UAT, go-live, and ongoing support</li>
+              <li>Driving high user adoption through structured training and change management programs</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">Odoo 16/17/18 EE</span>
+              <span class="tl-tag">ERP Operations</span>
+              <span class="tl-tag">Project Management</span>
+              <span class="tl-tag">Multi-Company</span>
+            </div>
           </div>
+
+          <!-- 2. Expert Company -->
           <div class="tl-item">
-            <div class="tl-when">Feb 2021 – Feb 2023 · Cairo, Egypt</div>
-            <h4>Odoo Functional Consultant</h4>
+            <div class="tl-header">
+              <h4>ERP Consultant · Product Owner</h4>
+              <span class="tl-date-badge">Jan 2023 – Sep 2024</span>
+            </div>
+            <div class="tl-co">
+              <img src="./assets/images/company/expert.jpeg" alt="Expert Company" class="co-logo" onerror="this.style.display='none'">
+              <a href="https://exp-sa.com/en_US/about_us" target="_blank" rel="noopener" class="tl-co-link">Expert Company (شركة خبير) · Riyadh, Saudi Arabia</a>
+            </div>
+            <ul class="tl-bullets">
+              <li>Documented <strong>50+ functional specifications</strong> translating complex business requirements into Odoo solutions</li>
+              <li>Improved system performance by <strong>70%</strong> through ERP codebase optimization and database restructuring</li>
+              <li>Managed 30+ client engagements with Studio customizations and data migrations across 15+ industries</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">Odoo Studio</span>
+              <span class="tl-tag">Data Migration</span>
+              <span class="tl-tag">UAT</span>
+              <span class="tl-tag">JIRA</span>
+            </div>
+          </div>
+
+          <!-- 3. OdooTec -->
+          <div class="tl-item">
+            <div class="tl-header">
+              <h4>Odoo Functional Consultant</h4>
+              <span class="tl-date-badge">Feb 2021 – Jan 2023</span>
+            </div>
             <div class="tl-co">
               <img src="./assets/images/company/odootec.jpg" alt="OdooTec" class="co-logo" onerror="this.style.display='none'">
-              OdooTec
+              <a href="https://www.odootec.com/" target="_blank" rel="noopener" class="tl-co-link">OdooTec · Cairo, Egypt</a>
             </div>
-            <p class="tl-desc">Designed and optimized Odoo modules across v14, v15, v16, and v17. Delivered 3+ major projects with hands-on multi-industry expertise.</p>
+            <ul class="tl-bullets">
+              <li>Designed and optimized Odoo modules across 3+ enterprise projects (v14–v17)</li>
+              <li>Delivered customized demos, business flow analysis, implementation plans, and user training</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">Odoo v14–v17</span>
+              <span class="tl-tag">Functional Consulting</span>
+              <span class="tl-tag">Training</span>
+            </div>
           </div>
+
+          <!-- 4. Ultimate Solutions -->
           <div class="tl-item">
-            <div class="tl-when">May 2019 – Feb 2021 · Cairo, Egypt</div>
-            <h4>ERP Implementation Consultant</h4>
+            <div class="tl-header">
+              <h4>ERP Implementation Consultant</h4>
+              <span class="tl-date-badge">May 2019 – Feb 2021</span>
+            </div>
             <div class="tl-co">
-              <img src="./assets/images/company/selfemployed.jpeg" alt="Independent" class="co-logo" onerror="this.style.display='none'">
-              Independent
+              <img src="./assets/images/company/Ultimate.jpg" alt="Ultimate Solutions" class="co-logo" onerror="this.style.display='none'">
+              <a href="https://www.ultimate-erp.com/" target="_blank" rel="noopener" class="tl-co-link">Ultimate Solutions (Yemen Soft) · Cairo, Egypt</a>
             </div>
-            <p class="tl-desc">Functional ERP support including system admin, process mapping, testing, and user training. Tools: ONYX PRO ERP, MOTAKAMEL PLUS ERP.</p>
+            <ul class="tl-bullets">
+              <li>Provided functional ERP support across ONYX PRO and MOTAKAMEL PLUS platforms</li>
+              <li>Delivered process mapping, POC demos, and coordinated development teams</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">ONYX PRO ERP</span>
+              <span class="tl-tag">Process Mapping</span>
+              <span class="tl-tag">POC Demos</span>
+            </div>
           </div>
+
+          <!-- 5. HMTO -->
           <div class="tl-item">
-            <div class="tl-when">Aug 2015 – Feb 2019 · Cairo, Egypt</div>
-            <h4>Chief Accountant</h4>
+            <div class="tl-header">
+              <h4>Accountant Manager</h4>
+              <span class="tl-date-badge">Feb 2019 – May 2019</span>
+            </div>
+            <div class="tl-co">
+              <img src="./assets/images/company/hmto.png" alt="HMTO" class="co-logo" onerror="this.style.display='none'">
+              <a href="https://www.hmto-hnas.com/" target="_blank" rel="noopener" class="tl-co-link">HMTO for Import, Export, Manufacturing &amp; Packaging · Egypt</a>
+            </div>
+            <ul class="tl-bullets">
+              <li>Managed full accounting team, financial statements, and tax authority dealings (VAT, WHT, Income Tax)</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">Financial Statements</span>
+              <span class="tl-tag">Tax Management</span>
+              <span class="tl-tag">Audit</span>
+            </div>
+          </div>
+
+          <!-- 6. Nile for Plastic -->
+          <div class="tl-item">
+            <div class="tl-header">
+              <h4>Chief Accountant → General Accountant</h4>
+              <span class="tl-date-badge">Nov 2013 – Feb 2019</span>
+            </div>
             <div class="tl-co">
               <img src="./assets/images/company/nile.jpeg" alt="Nile for Plastic" class="co-logo" onerror="this.style.display='none'">
-              Nile for Plastic Industries
+              <a href="https://npipipe.com/" target="_blank" rel="noopener" class="tl-co-link">Nile for Plastic Industries · Cairo, Egypt</a>
             </div>
-            <p class="tl-desc">Managed full financial statements — Balance Sheet, P&amp;L, Cash Flow. Forecasting, budgeting, and compliance reporting.</p>
+            <ul class="tl-bullets">
+              <li>Prepared full financial statements: Balance Sheet, Income Statement, Cash Flow &amp; Equity</li>
+              <li>Managed payroll, customs clearance, cost variance analysis, and cash flow estimation</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tl-tag">Financial Reporting</span>
+              <span class="tl-tag">Cost Analysis</span>
+              <span class="tl-tag">Payroll</span>
+            </div>
           </div>
+
         </div>
       </div>
       <div>
