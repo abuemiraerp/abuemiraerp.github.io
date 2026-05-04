@@ -616,7 +616,19 @@ h2.sec-title {
   font-family:var(--font-h); font-size:1rem; font-weight:700;
   color:var(--text); margin-bottom:3px;
 }
-.tl-co { font-size:.8rem; color:var(--primary-lt); font-weight:600; margin-bottom:9px; }
+.tl-co {
+  font-size:.8rem; color:var(--primary-lt); font-weight:600; margin-bottom:9px;
+  display: flex; align-items: center; gap: 8px;
+}
+.co-logo {
+  width: 22px; height: 22px;
+  border-radius: 5px;
+  object-fit: contain;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px;
+  flex-shrink: 0;
+}
 .tl-desc { font-size:.83rem; color:var(--muted); line-height:1.65; }
 
 /* Certs */
@@ -1015,25 +1027,37 @@ footer {
           <div class="tl-item">
             <div class="tl-when">2023 – Present · Riyadh, Saudi Arabia</div>
             <h4>ERP Project Manager &amp; Consultant</h4>
-            <div class="tl-co">Self-Employed / Independent</div>
+            <div class="tl-co">
+              <img src="./assets/images/company/expert.jpeg" alt="Self-Employed" class="co-logo" onerror="this.style.display='none'">
+              Self-Employed / Independent
+            </div>
             <p class="tl-desc">Leading end-to-end Odoo implementations for clients across Saudi Arabia &amp; GCC. Built 50+ functional specifications covering Finance, Supply Chain, and HR modules.</p>
           </div>
           <div class="tl-item">
             <div class="tl-when">Feb 2021 – Feb 2023 · Cairo, Egypt</div>
             <h4>Odoo Functional Consultant</h4>
-            <div class="tl-co">OdooTec</div>
+            <div class="tl-co">
+              <img src="./assets/images/company/odootec.jpg" alt="OdooTec" class="co-logo" onerror="this.style.display='none'">
+              OdooTec
+            </div>
             <p class="tl-desc">Designed and optimized Odoo modules across v14, v15, v16, and v17. Delivered 3+ major projects with hands-on multi-industry expertise.</p>
           </div>
           <div class="tl-item">
             <div class="tl-when">May 2019 – Feb 2021 · Cairo, Egypt</div>
             <h4>ERP Implementation Consultant</h4>
-            <div class="tl-co">Independent</div>
+            <div class="tl-co">
+              <img src="./assets/images/company/selfemployed.jpeg" alt="Independent" class="co-logo" onerror="this.style.display='none'">
+              Independent
+            </div>
             <p class="tl-desc">Functional ERP support including system admin, process mapping, testing, and user training. Tools: ONYX PRO ERP, MOTAKAMEL PLUS ERP.</p>
           </div>
           <div class="tl-item">
             <div class="tl-when">Aug 2015 – Feb 2019 · Cairo, Egypt</div>
             <h4>Chief Accountant</h4>
-            <div class="tl-co">Nile for Plastic Industries</div>
+            <div class="tl-co">
+              <img src="./assets/images/company/nile.jpeg" alt="Nile for Plastic" class="co-logo" onerror="this.style.display='none'">
+              Nile for Plastic Industries
+            </div>
             <p class="tl-desc">Managed full financial statements — Balance Sheet, P&amp;L, Cash Flow. Forecasting, budgeting, and compliance reporting.</p>
           </div>
         </div>
