@@ -2023,39 +2023,80 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
       <div>
         <div class="eyebrow rev">Credentials</div>
         <h2 class="sec-title rev rev-d1">Top Certifications</h2>
-        <div class="certs-grid rev rev-d2">
-          <a href="https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view" target="_blank" class="cert-c">
+        <!-- Tier badges legend -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;" class="rev">
+          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:var(--primary);background:var(--primary-bg);border:1px solid var(--border2);border-radius:20px;padding:4px 10px;">🟣 Odoo Official</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:#0d6efd;background:#e8f0ff;border:1px solid #b3cefb;border-radius:20px;padding:4px 10px;">🔵 Full Specialization</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:var(--accent);background:var(--accent-bg);border:1px solid #6ee7b7;border-radius:20px;padding:4px 10px;">🟢 Global Institution</span>
+        </div>
+        <div class="certs-grid rev rev-d2" style="grid-template-columns:repeat(3,1fr);">
+
+          <!-- ── TIER 1: Odoo Official Certifications ── -->
+          <a href="https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view" target="_blank" class="cert-c" title="Odoo Official">
             <div class="cert-logo-box"><img src="./assets/images/certificates/ODOO18FUNCTIONALCERTIFICATION.jpg" alt="Odoo 18"></div>
-            <div class="cert-info"><strong>Odoo 18 Certified</strong><span>Functional · 2024</span></div>
+            <div class="cert-info"><strong>Odoo 18 Certified</strong><span>🟣 Official · Functional · 2024</span></div>
           </a>
-          <a href="https://drive.google.com/file/d/1Rvw0DoedrxI8KHg_90SQTRE3WSpZQ4j/view" target="_blank" class="cert-c">
+          <a href="https://drive.google.com/file/d/1Rvw0DoedrxI8KHg_90SQTRE3WSpZQ4j/view" target="_blank" class="cert-c" title="Odoo Official">
             <div class="cert-logo-box"><img src="./assets/images/certificates/Odoo17.jpg" alt="Odoo 17"></div>
-            <div class="cert-info"><strong>Odoo 17 Certified</strong><span>Functional · 2024</span></div>
+            <div class="cert-info"><strong>Odoo 17 Certified</strong><span>🟣 Official · Functional · 2024</span></div>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/C7AJNVBLBB5K" target="_blank" class="cert-c">
+          <a href="https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing" target="_blank" class="cert-c" title="Odoo Official">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/odoo16.png" alt="Odoo 16"></div>
+            <div class="cert-info"><strong>Odoo 16 Certified</strong><span>🟣 Official · Functional · 2023</span></div>
+          </a>
+          <a href="https://drive.google.com/file/d/1__-3N4adBIgh2krCka3_-d6Ot2dQlLWs/view" target="_blank" class="cert-c" title="Odoo + MCIT">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/DEPIODOO.jpg" alt="DEPI Odoo"></div>
+            <div class="cert-info"><strong>DEPI – Odoo Track</strong><span>🟣 MCIT + Odoo · 2024</span></div>
+          </a>
+
+          <!-- ── TIER 2: Global Full Specializations – PM & Leadership ── -->
+          <a href="https://www.coursera.org/account/accomplishments/specialization/C7AJNVBLBB5K" target="_blank" class="cert-c" title="Full Specialization – 6 courses">
             <div class="cert-logo-box"><img src="./assets/images/certificates/CourseraGoogleProjectManagementC7AJNVBLBB5K.jpg" alt="Google PM"></div>
-            <div class="cert-info"><strong>Google Project Mgmt</strong><span>Google · 2026</span></div>
+            <div class="cert-info"><strong>Google Project Management</strong><span>🔵 Specialization · Google · 2026</span></div>
           </a>
-          <a href="https://www.credly.com/badges/18980ea7-db63-4065-bd1b-bc39e736ffbd" target="_blank" class="cert-c">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/McKinsey Forward Program.png" alt="McKinsey"></div>
-            <div class="cert-info"><strong>McKinsey Forward</strong><span>McKinsey · 2023</span></div>
-          </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/R6S7GBR6WKZT" target="_blank" class="cert-c">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/R6S7GBR6WKZT" target="_blank" class="cert-c" title="Full Specialization – 9 courses">
             <div class="cert-logo-box"><img src="./assets/images/certificates/IBMITProjectManagerCourseraR6S7GBR6WKZT.jpg" alt="IBM PM"></div>
-            <div class="cert-info"><strong>IBM IT Project Mgr</strong><span>IBM · 2025</span></div>
+            <div class="cert-info"><strong>IBM IT Project Manager</strong><span>🔵 Specialization · IBM · 2025</span></div>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/5NAVAVEBAMDI" target="_blank" class="cert-c">
+          <a href="https://www.credly.com/badges/18980ea7-db63-4065-bd1b-bc39e736ffbd" target="_blank" class="cert-c" title="Selective McKinsey program">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/McKinsey Forward Program.png" alt="McKinsey"></div>
+            <div class="cert-info"><strong>McKinsey Forward</strong><span>🟢 McKinsey & Company · 2023</span></div>
+          </a>
+          <a href="https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61" target="_blank" class="cert-c" title="Full Specialization – Dartmouth">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg" alt="Strategic Leadership"></div>
+            <div class="cert-info"><strong>Strategic Leadership</strong><span>🔵 Specialization · Dartmouth · 2026</span></div>
+          </a>
+
+          <!-- ── TIER 3: Finance & ERP-Adjacent Specializations ── -->
+          <a href="https://www.coursera.org/account/accomplishments/specialization/5NAVAVEBAMDI" target="_blank" class="cert-c" title="Full Specialization – SAP">
             <div class="cert-logo-box"><img src="./assets/images/certificates/Coursera5NAVAVEBAMDI-SapConsultant.jpg" alt="SAP"></div>
-            <div class="cert-info"><strong>SAP Technology</strong><span>SAP · 2026</span></div>
+            <div class="cert-info"><strong>SAP Technology Consultant</strong><span>🔵 Specialization · SAP · 2026</span></div>
           </a>
-          <a href="https://drive.google.com/file/d/1__-3N4adBIgh2krCka3_-d6Ot2dQlLWs/view" target="_blank" class="cert-c">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/DEPIODOO.jpg" alt="DEPI"></div>
-            <div class="cert-info"><strong>Digital Egypt Pioneers</strong><span>MCIT · 2024</span></div>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" target="_blank" class="cert-c" title="Full Specialization – U of Illinois">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/FinancialManagement.jpg" alt="Financial Management"></div>
+            <div class="cert-info"><strong>Financial Management</strong><span>🔵 Specialization · Univ. of Illinois · 2025</span></div>
           </a>
-          <a href="https://www.credly.com/badges/6683d5cb-8f17-46cc-879b-855fa138e091" target="_blank" class="cert-c">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA" target="_blank" class="cert-c" title="Full Specialization – ESSEC">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/StrategicBusinessAnalytics.jpeg" alt="Business Analytics"></div>
+            <div class="cert-info"><strong>Strategic Business Analytics</strong><span>🔵 Specialization · ESSEC · 2025</span></div>
+          </a>
+          <a href="https://www.credly.com/badges/6683d5cb-8f17-46cc-879b-855fa138e091" target="_blank" class="cert-c" title="PMI Badge">
             <div class="cert-logo-box"><img src="./assets/images/certificates/PracticalApplicationofGenAIforProjectManagers.png" alt="PMI GenAI"></div>
-            <div class="cert-info"><strong>Gen AI for PM</strong><span>PMI · 2025</span></div>
+            <div class="cert-info"><strong>Gen AI for Project Managers</strong><span>🟢 PMI Badge · 2025</span></div>
           </a>
+          <a href="https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/" target="_blank" class="cert-c" title="Full Track – 365 Financial Analyst">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg" alt="Financial Analyst"></div>
+            <div class="cert-info"><strong>Financial Analyst</strong><span>🔵 Full Track · 365 Financial Analyst · 2025</span></div>
+          </a>
+          <a href="https://ibdl.net/certifications?Logbook=IBDLIPDE1004" target="_blank" class="cert-c" title="Missouri State University – IBDL">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg" alt="Certified Disciplined Entrepreneur"></div>
+            <div class="cert-info"><strong>Certified Disciplined Entrepreneur</strong><span>🟢 Missouri State Univ. · IBDL</span></div>
+          </a>
+          <a href="https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA" target="_blank" class="cert-c" title="Specialization – Coursera">
+            <div class="cert-logo-box"><img src="./assets/images/certificates/EntrepreneurshipMastery.png" alt="Entrepreneurship Mastery"></div>
+            <div class="cert-info"><strong>Entrepreneurship Mastery</strong><span>🔵 Specialization · Coursera · 2025</span></div>
+          </a>
+
         </div>
         <div style="margin-top:20px;text-align:center;" class="rev">
           <button onclick="openCertsModal()" class="btn-outline" style="font-size:.82rem;padding:10px 24px;cursor:pointer;border:none;">View All 50+ Certifications →</button>
@@ -2208,6 +2249,151 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
+<!-- ═══ RECOMMENDATIONS MODAL ═══ -->
+<div id="recsModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);overflow-y:auto;padding:20px;">
+  <div style="max-width:1100px;margin:0 auto;background:var(--surface);border-radius:var(--r-xl);padding:40px 32px;position:relative;">
+    <button onclick="closeRecsModal()" style="position:absolute;top:16px;right:20px;background:var(--surface2);border:none;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer;color:var(--text);line-height:36px;">✕</button>
+    <div style="text-align:center;margin-bottom:12px;">
+      <div class="eyebrow" style="margin-bottom:8px;justify-content:center;">All Recommendations</div>
+      <h2 style="font-family:var(--font-h);font-size:clamp(1.4rem,3vw,2rem);color:var(--text);" id="recsModalTitle">All LinkedIn Recommendations</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid #fde68a;border-radius:40px;padding:6px 14px;">
+          <span style="color:var(--gold);">★★★★★</span>
+          <span style="font-size:.8rem;font-weight:700;color:var(--gold);">5.0 · All Verified on LinkedIn</span>
+        </div>
+        <a href="https://www.linkedin.com/in/abuemira" target="_blank" style="font-size:.78rem;color:var(--primary-lt);font-weight:700;">View on LinkedIn ↗</a>
+      </div>
+    </div>
+    <!-- Filter tabs -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:20px 0 28px;" id="recsFilterRow"></div>
+    <!-- Grid -->
+    <div id="recsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;"></div>
+  </div>
+</div>
+
+<script>
+/* ── RECOMMENDATIONS MODAL ───────────────── */
+const REC_CATEGORIES = {
+  all:     { label: "All", icon: "👥" },
+  odoo:    { label: "Odoo / ERP",  icon: "🟣" },
+  finance: { label: "Finance",     icon: "💰" },
+  pm:      { label: "PM / Management", icon: "📋" },
+  client:  { label: "Clients",    icon: "🤝" }
+};
+
+// Annotate each testimonial with a category
+const REC_ANNOTATED = [
+  {cat:"odoo",  ...TESTIMONIALS[0]},  // Hesham Elmahdy – OdooTec
+  {cat:"odoo",  ...TESTIMONIALS[1]},  // Ahmed Hassan Algammal – ERP VP
+  {cat:"pm",    ...TESTIMONIALS[2]},  // Ahmed Galal PMP
+  {cat:"client",...TESTIMONIALS[3]},  // Mohamed Khalil – PlatFarm CEO
+  {cat:"odoo",  ...TESTIMONIALS[4]},  // Mohammad Nasab – Odoo Regional
+  {cat:"odoo",  ...TESTIMONIALS[5]},  // Ahmed Abdelhak – Odoo PM
+  {cat:"odoo",  ...TESTIMONIALS[6]},  // Mohsen DIFALLAH – Odoo Dev
+  {cat:"odoo",  ...TESTIMONIALS[7]},  // Muhammad Mahmoud – Odoo Consultant
+  {cat:"finance",...TESTIMONIALS[8]}, // Abdulrahman Gwida – Finance/Odoo
+  {cat:"odoo",  ...TESTIMONIALS[9]},  // Ahmed Elsayed – Odoo Dev
+  {cat:"odoo",  ...TESTIMONIALS[10]}, // Nourhan Hazim – Testing
+  {cat:"odoo",  ...TESTIMONIALS[11]}, // Ayman Tobbala – Odoo Consultant
+  {cat:"pm",    ...TESTIMONIALS[12]}, // Ahmed Rashad – ERP PM
+  {cat:"client",...TESTIMONIALS[13]}, // Yasser AL Samhouri – Finance Manager
+  {cat:"client",...TESTIMONIALS[14]}, // Faical Hafiane – CEO FAMFOOD
+  {cat:"pm",    ...TESTIMONIALS[15]}, // Aya Mohsen – Strategy
+  {cat:"finance",...TESTIMONIALS[16]},// Ahmed Malik – CFO
+  {cat:"odoo",  ...TESTIMONIALS[17]}, // Ahmed Saeed – Odoo Technical
+  {cat:"odoo",  ...TESTIMONIALS[18]}, // Bassant Hossam – Automation
+  {cat:"odoo",  ...TESTIMONIALS[19]}, // Muhammed Abdelfatah – ITI
+  {cat:"odoo",  ...TESTIMONIALS[20]}, // Mohamed Salah Helal – Odoo Dev
+  {cat:"odoo",  ...TESTIMONIALS[21]}, // Mohamed Nayel – Test Eng
+  {cat:"finance",...TESTIMONIALS[22]},// Mostafa Rohaim – JDE
+  {cat:"pm",    ...TESTIMONIALS[23]}, // Heba Allam – HR Manager
+  {cat:"odoo",  ...TESTIMONIALS[24]}, // Yousef Ashraf – Odoo Dev
+  {cat:"client",...TESTIMONIALS[25]}, // Caroline Farid
+  {cat:"odoo",  ...TESTIMONIALS[26]}, // Mohamed Eldabbas
+  {cat:"odoo",  ...TESTIMONIALS[27]}, // Amr Farouk – ERP Support
+  {cat:"finance",...TESTIMONIALS[28]},// Ashif TK – Accounting
+  {cat:"finance",...TESTIMONIALS[29]} // Ahmed Ezzat – Financial Analyst
+];
+
+let recsLoaded = false;
+let recsActiveFilter = 'all';
+
+function openRecsModal() {
+  document.getElementById('recsModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  if (!recsLoaded) {
+    recsLoaded = true;
+    // Build filter tabs
+    const filterRow = document.getElementById('recsFilterRow');
+    Object.entries(REC_CATEGORIES).forEach(([key, val]) => {
+      const btn = document.createElement('button');
+      btn.dataset.cat = key;
+      btn.style.cssText = `padding:6px 16px;border-radius:40px;font-size:.76rem;font-weight:700;cursor:pointer;transition:all .2s;border:1.5px solid var(--border2);background:${key==='all'?'var(--primary)':'var(--surface2)'};color:${key==='all'?'#fff':'var(--muted)'};`;
+      btn.innerHTML = `${val.icon} ${val.label}`;
+      btn.addEventListener('click', () => {
+        recsActiveFilter = key;
+        filterRow.querySelectorAll('button').forEach(b => {
+          b.style.background = b.dataset.cat === key ? 'var(--primary)' : 'var(--surface2)';
+          b.style.color = b.dataset.cat === key ? '#fff' : 'var(--muted)';
+          b.style.borderColor = b.dataset.cat === key ? 'var(--primary)' : 'var(--border2)';
+        });
+        renderRecsGrid();
+      });
+      filterRow.appendChild(btn);
+    });
+    renderRecsGrid();
+  }
+}
+
+function renderRecsGrid() {
+  const grid = document.getElementById('recsGrid');
+  const list = recsActiveFilter === 'all'
+    ? REC_ANNOTATED
+    : REC_ANNOTATED.filter(r => r.cat === recsActiveFilter);
+
+  grid.style.opacity = '0';
+  setTimeout(() => {
+    grid.innerHTML = list.map((r, i) => `
+      <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:22px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(16px);transition:opacity .35s ${i*30}ms ease, transform .35s ${i*30}ms ease;" class="rec-card-anim">
+        <div style="color:var(--gold);font-size:1rem;">★★★★★</div>
+        <p style="font-size:.84rem;color:var(--text-md);line-height:1.7;font-style:italic;flex:1;">"${r.q}"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:10px;border-top:1px solid var(--border);">
+          <img src="${r.img}" alt="${r.name}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;" onerror="this.style.opacity='0'">
+          <div style="min-width:0;">
+            <div style="font-size:.85rem;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.name}</div>
+            <div style="font-size:.72rem;color:var(--muted);line-height:1.4;margin-top:1px;">${r.role}</div>
+            ${r.linkedin && r.linkedin !== '#' ? `<a href="${r.linkedin}" target="_blank" style="font-size:.72rem;color:var(--primary-lt);font-weight:700;margin-top:3px;display:inline-block;">LinkedIn ↗</a>` : ''}
+          </div>
+        </div>
+      </div>`).join('');
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+      grid.style.opacity = '1';
+      grid.querySelectorAll('.rec-card-anim').forEach(card => {
+        requestAnimationFrame(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  }, 120);
+}
+
+function closeRecsModal() {
+  document.getElementById('recsModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('recsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeRecsModal();
+});
+// ESC key already handled globally above for certs; extend it
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeRecsModal(); }
+});
+</script>
+
 <!-- ═══ TESTIMONIALS ═══ -->
 <section id="testimonials">
   <div class="inner">
@@ -2224,7 +2410,7 @@ document.addEventListener('keydown', function(e) {
           <div style="font-size:.78rem;color:var(--muted);">Verified on <a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);font-weight:700;">LinkedIn ↗</a></div>
         </div>
       </div>
-      <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline rev" style="font-size:.8rem;white-space:nowrap;align-self:flex-end;">All Recommendations →</a>
+      <button onclick="openRecsModal()" class="btn-outline rev" style="font-size:.8rem;white-space:nowrap;align-self:flex-end;cursor:pointer;border:1.5px solid var(--border2);background:none;color:var(--text-md);padding:12px 26px;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:9px;transition:border-color .2s,background .2s,color .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';this.style.background='var(--primary-bg)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text-md)';this.style.background='none'">All Recommendations →</button>
     </div>
   </div>
   <div class="marquee-outer">
