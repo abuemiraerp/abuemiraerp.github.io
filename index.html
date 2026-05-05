@@ -1040,26 +1040,28 @@ footer {
 <!-- ═══ CASE STUDIES ═══ -->
 <section id="projects">
   <div class="inner">
-    <div class="eyebrow rev">Case Studies</div>
-    <h2 class="sec-title rev rev-d1">Featured ERP Implementations</h2>
-    <p class="sec-desc rev rev-d2">6 real projects across different industries — challenges, solutions, and measurable results.</p>
-    <div class="cs-grid rev rev-d2" id="caseStudiesGrid"></div>
+    <div class="eyebrow rev">Track Record</div>
+    <h2 class="sec-title rev rev-d1">60+ ERP Implementations</h2>
+    <p class="sec-desc rev rev-d2">75 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Construction, F&amp;B, Manufacturing, Retail, Government &amp; more. Click any card for the full case study.</p>
 
-    <div style="margin:56px 0 0;border-top:1px solid var(--border);padding-top:48px;">
-      <div class="eyebrow rev">Track Record</div>
-      <h3 class="sec-title rev rev-d1" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:8px;">60+ More Projects Delivered</h3>
-      <p class="sec-desc rev rev-d2" style="margin-bottom:32px;">Odoo implementations across Saudi Arabia, UAE &amp; Egypt — from startups to government entities.</p>
-      <div class="filter-row rev rev-d3">
-        <button class="flt on" data-f="all">All</button>
-        <button class="flt" data-f="retail">Retail &amp; Trade</button>
-        <button class="flt" data-f="food">Food &amp; Beverage</button>
-        <button class="flt" data-f="manufacturing">Manufacturing</button>
-        <button class="flt" data-f="construction">Construction</button>
-        <button class="flt" data-f="logistics">Logistics</button>
-        <button class="flt" data-f="services">Services</button>
+    <!-- Filter Menu -->
+    <div class="cs-filter-wrap rev rev-d2">
+      <div class="filter-row" id="csFltRow">
+        <button class="flt on" data-cf="all">All</button>
+        <button class="flt" data-cf="construction">🏗 Construction</button>
+        <button class="flt" data-cf="food">🍽 Food &amp; Beverage</button>
+        <button class="flt" data-cf="retail">🛍 Retail &amp; Trade</button>
+        <button class="flt" data-cf="manufacturing">🏭 Manufacturing</button>
+        <button class="flt" data-cf="real-estate">🏢 Real Estate</button>
+        <button class="flt" data-cf="logistics">🚛 Logistics</button>
+        <button class="flt" data-cf="government">🏛 Government</button>
+        <button class="flt" data-cf="services">⚙️ Services</button>
       </div>
-      <div class="proj-grid" id="projGrid"></div>
-      <div class="show-more-wrap rev"><button class="btn-outline" id="showMoreBtn" style="font-size:.85rem;">Show More Projects</button></div>
+    </div>
+
+    <div class="cs-grid rev rev-d3" id="caseStudiesGrid"></div>
+    <div class="show-more-wrap rev">
+      <button class="btn-outline" id="csShowMoreBtn" style="font-size:.85rem;display:none;">Show More Projects</button>
     </div>
   </div>
 </section>
@@ -1174,109 +1176,667 @@ footer {
 
 <script>
 const CASE_STUDIES = [
-  {
-    id:"batec",
-    name:"BATEC Batiment Technique",
-    industry:"Construction",
-    location:"UAE",
-    version:"Odoo 18 EE",
-    img:"./assets/images/Projects/beamconsolidated_logo.jpeg",
-    challenge:"Multi-entity construction company running separate systems per business unit — no unified financial view, project costs tracked manually on spreadsheets, intercompany transactions causing month-end delays of 5+ days.",
-    solution:"Designed a full multi-company Odoo 18 EE setup with shared chart of accounts and cost centers. Implemented Accounting, Sales, Inventory, HR, CRM, and Projects with project-based cost tracking. Configured intercompany rules for automatic journal entries between entities.",
-    modules:["Accounting","Multi-Company","Sales","Inventory","HR","CRM","Projects"],
-    kpis:[
-      {val:"100%","label":"Financial consolidation across all entities"},
-      {val:"5→1 day","label":"Month-end closing time reduced"},
-      {val:"Real-time","label":"Project cost visibility vs. budget"},
-    ],
-    outcome:"Management gained a unified dashboard across all business units for the first time, enabling data-driven decisions on project profitability and resource allocation."
-  },
-  {
-    id:"cups12",
-    name:"12 Cups Coffee",
-    industry:"F&B / Café Chain",
-    location:"Saudi Arabia",
-    version:"Odoo 17 EE",
-    img:"./assets/images/Projects/12cups.jpg",
-    challenge:"Fast-growing multi-branch café brand with no centralized inventory system — food cost variance was unknown, branch managers couldn't track raw material consumption, and POS sales were not linked to manufacturing recipes.",
-    solution:"Implemented Odoo 17 EE covering Accounting, Manufacturing (with Bill of Materials per recipe), Inventory with branch-level tracking, POS integrated per branch, and HR for staff management. Built custom dashboards for food cost % per branch.",
-    modules:["Accounting","Manufacturing","Inventory","POS","Sales","CRM","HR","Projects","Maintenance"],
-    kpis:[
-      {val:"↓ 18%","label":"Food cost variance reduced"},
-      {val:"Live","label":"Branch-level inventory tracking"},
-      {val:"1 view","label":"Centralized performance per branch"},
-    ],
-    outcome:"Owner can now compare branch profitability in real time, identify waste by product category, and make procurement decisions based on actual consumption data."
-  },
-  {
-    id:"ambiance",
-    name:"Ambiance Furniture",
-    industry:"Manufacturing",
-    location:"Egypt",
-    version:"Odoo 17 EE",
-    img:"./assets/images/Projects/ambiancefurniture.png",
-    challenge:"Large furniture manufacturer with fragmented operations — production planning on Excel, no link between sales orders and manufacturing, raw material shortages causing delivery delays averaging 12 days, and HR managed on paper.",
-    solution:"Full Odoo 17 EE implementation with Multi-Company setup, Manufacturing module with work orders and routing, Inventory with reorder rules and BoMs, Sales, CRM, HR with payroll, and Projects for custom order tracking. Migrated 3 years of historical data.",
-    modules:["Accounting","Multi-Company","Manufacturing","Inventory","Sales","CRM","HR","Projects","Planning"],
-    kpis:[
-      {val:"↓ 12→3","label":"Days: avg delivery delay reduced"},
-      {val:"0","label":"Stock-out incidents post go-live (Month 1)"},
-      {val:"70%","label":"Reduction in manual reporting time"},
-    ],
-    outcome:"Production manager now plans work orders directly from confirmed sales orders. Purchasing triggers automatically when stock reaches reorder points — eliminating the most common cause of delays."
-  },
-  {
-    id:"officers",
-    name:"Officers Clubs – Ministry of Interior",
-    industry:"Government",
-    location:"Saudi Arabia",
-    version:"Odoo EE",
-    img:"./assets/images/Projects/tamakkon.jpg",
-    challenge:"Government entity managing multiple officers' clubs across Saudi Arabia — HRMS, finance, procurement, POS, fleet, and maintenance all running on disconnected legacy systems with no central reporting or KPI visibility for leadership.",
-    solution:"Comprehensive ERP covering HRMS (with attendance & payroll), Finance, Supply Chain, Fixed Assets, CRM, POS (per club location), Maintenance, Fleet, and BI with custom KPI dashboards for ministry-level reporting. Full data migration from legacy systems.",
-    modules:["HRMS","Finance","Supply Chain","Assets","CRM","POS","Maintenance","Fleet","BI / KPIs"],
-    kpis:[
-      {val:"8","label":"Club locations integrated in 1 system"},
-      {val:"Live","label":"Ministry-level KPI dashboards"},
-      {val:"100%","label":"Payroll & HR digitized"},
-    ],
-    outcome:"First unified ERP across all officers' clubs — leadership receives automated monthly performance reports instead of manually compiled spreadsheets, saving 40+ hours/month in reporting."
-  },
-  {
-    id:"hittin",
-    name:"Hittin Union Real Estate",
-    industry:"Real Estate",
-    location:"Saudi Arabia",
-    version:"Odoo EE",
-    img:"./assets/images/Projects/villa_musk.jpg",
-    challenge:"Real estate developer with manual property sales tracking, delayed receivables collection, no visibility on contract status, and accounting disconnected from sales — leading to revenue recognition errors and AR aging issues.",
-    solution:"Implemented Accounting, Inventory, Supply Chain, Sales, CRM, and a custom Real Estate module covering property listing, sales contracts, installment schedules, and automatic receivables tracking linked to accounting entries.",
-    modules:["Accounting","Real Estate","Sales","CRM","Inventory","Supply Chain"],
-    kpis:[
-      {val:"Auto","label":"Receivables linked to contracts"},
-      {val:"↓ 60%","label":"Overdue follow-up time saved"},
-      {val:"Live","label":"Property pipeline & sales cycle visibility"},
-    ],
-    outcome:"Sales team tracks each property from listing to handover in one place. Finance automatically generates installment schedules and sends overdue alerts — eliminating manual AR tracking and revenue recognition delays."
-  },
-  {
-    id:"tiba",
-    name:"TIBA 2000 – Logistics & Security",
-    industry:"Logistics",
-    location:"Egypt & GCC",
-    version:"Odoo 17 EE",
-    img:"./assets/images/Projects/fastforwardlogistics.png",
-    challenge:"Logistics and security solutions company operating across borders — separate inventory and purchasing per country, no unified supplier management, and financial reporting requiring manual consolidation between Egypt and GCC operations.",
-    solution:"End-to-end Odoo 17 EE implementation with Accounting configured for multi-currency operations, Supply Chain Management with centralized purchasing, Inventory with warehouse-level tracking, Sales, CRM, and HR across all entities.",
-    modules:["Accounting","Supply Chain","Inventory & Manufacturing","Sales","CRM","HR"],
-    kpis:[
-      {val:"Multi","label":"Currency accounting automated"},
-      {val:"↓ 40%","label":"Procurement cycle time reduced"},
-      {val:"1","label":"Unified supplier database across countries"},
-    ],
-    outcome:"Procurement team now raises POs against a single supplier database, sees real-time stock across all warehouses, and finance closes monthly accounts without manual currency reconciliation."
-  },
+  // ── LARGE-SCALE ──────────────────────────────────────────────
+  {id:"batec",cat:"construction",name:"BATEC Batiment Technique",industry:"Construction",location:"UAE",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/beamconsolidated_logo.jpeg",
+   challenge:"Multi-entity construction company with no unified financial view — project costs on spreadsheets, intercompany transactions causing 5+ day month-end delays.",
+   solution:"Multi-company Odoo 18 EE setup with shared CoA, cost centers, project-based accounting. Implemented Accounting, Sales, Inventory, HR, CRM, Projects with intercompany auto journal entries.",
+   modules:["Accounting","Multi-Company","Sales","Inventory","HR","CRM","Projects"],
+   kpis:[{val:"100%",label:"Financial consolidation"},{val:"5→1 day",label:"Month-end closing"},{val:"Real-time",label:"Project cost vs budget"}],
+   outcome:"Management gained unified dashboard across all entities — data-driven decisions on project profitability for the first time."},
+
+  {id:"onevision",cat:"services",name:"One Vision Co.",industry:"Services",location:"Saudi Arabia",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/tamakkon.jpg",
+   challenge:"Operations spread across multiple departments with no integration — finance, field services, maintenance, and HR all running in silos.",
+   solution:"Full ERP covering Accounting, Supply Chain, Inventory & Manufacturing, Sales, CRM, POS, HR, Projects, Field Services, and Maintenance — fully integrated.",
+   modules:["Accounting","Supply Chain","Manufacturing","Sales","CRM","POS","HR","Projects","Field Services","Maintenance"],
+   kpis:[{val:"10+",label:"Modules integrated"},{val:"100%",label:"Departmental visibility"},{val:"Live",label:"Financial control"}],
+   outcome:"Centralized financial control and operational integration across all departments in one platform."},
+
+  {id:"tiba",cat:"logistics",name:"TIBA 2000 – Logistics & Security",industry:"Logistics",location:"Egypt & GCC",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/fastforwardlogistics.png",
+   challenge:"Cross-border logistics company with separate inventory per country, no unified supplier management, manual financial consolidation between Egypt and GCC.",
+   solution:"Odoo 17 EE with multi-currency Accounting, Supply Chain, Inventory with warehouse-level tracking, Sales, CRM, HR across all entities.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],
+   kpis:[{val:"Multi",label:"Currency accounting automated"},{val:"↓ 40%",label:"Procurement cycle time"},{val:"1",label:"Unified supplier database"}],
+   outcome:"Single supplier database, real-time cross-warehouse stock, and automatic currency reconciliation at month-end."},
+
+  {id:"cups12",cat:"food",name:"12 Cups Coffee",industry:"Food & Beverage",location:"Saudi Arabia",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/12cups.jpg",
+   challenge:"Multi-branch café with unknown food cost variance — no centralized inventory, POS not linked to recipes, managers couldn't track raw material consumption.",
+   solution:"Accounting, Manufacturing with BoMs per recipe, branch-level Inventory, POS per branch, HR. Custom dashboards for food cost % per branch.",
+   modules:["Accounting","Manufacturing","Inventory","POS","Sales","CRM","HR","Projects","Maintenance"],
+   kpis:[{val:"↓ 18%",label:"Food cost variance"},{val:"Live",label:"Branch inventory"},{val:"1 view",label:"Branch performance"}],
+   outcome:"Owner compares branch profitability live, identifies waste by product, makes procurement decisions on actual consumption."},
+
+  {id:"alaq",cat:"construction",name:"ALAQ AL-EZDEHAR Co.",industry:"Construction & Oil & Gas",location:"Saudi Arabia",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/alaqalezdehar.png",
+   challenge:"Trading and construction company with complex project costing, contract management gaps, and weak financial compliance across Oil & Gas operations.",
+   solution:"Industry-specific ERP covering Construction, Oil & Gas workflows, Accounting, Maintenance, and Operations with project-based cost control.",
+   modules:["Accounting","Construction","Oil & Gas","Maintenance","Operations","Projects"],
+   kpis:[{val:"Live",label:"Project costing"},{val:"↑",label:"Contract management"},{val:"✓",label:"Financial compliance"}],
+   outcome:"Enhanced project costing, contract management, and financial compliance across all operating units."},
+
+  {id:"hittin",cat:"real-estate",name:"Hittin Union Real Estate",industry:"Real Estate",location:"Saudi Arabia",version:"Odoo EE",
+   img:"./assets/images/Projects/villa_musk.jpg",
+   challenge:"Manual property sales tracking, delayed receivables, no contract status visibility, accounting disconnected from sales — causing revenue recognition errors.",
+   solution:"Accounting, Inventory, Supply Chain, Sales, CRM, and Real Estate module with property listing, contracts, installment schedules, auto receivables.",
+   modules:["Accounting","Real Estate","Sales","CRM","Inventory","Supply Chain"],
+   kpis:[{val:"Auto",label:"Receivables linked to contracts"},{val:"↓ 60%",label:"Overdue follow-up time"},{val:"Live",label:"Property pipeline"}],
+   outcome:"Finance auto-generates installment schedules, sends overdue alerts — no more manual AR tracking or revenue recognition delays."},
+
+  {id:"siralbina",cat:"retail",name:"Sir Albina Foundation for Trade",industry:"Retail & Trade",location:"Saudi Arabia",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/qafa-arabia.jpg",
+   challenge:"Weak internal controls, manual HR workflows, and financial reporting lacking structure across trading operations.",
+   solution:"Accounting, Supply Chain, Inventory, Sales, CRM, HR — with automated approval flows and strengthened internal controls.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],
+   kpis:[{val:"✓",label:"Internal controls"},{val:"Auto",label:"HR workflows"},{val:"Structured",label:"Financial reporting"}],
+   outcome:"Strengthened controls, automated HR, and reliable financial reporting across all trading activities."},
+
+  // ── FOOD & BEVERAGE ──────────────────────────────────────────
+  {id:"anasir",cat:"food",name:"Anasir Alghidha Food Products",industry:"Food & Beverage",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/anasir_alghidha_for_food_products.jpeg",
+   challenge:"Restaurant services company with disconnected procurement, manufacturing, and POS — no end-to-end food production visibility.",
+   solution:"Accounting, Purchase, Inventory, Manufacturing, Sales, CRM, POS — full restaurant supply chain in one system.",
+   modules:["Accounting","Purchase","Inventory","Manufacturing","Sales","CRM","POS"],
+   kpis:[{val:"Live",label:"Production visibility"},{val:"Linked",label:"POS to manufacturing"},{val:"✓",label:"Cost control"}],
+   outcome:"Full food production cycle from purchasing raw materials to POS sales tracked in one integrated system."},
+
+  {id:"jedoudna",cat:"food",name:"Jedoudna Restaurant & Café",industry:"Food & Beverage",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/jedoudna.jpg",
+   challenge:"Restaurant operations running on paper — no inventory tracking, POS disconnected from kitchen, manual daily reconciliation.",
+   solution:"ERP covering Accounting, Manufacturing, Inventory, POS, and CRM integrated for restaurant workflow.",
+   modules:["Accounting","Manufacturing","Inventory","POS","CRM"],
+   kpis:[{val:"Live",label:"Inventory tracking"},{val:"Auto",label:"Daily reconciliation"},{val:"↓",label:"Manual data entry"}],
+   outcome:"Daily operations fully digitized — POS linked to inventory and accounting for automatic end-of-day closing."},
+
+  {id:"famfood",cat:"food",name:"FAM FOOD Trading",industry:"Food & Beverage",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/famfood.png",
+   challenge:"Food trading company with procurement gaps, poor manufacturing planning, and unreliable financial reporting.",
+   solution:"Full ERP implementation improving procurement cycles, manufacturing planning, and financial reporting accuracy.",
+   modules:["Accounting","Purchase","Inventory","Manufacturing","Sales","CRM","HR"],
+   kpis:[{val:"↑",label:"Procurement efficiency"},{val:"Reliable",label:"Financial reporting"},{val:"Planned",label:"Manufacturing"}],
+   outcome:"Procurement, production, and finance aligned in one system — accurate reporting and reduced waste."},
+
+  {id:"reuof",cat:"food",name:"Reuof Alsham – Dessert Shop",industry:"Food & Beverage",location:"Egypt",version:"Odoo EE",
+   img:"./assets/images/Projects/emirol.png",
+   challenge:"Multi-branch dessert shop with no branch-level POS integration, uncontrolled inventory across locations, and manual purchasing.",
+   solution:"POS with branch setup, Inventory, Purchase, Sales, CRM, and Real Estate integration for property tracking.",
+   modules:["POS","Branches","Inventory","Purchase","Sales","CRM","Real Estate"],
+   kpis:[{val:"Multi",label:"Branches integrated"},{val:"Live",label:"Inventory per branch"},{val:"Auto",label:"Purchasing"}],
+   outcome:"All branches running on unified POS with real-time inventory sync and automated purchase orders."},
+
+  // ── RETAIL & E-COMMERCE ──────────────────────────────────────
+  {id:"inmart",cat:"retail",name:"INmart Store",industry:"Retail & Trade",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/aroma-sense.jpeg",
+   challenge:"Wholesale retailer managing inventory and POS on separate systems — no purchase-to-sale workflow, manual stock counts causing frequent discrepancies.",
+   solution:"Accounting, Inventory, Purchase, Manufacturing, Sales & POS — end-to-end wholesale retail workflow.",
+   modules:["Accounting","Inventory","Purchase","Manufacturing","Sales","POS"],
+   kpis:[{val:"Live",label:"Stock accuracy"},{val:"Linked",label:"Purchase to POS"},{val:"↓",label:"Manual counting"}],
+   outcome:"Single workflow from purchase order to POS sale — stock discrepancies eliminated post go-live."},
+
+  {id:"selaty",cat:"retail",name:"Selaty AlMuhaseel Trading",industry:"Retail & E-Commerce",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/selatyalmuhaseel.avif",
+   challenge:"Online and offline sales running in parallel with no synchronization — inventory, orders, and CRM all managed separately.",
+   solution:"E-commerce integration, Inventory, Sales, Purchase, and CRM unified for omnichannel retail.",
+   modules:["E-Commerce","Inventory","Sales","Purchase","CRM"],
+   kpis:[{val:"Unified",label:"Online + offline inventory"},{val:"Auto",label:"Order sync"},{val:"↑",label:"Customer visibility"}],
+   outcome:"Single inventory pool shared between e-commerce and physical store — real-time order management across channels."},
+
+  {id:"ultramade",cat:"manufacturing",name:"UltraMade Nutrition",industry:"Manufacturing",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/ultramade.png",
+   challenge:"Nutrition product manufacturer with no BoM tracking, manual procurement, and HR on spreadsheets.",
+   solution:"Accounting, Manufacturing with BoMs, Inventory, Purchase, Sales, CRM, HR — full production and back-office.",
+   modules:["Accounting","Manufacturing","Inventory","Purchase","Sales","CRM","HR"],
+   kpis:[{val:"BoM",label:"Production tracking"},{val:"Auto",label:"Procurement triggers"},{val:"Digital",label:"HR & payroll"}],
+   outcome:"Production costs tracked per BoM, purchasing automated on reorder rules, HR fully digitized."},
+
+  {id:"villamisk",cat:"services",name:"Villa Misk Serviced Apartments",industry:"Hospitality",location:"Egypt",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/villa_musk.jpg",
+   challenge:"Serviced apartments with manual reservation management, no integration between front desk and accounting, and disconnected POS.",
+   solution:"Accounting, Sales, CRM, Inventory, Purchase, and PMS integration with eZee for reservation management.",
+   modules:["Accounting","Sales","CRM","Inventory","Purchase","PMS (eZee)"],
+   kpis:[{val:"Integrated",label:"PMS + Accounting"},{val:"Auto",label:"Reservation to invoice"},{val:"Live",label:"Occupancy & revenue"}],
+   outcome:"Reservations flow directly from eZee PMS to Odoo invoicing — zero manual data entry between systems."},
+
+  {id:"rosekid",cat:"retail",name:"Rosekid – Kids Products",industry:"Retail",location:"Egypt",version:"Odoo EE",
+   img:"./assets/images/Projects/silver_tex.jpg",
+   challenge:"Kids retail brand with no inventory control across product categories — stock accuracy low, financial visibility limited.",
+   solution:"Accounting, Inventory, Sales, CRM, POS — with inventory control and sales automation.",
+   modules:["Accounting","Inventory","Sales","CRM","POS"],
+   kpis:[{val:"↑",label:"Stock accuracy"},{val:"Auto",label:"Sales reconciliation"},{val:"Live",label:"Financial reporting"}],
+   outcome:"Improved financial visibility and stock accuracy across all product categories."},
+
+  {id:"ricrac",cat:"retail",name:"RicRac Shop – Retail & E-Commerce",industry:"Retail",location:"Egypt",version:"Odoo EE",
+   img:"./assets/images/Projects/qafa-arabia.jpg",
+   challenge:"Retail and e-commerce operations with poor receivables management and no integration between sales channels and reporting.",
+   solution:"Accounting, Inventory, Sales, CRM, POS with integrated sales workflows and enhanced reporting.",
+   modules:["Accounting","Inventory","Sales","CRM","POS"],
+   kpis:[{val:"↑",label:"Receivables tracking"},{val:"Linked",label:"Sales channels"},{val:"Live",label:"Reporting"}],
+   outcome:"Integrated sales and inventory workflows with reliable receivables management and real-time reports."},
+
+  {id:"ruyamustaqbal",cat:"retail",name:"رؤية المستقبل للأجهزة الأمنية",industry:"Retail & Security",location:"Egypt",version:"Odoo 15 CE",
+   img:"./assets/images/Projects/fastforwardlogistics.png",
+   challenge:"Security systems retailer on manual processes — procurement, stock, and HR all unconnected with no financial reporting structure.",
+   solution:"Full CE implementation: Accounting, Supply Chain, Inventory & Manufacturing, Sales, CRM, HR — streamlined procurement and stock.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],
+   kpis:[{val:"Structured",label:"Financial reporting"},{val:"Streamlined",label:"Procurement"},{val:"Live",label:"Stock management"}],
+   outcome:"Complete digital transformation from manual to ERP — enhanced financial control and reporting across the business."},
+
+  {id:"qafa",cat:"retail",name:"Qafa Arabia",industry:"Retail & Trading",location:"Saudi Arabia",version:"Odoo EE",
+   img:"./assets/images/Projects/qafa-arabia.jpg",
+   challenge:"Retail trading company with unstructured procurement, no financial reporting framework, and poor cost visibility.",
+   solution:"Accounting, Inventory, Sales, CRM — with structured financial reporting and cost control.",
+   modules:["Accounting","Inventory","Sales","CRM"],
+   kpis:[{val:"Structured",label:"Financial reporting"},{val:"↓",label:"Procurement lead time"},{val:"Live",label:"Cost control"}],
+   outcome:"Procurement and sales streamlined with a proper financial reporting and cost control framework."},
+
+  {id:"shakhsiyat",cat:"retail",name:"شخصية الرجل – Men's Fashion",industry:"Retail",location:"Egypt",version:"Odoo EE",
+   img:"./assets/images/Projects/silver_tex.jpg",
+   challenge:"Fashion retail brand with no branch-level sales tracking — inventory turnover unknown, financial reporting manual.",
+   solution:"Accounting, Inventory, Sales, CRM, POS — branch-level tracking and real-time financial reporting.",
+   modules:["Accounting","Inventory","Sales","CRM","POS"],
+   kpis:[{val:"Branch",label:"Sales tracking live"},{val:"↑",label:"Inventory turnover"},{val:"Real-time",label:"Financial reporting"}],
+   outcome:"Branch-level sales and inventory tracked in real time — management reports generated automatically."},
+
+  // ── MANUFACTURING ─────────────────────────────────────────────
+  {id:"ambiance",cat:"manufacturing",name:"Ambiance Furniture",industry:"Manufacturing",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/ambiancefurniture.png",
+   challenge:"Large furniture manufacturer — production on Excel, no sales-to-manufacturing link, delivery delays averaging 12 days, HR on paper.",
+   solution:"Multi-Company, Manufacturing with routing & work orders, Inventory with reorder rules, Sales, CRM, HR with payroll. 3-year data migration.",
+   modules:["Accounting","Multi-Company","Manufacturing","Inventory","Sales","CRM","HR","Projects","Planning"],
+   kpis:[{val:"↓ 12→3",label:"Delivery delay (days)"},{val:"0",label:"Stock-outs post go-live"},{val:"70%",label:"Manual reporting reduced"}],
+   outcome:"Work orders planned from sales orders, purchasing automated on reorder rules — root cause of delays eliminated."},
+
+  {id:"caryoka",cat:"manufacturing",name:"Caryoka – Automotive & Workshops",industry:"Manufacturing",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/caryoka.jpg",
+   challenge:"Automotive workshop with no workshop management system — job cards manual, parts inventory untracked, billing delayed.",
+   solution:"Workshop Management, Accounting, Inventory, Manufacturing, HR — full workshop digitization.",
+   modules:["Accounting","Workshop Management","Inventory","Manufacturing","HR"],
+   kpis:[{val:"Digital",label:"Job cards & billing"},{val:"Live",label:"Parts inventory"},{val:"↓",label:"Billing delays"}],
+   outcome:"Workshop operations fully digitized — job cards, parts, and invoicing linked in one system."},
+
+  {id:"iya",cat:"manufacturing",name:"IYA Investment Co.",industry:"Manufacturing",location:"Egypt",version:"Odoo 16 EE",
+   img:"./assets/images/Projects/ultramade.png",
+   challenge:"Feed & poultry manufacturer on outdated Odoo v13 — missing features, no support, performance degraded.",
+   solution:"Full ERP upgrade from Odoo v13 to v16 with data migration and module reconfiguration for production operations.",
+   modules:["Accounting","Manufacturing","Inventory","Sales","HR"],
+   kpis:[{val:"v13→v16",label:"Successful upgrade"},{val:"100%",label:"Data migrated"},{val:"↑",label:"System performance"}],
+   outcome:"Smooth upgrade with all historical data preserved — full access to Odoo 16 features and performance improvements."},
+
+  // ── CONSTRUCTION & ENGINEERING ───────────────────────────────
+  {id:"zuhair",cat:"construction",name:"Zuhair Fayez Partnership",industry:"Construction",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/beamconsolidated_logo.jpeg",
+   challenge:"Engineering consultancy with no unified ERP — accounting, HR, and inventory all managed separately with no project cost view.",
+   solution:"Odex ERP implementation covering Accounting, HR, Inventory, Sales, CRM.",
+   modules:["Accounting","HR","Inventory","Sales","CRM"],
+   kpis:[{val:"Unified",label:"Operations"},{val:"Live",label:"Financial reporting"},{val:"↓",label:"Manual processes"}],
+   outcome:"Unified system across finance, HR, and operations — improved project cost visibility and reporting."},
+
+  {id:"makkiyoon",cat:"real-estate",name:"Makkiyoon Real Estate Development",industry:"Real Estate & Construction",location:"Saudi Arabia",version:"Odoo EE",
+   img:"./assets/images/Projects/villa_musk.jpg",
+   challenge:"Real estate developer handling construction management manually — no integration between project management and finance.",
+   solution:"ERP for Real Estate Development & Construction Management — linking project milestones to financial tracking.",
+   modules:["Accounting","Real Estate","Construction Management","Projects","HR"],
+   kpis:[{val:"Linked",label:"Project to finance"},{val:"Live",label:"Construction milestones"},{val:"↑",label:"Financial control"}],
+   outcome:"Real estate development and construction management integrated — milestone-based financial tracking enabled."},
+
+  {id:"binladen",cat:"construction",name:"Mohammed Bin Laden Company",industry:"Construction",location:"Saudi Arabia",version:"Odoo Support",
+   img:"./assets/images/Projects/binladin.jpg",
+   challenge:"Large construction group needing ERP support and optimization across Accounting, Supply Chain, and Project Management.",
+   solution:"ERP support engagement covering Accounting, Supply Chain, and Project Management optimization.",
+   modules:["Accounting","Supply Chain","Project Management"],
+   kpis:[{val:"Optimized",label:"Project accounting"},{val:"↑",label:"Supply chain efficiency"},{val:"✓",label:"System stability"}],
+   outcome:"Improved system performance and reliability across key operational modules."},
+
+  {id:"albader",cat:"construction",name:"Abdurahman Albader Sons",industry:"Construction & Oil & Gas",location:"Saudi Arabia",version:"Odoo 13 EE",
+   img:"./assets/images/Projects/alaqalezdehar.png",
+   challenge:"Construction and Oil & Gas company with complex operations lacking ERP — no project cost control or procurement tracking.",
+   solution:"Odoo 13 EE implementation covering construction operations, finance, and supply chain.",
+   modules:["Accounting","Supply Chain","Inventory","Projects","HR"],
+   kpis:[{val:"Live",label:"Project cost control"},{val:"Tracked",label:"Procurement"},{val:"✓",label:"Finance integration"}],
+   outcome:"Full ERP foundation established for construction and Oil & Gas operations."},
+
+  {id:"pces",cat:"construction",name:"Project Construction & Engineering Systems",industry:"Construction",location:"Saudi Arabia",version:"Odoo EE",
+   img:"./assets/images/Projects/beamconsolidated_logo.jpeg",
+   challenge:"Construction & engineering firm with no project-based accounting — budgets, expenses, and profitability tracked manually.",
+   solution:"Accounting, Sales, Inventory, HR, CRM, Project Management — with project-based cost tracking and approval workflows.",
+   modules:["Accounting","Sales","Inventory","HR","CRM","Project Management"],
+   kpis:[{val:"Real-time",label:"Budget vs actual"},{val:"↓",label:"Project delays"},{val:"✓",label:"Approval workflows"}],
+   outcome:"Project profitability monitored in real time — procurement triggers automated, reducing materials planning delays."},
+
+  // ── GOVERNMENT & NGO ─────────────────────────────────────────
+  {id:"tarahem",cat:"government",name:"Tarahem – National Committee for Prisoner Care",industry:"Government / NGO",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/tamakkon.jpg",
+   challenge:"National NGO with financial system, HR, inventory, and projects all on paper — no KPI visibility for leadership.",
+   solution:"Odex ERP: Financial System, HR, Inventory, Projects, BI dashboards, KPIs, and full data migration.",
+   modules:["Finance","HR","Inventory","Projects","BI","KPIs","Data Migration"],
+   kpis:[{val:"Live",label:"KPI dashboards"},{val:"100%",label:"Data migrated"},{val:"Unified",label:"All departments"}],
+   outcome:"First ERP for the organization — leadership gained KPI visibility and automated reporting across all functions."},
+
+  {id:"kapl",cat:"government",name:"King Abdulaziz Public Library",industry:"Government",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/kapl.png",
+   challenge:"Major public institution with Finance, HR, Inventory, and CRM all separate — no BI or KPI reporting for management.",
+   solution:"ERP covering Finance, HR, Inventory, CRM, BI & KPIs — unified operations for a national institution.",
+   modules:["Finance","HR","Inventory","CRM","BI","KPIs"],
+   kpis:[{val:"Live",label:"BI dashboards"},{val:"Unified",label:"All departments"},{val:"Auto",label:"Management reports"}],
+   outcome:"National library unified on one platform — automated management reports and KPI tracking."},
+
+  {id:"tamakkon",cat:"government",name:"Tamakkon Association",industry:"Government / NGO",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/tamakkon.jpg",
+   challenge:"Association with fragmented data across legacy systems — no unified ERP and complex data migration requirements.",
+   solution:"Odex ERP implementation with full data migration from legacy systems.",
+   modules:["Finance","HR","Inventory","Projects","CRM"],
+   kpis:[{val:"✓",label:"Data migrated"},{val:"Unified",label:"Operations"},{val:"Live",label:"Reporting"}],
+   outcome:"Smooth migration from legacy to modern ERP — unified operations and clean data."},
+
+  {id:"officers",cat:"government",name:"Officers Clubs – Ministry of Interior",industry:"Government",location:"Saudi Arabia",version:"Odoo EE",
+   img:"./assets/images/Projects/tamakkon.jpg",
+   challenge:"8 officers' clubs across KSA — HRMS, finance, POS, fleet, and maintenance all on disconnected legacy systems with no central KPI reporting.",
+   solution:"Full ERP: HRMS, Finance, Supply Chain, Fixed Assets, CRM, POS per club, Maintenance, Fleet, BI with ministry-level KPI dashboards.",
+   modules:["HRMS","Finance","Supply Chain","Assets","CRM","POS","Maintenance","Fleet","BI / KPIs"],
+   kpis:[{val:"8",label:"Clubs in 1 system"},{val:"Live",label:"Ministry KPIs"},{val:"40+ hrs",label:"Reporting saved/month"}],
+   outcome:"First unified ERP across all clubs — leadership gets automated monthly reports instead of spreadsheets."},
+
+  // ── ADDITIONAL PROJECTS ───────────────────────────────────────
+  {id:"silvertex",cat:"manufacturing",name:"Silver Tex",industry:"Manufacturing / Textile",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/silver_tex.jpg",
+   challenge:"Textile manufacturer with disconnected supply chain, inventory, and sales — no unified financial view across operations.",
+   solution:"Accounting, Supply Chain, Inventory, Sales, CRM, HR — full textile operations workflow.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],
+   kpis:[{val:"Unified",label:"Supply chain"},{val:"Live",label:"Inventory tracking"},{val:"↑",label:"Financial visibility"}],
+   outcome:"End-to-end textile operations connected in one system — from procurement to sales with live financial reporting."},
+
+  {id:"fastforward",cat:"logistics",name:"Fast Forward Logistics",industry:"Logistics",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/fastforwardlogistics.png",
+   challenge:"Logistics company with manual operations — inventory, HR, and accounting all disconnected with no POS integration.",
+   solution:"Accounting, Inventory, Supply Chain, HR, POS — unified logistics and financial operations.",
+   modules:["Accounting","Inventory","Supply Chain","HR","POS"],
+   kpis:[{val:"Live",label:"Operations tracking"},{val:"Linked",label:"POS to accounting"},{val:"↓",label:"Manual processes"}],
+   outcome:"Logistics operations fully digitized with integrated POS, inventory, and financial reporting."},
+
+  {id:"ornina",cat:"construction",name:"Ornina Building Contracting",industry:"Construction",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/orninatw.jpg",
+   challenge:"Contracting company with no project cost tracking — procurement, inventory, and HR all managed manually.",
+   solution:"Accounting, Supply Chain, Inventory, HR, Projects — full contracting workflow with project-based costing.",
+   modules:["Accounting","Supply Chain","Inventory","HR","Projects"],
+   kpis:[{val:"Live",label:"Project costing"},{val:"Tracked",label:"Materials & procurement"},{val:"Digital",label:"HR management"}],
+   outcome:"Project costs tracked in real time — procurement linked to project budgets for accurate financial control."},
+
+  {id:"emirol",cat:"food",name:"Emirol Group",industry:"Food & Beverage",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/emirogroup.png",
+   challenge:"F&B group with no centralized supply chain or manufacturing tracking — POS disconnected from production and HR.",
+   solution:"Accounting, Supply Chain, Manufacturing, POS, HR — fully integrated F&B operations.",
+   modules:["Accounting","Supply Chain","Manufacturing","POS","HR"],
+   kpis:[{val:"Linked",label:"POS to production"},{val:"Live",label:"Supply chain"},{val:"Digital",label:"HR & payroll"}],
+   outcome:"F&B group operations unified — production, sales, and HR all connected in one platform."},
+
+  {id:"almarai",cat:"food",name:"Almarai Alarabia",industry:"Food & Beverage",location:"Egypt",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/almarai_alarabia.jpeg",
+   challenge:"Food company needing full supply chain visibility — inventory tracking, POS, and HR all on separate systems.",
+   solution:"Accounting, Supply Chain, Inventory, POS, HR — end-to-end food operations on Odoo 18 EE.",
+   modules:["Accounting","Supply Chain","Inventory","POS","HR"],
+   kpis:[{val:"Live",label:"Inventory tracking"},{val:"Integrated",label:"POS & supply chain"},{val:"↑",label:"Operational efficiency"}],
+   outcome:"Full food operations digitized on latest Odoo 18 EE platform with real-time stock and sales visibility."},
+
+  {id:"infinity",cat:"services",name:"Infinity Medicals",industry:"Healthcare / Medical",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/infinitymd.png",
+   challenge:"Medical services company with manual contracts, no maintenance tracking, and CRM disconnected from sales pipeline.",
+   solution:"Sales, CRM, Maintenance, Contracts — integrated medical services management.",
+   modules:["Sales","CRM","Maintenance","Contracts"],
+   kpis:[{val:"Tracked",label:"Maintenance contracts"},{val:"Live",label:"Sales pipeline"},{val:"Auto",label:"Contract renewals"}],
+   outcome:"Medical service contracts and maintenance tracked automatically — CRM linked to sales for full customer lifecycle visibility."},
+
+  {id:"aroma",cat:"retail",name:"Aroma Sense",industry:"Retail / Subscriptions",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/aroma-sense.jpeg",
+   challenge:"Retail brand with subscription model — no automated subscription management, inventory disconnected from recurring orders.",
+   solution:"Accounting, Supply Chain, Inventory, Subscriptions — automated recurring revenue and stock management.",
+   modules:["Accounting","Supply Chain","Inventory","Subscriptions"],
+   kpis:[{val:"Auto",label:"Subscription renewals"},{val:"Linked",label:"Inventory to subscriptions"},{val:"Live",label:"Revenue tracking"}],
+   outcome:"Subscription management fully automated — inventory replenishment triggered by recurring order cycles."},
+
+  {id:"khoory",cat:"retail",name:"Abdul Hameed Khoory",industry:"Trading",location:"UAE",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/abdelhameedkhoory.jpg",
+   challenge:"Multi-company trading group with no unified financial reporting — HR and supply chain managed separately per entity.",
+   solution:"Accounting, Multi-company, Supply Chain, HR — unified trading group operations.",
+   modules:["Accounting","Multi-Company","Supply Chain","HR"],
+   kpis:[{val:"Unified",label:"Multi-entity finance"},{val:"Live",label:"Supply chain"},{val:"Digital",label:"HR across entities"}],
+   outcome:"Trading group consolidated on one platform — financial reporting and HR unified across all companies."},
+
+  {id:"cuisineart",cat:"food",name:"Cuisine Art Trading",industry:"Food & Beverage",location:"Egypt",version:"Odoo 16 EE",
+   img:"./assets/images/Projects/cuisineart.jpg",
+   challenge:"F&B trading company with fragmented supply chain, inventory inaccuracies, and manual POS reconciliation.",
+   solution:"Accounting, Supply Chain, Inventory, Sales, POS — end-to-end food trading workflow.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","POS"],
+   kpis:[{val:"Live",label:"Inventory accuracy"},{val:"Auto",label:"POS reconciliation"},{val:"↑",label:"Supply chain control"}],
+   outcome:"Food trading operations streamlined — inventory, procurement, and POS all connected with automated reconciliation."},
+
+  {id:"sammakieh",cat:"retail",name:"Sammakieh Timbers",industry:"Retail & Trade / Timber",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/sammakieh.png",
+   challenge:"Leading timber supplier with disconnected sales and inventory workflows — no integrated ERP to manage procurement, stock control, and customer relationships across wood products and logistics services.",
+   solution:"Full Odoo 19 EE implementation covering Accounting, Inventory, Sales, CRM, Purchase, and HR — integrating sales and inventory workflows for streamlined retail operations.",
+   modules:["Accounting","Inventory","Sales","CRM","Purchase","HR"],
+   kpis:[{val:"Live",label:"Inventory control"},{val:"Linked",label:"Sales & inventory"},{val:"↑",label:"Retail efficiency"}],
+   outcome:"Sales and inventory workflows fully integrated — improved stock accuracy, streamlined procurement, and enhanced operational visibility across all timber product lines."},
+
+  {id:"seet",cat:"services",name:"Seet Marketing Solutions",industry:"Marketing & Services",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/seet.png",
+   challenge:"Marketing solutions company lacking integration between CRM, sales, and accounting — no structured cost center management, financial statements unreliable, and strategic decision-making hampered by data silos.",
+   solution:"Full Odoo 19 EE implementation covering Accounting, Inventory, Sales, CRM, Expenses, and HR — with structured cost center configuration and integrated financial reporting.",
+   modules:["Accounting","Inventory","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Structured",label:"Cost center management"},{val:"Reliable",label:"Financial statements"},{val:"Linked",label:"CRM to accounting"}],
+   outcome:"CRM, sales, and accounting unified in one platform — robust financial statements and cost center visibility now support strategic decision-making."},
+
+  // ── 25 MISSING PROJECTS FROM OLD SITE ────────────────────────
+  {id:"samar",cat:"services",name:"شركة سمر نافع العبيد للتزيين النسائي",industry:"Beauty Services",location:"Saudi Arabia",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/salon-iamlbrazilian.jpg",
+   challenge:"Beauty salon chain with no digital system — appointments manual, POS disconnected from accounting, HR on paper.",
+   solution:"Odoo 18 EE covering Beauty Services, POS, CRM, HR, Accounting, and Appointments management.",
+   modules:["Accounting","POS","CRM","HR","Appointments","Beauty Services"],
+   kpis:[{val:"Digital",label:"Appointment booking"},{val:"Linked",label:"POS to accounting"},{val:"Live",label:"HR & payroll"}],
+   outcome:"Salon operations fully digitized — appointments, POS, and accounting all connected with automated daily reconciliation."},
+
+  {id:"villamusk_hotel",cat:"services",name:"فيلا مسك – Hotel",industry:"Hospitality",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/villa_musk.jpg",
+   challenge:"Hotel with manual reservations and housekeeping — POS disconnected from front desk, no eZee integration.",
+   solution:"Odoo 17 EE covering Hotels, Reservations, POS, Housekeeping, Accounting, HR, CRM with eZee Frontdesk & Booking Engine integration.",
+   modules:["Hotels","Reservations","POS","Housekeeping","Accounting","HR","CRM"],
+   kpis:[{val:"Integrated",label:"eZee + Odoo"},{val:"Auto",label:"Reservation to invoice"},{val:"Live",label:"Occupancy tracking"}],
+   outcome:"Hotel operations fully integrated with eZee — reservations flow directly to Odoo invoicing with zero manual entry."},
+
+  {id:"sogac",cat:"retail",name:"Sogac International",industry:"Retail & Trade",location:"Egypt",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/sogac.png",
+   challenge:"International trading company with warehouse management on paper and CRM disconnected from supply chain.",
+   solution:"Odoo 17 EE covering Warehouse Management, Supply Chain, CRM — unified trading operations.",
+   modules:["Warehouse Management","Supply Chain","CRM","Accounting","Sales"],
+   kpis:[{val:"Live",label:"Warehouse tracking"},{val:"Linked",label:"CRM to supply chain"},{val:"↑",label:"Operational efficiency"}],
+   outcome:"Warehouse and supply chain operations unified — CRM linked to sales pipeline for full customer visibility."},
+
+  {id:"cavalero",cat:"services",name:"Cavalero Salon FZ LLC",industry:"Services",location:"UAE",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/cavalero.jpg",
+   challenge:"Multi-entity salon and service company with no unified ERP — workshop, supply chain, HR, and projects all separate.",
+   solution:"Odoo 17 EE with Multi-Company, Workshop Management, Supply Chain, Manufacturing, HR, Sales, CRM, Projects & Planning.",
+   modules:["Accounting","Multi-Company","Workshop Management","Supply Chain","Manufacturing","Sales","CRM","HR","Projects"],
+   kpis:[{val:"Multi",label:"Entities unified"},{val:"Live",label:"Workshop management"},{val:"Digital",label:"HR & projects"}],
+   outcome:"Multi-entity operations consolidated — workshop jobs, supplies, and financials tracked in one system."},
+
+  {id:"greena",cat:"retail",name:"Greena",industry:"Retail",location:"Egypt",version:"Odoo 15 CE",
+   img:"./assets/images/Projects/greena.png",
+   challenge:"Retail company on manual processes with no integrated accounting, supply chain, or POS system.",
+   solution:"Odoo 15 CE covering Accounting, Supply Chain, Sales, POS — full retail digitization.",
+   modules:["Accounting","Supply Chain","Sales","POS"],
+   kpis:[{val:"Digital",label:"POS & sales"},{val:"Live",label:"Supply chain"},{val:"↑",label:"Financial visibility"}],
+   outcome:"Retail operations fully digitized — POS integrated with accounting and inventory on Odoo Community."},
+
+  {id:"ensan",cat:"services",name:"Ensan",industry:"Services / NGO",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/ensan.jpg",
+   challenge:"Services organization with finance, HR, projects, logistics, and inventory all on disconnected legacy systems.",
+   solution:"Odex ERP covering Finance, HR, Projects, Sales, CRM, Logistics, Inventory, and more.",
+   modules:["Finance","HR","Projects","Sales","CRM","Logistics","Inventory"],
+   kpis:[{val:"Unified",label:"All departments"},{val:"Live",label:"Project tracking"},{val:"↑",label:"Operational control"}],
+   outcome:"Complete digital transformation — all operational departments unified on Odex ERP platform."},
+
+  {id:"masnaf",cat:"food",name:"شركة مصنف للتجارة",industry:"Food & Beverage",location:"Saudi Arabia",version:"Odoo 16 CE",
+   img:"./assets/images/Projects/masnaf.jpg",
+   challenge:"Food trading company with fragmented supply chain and no manufacturing tracking on Community Edition.",
+   solution:"Odoo 16 CE covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"Live",label:"Manufacturing tracking"},{val:"↑",label:"Supply chain control"},{val:"Structured",label:"Financial reporting"}],
+   outcome:"Food trading and manufacturing operations unified — improved supply chain visibility and financial reporting."},
+
+  {id:"alsahly",cat:"manufacturing",name:"عبدالمحسن سعد السهلي",industry:"Manufacturing",location:"Saudi Arabia",version:"Odex ERP",
+   img:"./assets/images/Projects/alsahlygroup.jpg",
+   challenge:"Manufacturing group with operations, supply chain, and HR all on paper — no ERP foundation.",
+   solution:"Odex ERP covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM, HR.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM","HR"],
+   kpis:[{val:"Digital",label:"Manufacturing ops"},{val:"Live",label:"Inventory tracking"},{val:"↑",label:"Financial control"}],
+   outcome:"Full ERP foundation established — manufacturing, supply chain, and HR digitized on Odex platform."},
+
+  {id:"kotobia",cat:"retail",name:"كتوبيا للنشر والتوزيع",industry:"Retail / Publishing",location:"Egypt",version:"Odoo 14 CE",
+   img:"./assets/images/Projects/kotobia.jpg",
+   challenge:"Publishing and distribution company with manual inventory, no POS, and accounting disconnected from sales.",
+   solution:"Odoo 14 CE covering Accounting, Supply Chain, Inventory, Sales, POS — full publishing retail workflow.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","POS"],
+   kpis:[{val:"Live",label:"Inventory tracking"},{val:"Linked",label:"POS to accounting"},{val:"↑",label:"Distribution control"}],
+   outcome:"Publishing and distribution digitized — POS linked to inventory for accurate stock management."},
+
+  {id:"bazar",cat:"construction",name:"بازار للتصميم الداخلي والديكور",industry:"Interior Design & Decor",location:"Egypt",version:"Odoo 15 CE",
+   img:"./assets/images/Projects/bazar.png",
+   challenge:"Interior design company with no ERP — supply chain, inventory, and sales all managed manually.",
+   solution:"Odoo 15 CE covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"Live",label:"Supply chain"},{val:"↑",label:"Inventory accuracy"},{val:"Structured",label:"Financial reporting"}],
+   outcome:"Interior design operations unified — supply chain and sales integrated with accurate financial reporting."},
+
+  {id:"tarek",cat:"construction",name:"Tarek Al-Qahtani & Sons",industry:"Construction",location:"Saudi Arabia",version:"Odoo 15 EE",
+   img:"./assets/images/Projects/tarek.jpg",
+   challenge:"Construction company with manual procurement, no inventory tracking, and disconnected financial reporting.",
+   solution:"Odoo 15 EE covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"Live",label:"Procurement tracking"},{val:"↑",label:"Inventory accuracy"},{val:"Structured",label:"Financial reports"}],
+   outcome:"Construction procurement and financials connected — live inventory and cost reporting across all projects."},
+
+  {id:"sindam",cat:"retail",name:"متجر الجمال الشامل – Sindam",industry:"Retail / Beauty",location:"Egypt",version:"Odoo 15 EE",
+   img:"./assets/images/Projects/sindam.jpg",
+   challenge:"Beauty retail store with OpenCart e-commerce disconnected from accounting — no unified sales channel management.",
+   solution:"Odoo 15 EE with Accounting, Supply Chain, Sales, and OpenCart integration for unified retail.",
+   modules:["Accounting","Supply Chain","Sales","OpenCart Integration"],
+   kpis:[{val:"Integrated",label:"OpenCart + Odoo"},{val:"Unified",label:"Online & offline sales"},{val:"Auto",label:"Order sync"}],
+   outcome:"Online and offline sales unified — OpenCart orders flow to Odoo automatically for accounting and stock deduction."},
+
+  {id:"msjsecurity",cat:"construction",name:"MSJ Security Systems",industry:"Construction / Security",location:"Saudi Arabia",version:"Odoo 12 EE",
+   img:"./assets/images/Projects/msjsecurity.jpg",
+   challenge:"Security systems company on early Odoo with outdated configuration — no proper supply chain or manufacturing tracking.",
+   solution:"Odoo 12 EE covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"Structured",label:"Operations"},{val:"Live",label:"Inventory tracking"},{val:"↑",label:"Financial control"}],
+   outcome:"Security systems ERP properly configured — supply chain and financial operations structured on Odoo 12 EE."},
+
+  {id:"sabtrd",cat:"retail",name:"Sabtrd",industry:"Retail",location:"Egypt",version:"Odoo 15 EE",
+   img:"./assets/images/Projects/sabtrd.png",
+   challenge:"Multi-branch retail chain — branch management manual, POS disconnected from central inventory and accounting.",
+   solution:"Odoo 15 EE covering Accounting, Branches Management, POS, Inventory, Purchase, Sales, CRM, HR.",
+   modules:["Accounting","Branches Management","POS","Inventory","Purchase","Sales","CRM","HR"],
+   kpis:[{val:"Multi",label:"Branches connected"},{val:"Live",label:"Branch POS tracking"},{val:"Auto",label:"Daily reconciliation"}],
+   outcome:"All branches unified — POS data flows to central accounting automatically with branch-level performance reporting."},
+
+  {id:"almodhy",cat:"services",name:"AbdulAziz Almodhy Law Firm",industry:"Legal Services",location:"Saudi Arabia",version:"Odoo 15 EE",
+   img:"./assets/images/Projects/almodhy.jpg",
+   challenge:"Law firm with no ERP — accounting, HR, inventory, and client management all on separate systems.",
+   solution:"Odoo 15 EE covering Accounting, Supply Chain, Inventory, Sales, CRM, HR for law firm operations.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],
+   kpis:[{val:"Unified",label:"Firm operations"},{val:"Live",label:"Client management"},{val:"Digital",label:"HR & payroll"}],
+   outcome:"Law firm operations digitized — client management, billing, and HR all connected on one platform."},
+
+  {id:"sulbaljazeera",cat:"construction",name:"Sulb Al Jazeera",industry:"Construction",location:"Saudi Arabia",version:"Odoo 15 EE",
+   img:"./assets/images/Projects/sulbaljazeera.jpg",
+   challenge:"Construction company with no integrated ERP — supply chain, manufacturing, and financial reporting all disconnected.",
+   solution:"Odoo 15 EE covering Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"Unified",label:"Operations"},{val:"Live",label:"Supply chain"},{val:"↑",label:"Financial reporting"}],
+   outcome:"Construction operations unified — supply chain, manufacturing, and finance all integrated in one ERP."},
+
+  {id:"alamoudi",cat:"food",name:"Al-Amoudi Group & Partners",industry:"Food & Beverage",location:"Saudi Arabia",version:"Odoo v13→v15",
+   img:"./assets/images/Projects/amoudigroup.jpg",
+   challenge:"Food group on outdated Odoo v13 — missing features, degraded performance, data migration risk.",
+   solution:"Full ERP upgrade from Odoo v13 to v15 — Accounting, Supply Chain, Inventory, Manufacturing, Sales, CRM.",
+   modules:["Accounting","Supply Chain","Inventory","Manufacturing","Sales","CRM"],
+   kpis:[{val:"v13→v15",label:"Successful upgrade"},{val:"100%",label:"Data migrated"},{val:"↑",label:"System performance"}],
+   outcome:"Smooth upgrade to Odoo 15 — all historical data preserved with access to new features and improved performance."},
+
+  {id:"alrajhi",cat:"services",name:"Al Rajhi Ekhwan",industry:"Investment",location:"Saudi Arabia",version:"Odoo 14 EE",
+   img:"./assets/images/Projects/alrajhiekhwan.jpg",
+   challenge:"Investment company with Real Estate, Industrial, and Stock Market portfolio tracked on separate systems.",
+   solution:"Odoo 14 EE covering Accounting, Real Estate, Industrial Development, Stock Market Investments.",
+   modules:["Accounting","Real Estate","Industrial Development","Stock Market Investments"],
+   kpis:[{val:"Unified",label:"Investment portfolio"},{val:"Live",label:"Financial reporting"},{val:"↑",label:"Portfolio visibility"}],
+   outcome:"All investment activities consolidated — real estate, industrial, and stock market tracked in one financial system."},
+
+  {id:"mylittlehome",cat:"retail",name:"My Little Home",industry:"Retail / Home Furnishings",location:"Egypt",version:"Odoo v12→v15",
+   img:"./assets/images/Projects/mylittlehome.jpg",
+   challenge:"Home furnishings retailer on outdated Odoo v12 — missing features and poor performance affecting operations.",
+   solution:"ERP upgrade from Odoo v12 to v15 — Accounting, Home Furnishings, Retail, Supply Chain.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","POS"],
+   kpis:[{val:"v12→v15",label:"Successful upgrade"},{val:"100%",label:"Data migrated"},{val:"↑",label:"Retail performance"}],
+   outcome:"Smooth upgrade preserving all retail data — improved system speed and modern Odoo 15 features unlocked."},
+
+  {id:"zinati",cat:"retail",name:"Zinati",industry:"Retail / Cosmetics",location:"Egypt",version:"Odoo Support",
+   img:"./assets/images/Projects/zinati.jpg",
+   challenge:"Cosmetics retailer needing ongoing ERP support — system stability issues and accounting reconciliation errors.",
+   solution:"Odoo support engagement covering Accounting, Retail operations, and workflow optimization.",
+   modules:["Accounting","Retail","Inventory","Sales","POS"],
+   kpis:[{val:"Stable",label:"System performance"},{val:"✓",label:"Accounting reconciled"},{val:"Live",label:"Retail operations"}],
+   outcome:"ERP stabilized — accounting reconciliation resolved and retail operations running smoothly."},
+
+  {id:"eastyields",cat:"food",name:"Eastern Yields",industry:"Food / Investment",location:"Egypt",version:"Odoo 14 EE",
+   img:"./assets/images/Projects/easternyields.jpg",
+   challenge:"Investment company in food sector with no ERP — accounting and business operations all manual.",
+   solution:"Odoo 14 EE covering Accounting and investment operations for business growth management.",
+   modules:["Accounting","Sales","CRM","Inventory","Projects"],
+   kpis:[{val:"Digital",label:"Operations"},{val:"Live",label:"Financial reporting"},{val:"↑",label:"Business visibility"}],
+   outcome:"Investment operations digitized — accounting and business tracking established on Odoo 14 EE."},
+
+  {id:"etqan",cat:"retail",name:"Etqan Installation Trading",industry:"Retail & Trade",location:"Saudi Arabia",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/etqan.png",
+   challenge:"Installation and trading company with no ERP — supply chain, inventory, and sales all managed manually.",
+   solution:"Odoo 17 EE covering Accounting, Supply Chain, Inventory, Sales, CRM — full trading workflow.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM"],
+   kpis:[{val:"Live",label:"Inventory tracking"},{val:"↑",label:"Sales efficiency"},{val:"Structured",label:"Financial control"}],
+   outcome:"Trading and installation operations unified — from procurement to sales fully digitized on Odoo 17 EE."},
+
+  {id:"slimfit",cat:"retail",name:"SLIM&FIT NUTRITION",industry:"Retail / Nutrition",location:"Egypt",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/slim_fit_nutrition.png",
+   challenge:"Nutrition retail brand with disconnected POS, inventory, and HR — no unified financial reporting.",
+   solution:"Odoo 18 EE covering Accounting, Supply Chain, Inventory, Sales, POS, HRM.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","POS","HRM"],
+   kpis:[{val:"Linked",label:"POS to inventory"},{val:"Live",label:"Stock tracking"},{val:"Digital",label:"HRM"}],
+   outcome:"Nutrition retail unified on Odoo 18 EE — POS, inventory, and HR connected with live financial reporting."},
+
+  {id:"transemirates",cat:"real-estate",name:"Trans Emirates Property L.L.C",industry:"Real Estate",location:"UAE",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/trans_emirates_property.png",
+   challenge:"UAE property company with manual sales tracking, no CRM integration, accounting disconnected from transactions.",
+   solution:"Odoo 18 EE covering Accounting, Supply Chain, Inventory, Sales, CRM, Real Estate module.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","Real Estate"],
+   kpis:[{val:"Live",label:"Property pipeline"},{val:"Linked",label:"CRM to accounting"},{val:"↑",label:"Deal visibility"}],
+   outcome:"Real estate transactions linked to accounting — CRM tracks deals from lead to closing with automatic financial entries."},
+
+  {id:"cashprime",cat:"retail",name:"CashPrime Co. Ltd.",industry:"Retail & Trade",location:"Saudi Arabia",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/cashprime.png",
+   challenge:"Trading company with no unified ERP — supply chain, inventory, HR, and CRM all on separate systems.",
+   solution:"Odoo 18 EE covering Accounting, Supply Chain, Inventory, Sales, CRM, HRM.",
+   modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HRM"],
+   kpis:[{val:"Unified",label:"All operations"},{val:"Live",label:"Inventory & CRM"},{val:"Digital",label:"HRM"}],
+   outcome:"Trading operations fully unified on Odoo 18 EE — supply chain, sales, and HR connected in one platform."},
+
+  // ── NEW PROJECTS 2025 ─────────────────────────────────────────
+  {id:"smartshelf",cat:"retail",name:"Smart Shelf",industry:"Retail / Smart Solutions",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/smartshelf.jpeg",
+   challenge:"Innovative smart retail solutions provider with disconnected CRM, sales, and accounting — no cost center structure and financial reporting unreliable for data-driven decisions.",
+   solution:"Full Odoo 19 EE covering Accounting, Inventory, Purchase, Sales, CRM, Expenses, HR — with structured cost centers and integrated financial reporting for scalable retail operations.",
+   modules:["Accounting","Inventory","Purchase","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Structured",label:"Cost center management"},{val:"Reliable",label:"Financial statements"},{val:"Linked",label:"CRM to accounting"}],
+   outcome:"CRM, sales, and accounting unified — robust financial statements and cost visibility now support data-driven decisions and scalable smart retail operations."},
+
+  {id:"jefegypt",cat:"construction",name:"JEF Egypt",industry:"Engineering Solutions",location:"Egypt",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/jefegypt.png",
+   challenge:"Engineering solutions provider specializing in electrical systems, grounding, lightning protection, and power quality — no project-based financial tracking, CRM disconnected from accounting, and no cost center structure.",
+   solution:"Full Odoo 18 EE covering Accounting, Inventory, Purchase, Sales, CRM, Expenses, HR — with project-based financial tracking and structured cost center management for engineering operations.",
+   modules:["Accounting","Inventory","Purchase","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Project",label:"Based financial tracking"},{val:"Structured",label:"Cost centers"},{val:"Reliable",label:"Financial statements"}],
+   outcome:"Engineering operations and finance fully integrated — project-based cost tracking and structured reporting now support strategic decision-making across all service lines."},
+
+  {id:"wahatalahsa",cat:"manufacturing",name:"Wahat Alahsa Industrial Factory",industry:"Manufacturing",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/wahatalahsa.jpg",
+   challenge:"Industrial manufacturing company with poor production and inventory flow visibility — no integrated ERP, financial reporting inaccurate, and no cost center management for manufacturing control.",
+   solution:"Full Odoo 19 EE covering Accounting, Inventory, Purchase, Sales, CRM, Expenses, HR — improving production flow, inventory visibility, and financial reporting with structured cost centers.",
+   modules:["Accounting","Inventory","Purchase","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Live",label:"Production & inventory flow"},{val:"Accurate",label:"Financial reporting"},{val:"Structured",label:"Cost center control"}],
+   outcome:"Manufacturing operations connected to finance — inventory flow, production tracking, and cost centers unified for enhanced manufacturing control and strategic decisions."},
+
+  {id:"advancedenergy",cat:"services",name:"Advanced Energy Industries",industry:"Industrial & Energy",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/advancedenergy.jpeg",
+   challenge:"Global precision power conversion, measurement, and control solutions provider with operational visibility gaps — CRM, sales, and accounting disconnected with no structured cost center management or reliable financial reporting.",
+   solution:"Full Odoo 19 EE covering Accounting, Inventory, Purchase, Sales, CRM, Expenses, HR — improving operational visibility across all workflows and implementing structured cost centers for performance tracking.",
+   modules:["Accounting","Inventory","Purchase","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Unified",label:"CRM & accounting"},{val:"Accurate",label:"Financial reporting"},{val:"Structured",label:"Cost center tracking"}],
+   outcome:"Operational visibility improved across all workflows — accurate financial reporting and structured cost centers now support performance tracking and strategic decision-making."},
+
+  {id:"arabianpioneer",cat:"manufacturing",name:"Arabian Pioneer Company Ltd",industry:"Trading & Industrial",location:"Saudi Arabia",version:"Odoo 19 EE",
+   img:"./assets/images/Projects/arabianpioneer.jpg",
+   challenge:"Multi-entity group with several subsidiaries in trading and industrial activities — no consolidated financial reporting, inter-company transactions untracked, CRM and accounting disconnected across entities, and no group-level cost center structure.",
+   solution:"Full Odoo 19 EE multi-entity implementation covering Accounting, Inventory, Purchase, Sales, CRM, Expenses, HR — enabling consolidated reporting, inter-company visibility, and structured cost centers across all subsidiaries.",
+   modules:["Accounting","Inventory","Purchase","Sales","CRM","Expenses","HR","Multi-Company"],
+   kpis:[{val:"Consolidated",label:"Group financial reporting"},{val:"Live",label:"Inter-company transactions"},{val:"Structured",label:"Group cost centers"}],
+   outcome:"All subsidiaries unified on one ERP — consolidated financial reporting, inter-company transaction visibility, and group-level cost center management now support strategic decisions across the entire group."},
+
+  {id:"eralighting",cat:"retail",name:"ERA Lighting Co.",industry:"Retail / Lighting & Electrical",location:"Saudi Arabia",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/eralighting.jpg",
+   challenge:"Leading lighting solutions and electrical supplies provider with procurement and inventory tracking disconnected from sales — no cost center structure and financial statements unreliable for managing large lighting projects.",
+   solution:"Full Odoo 18 EE covering Accounting, Inventory, Sales, CRM, Expenses, HR — enhancing procurement and inventory tracking for lighting projects with structured cost centers.",
+   modules:["Accounting","Inventory","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Live",label:"Procurement & inventory"},{val:"Structured",label:"Cost centers"},{val:"Robust",label:"Financial statements"}],
+   outcome:"Procurement, inventory, and finance unified — structured cost centers and reliable financial reporting now support scalable lighting operations and strategic decisions."},
+
+  {id:"hemicoffee",cat:"food",name:"Hemi Coffee",industry:"Food & Beverage / Coffee",location:"Saudi Arabia",version:"Odoo 18 EE",
+   img:"./assets/images/Projects/hemicoffee.jpg",
+   challenge:"Specialized coffee roasting, training, and consultancy provider with supply chain and production tracking disconnected from accounting — no cost center structure and financial reporting insufficient for scaling operations.",
+   solution:"Full Odoo 18 EE covering Accounting, Inventory, Sales, CRM, Expenses, HR — enhancing supply chain, production tracking, and implementing structured cost center management.",
+   modules:["Accounting","Inventory","Sales","CRM","Expenses","HR"],
+   kpis:[{val:"Live",label:"Supply chain & production"},{val:"Structured",label:"Cost centers"},{val:"Robust",label:"Financial statements"}],
+   outcome:"Coffee operations unified — supply chain, production, and finance connected with structured cost centers supporting scalable operations and strategic decision-making."},
 ];
+
+/* ── CASE STUDIES FILTER + RENDER ───────────── */
+let csVisible = 6, csActiveFilter = 'all';
+
+function renderCaseStudies() {
+  const grid = document.getElementById('caseStudiesGrid');
+  const list = csActiveFilter === 'all'
+    ? CASE_STUDIES
+    : CASE_STUDIES.filter(c => c.cat === csActiveFilter);
+  const show = list.slice(0, csVisible);
+
+  grid.innerHTML = show.map(cs => `
+    <div class="cs-card" onclick="openCS('${cs.id}')">
+      <div class="cs-card-img">
+        <img src="${cs.img}" alt="${cs.name}" loading="lazy" onerror="this.style.display='none'">
+        <span class="cs-ind-badge">${cs.industry}</span>
+        <span class="cs-ver-badge">${cs.version}</span>
+      </div>
+      <div class="cs-body">
+        <h3>${cs.name}</h3>
+        <div class="cs-loc">📍 ${cs.location}</div>
+        <div class="cs-challenge">
+          <strong style="font-size:.72rem;color:var(--primary);display:block;margin-bottom:3px;">THE CHALLENGE</strong>
+          ${cs.challenge.length > 120 ? cs.challenge.slice(0,120)+'…' : cs.challenge}
+        </div>
+        <div class="cs-results">
+          ${cs.kpis.map(k=>`<div class="cs-kpi"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
+        </div>
+        <span class="cs-read-more">Read Full Case Study →</span>
+      </div>
+    </div>`).join('');
+
+  const btn = document.getElementById('csShowMoreBtn');
+  const remaining = list.length - csVisible;
+  btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
+  btn.textContent = `Show More Projects (${remaining} remaining)`;
+}
+
+document.getElementById('csFltRow').querySelectorAll('.flt').forEach(b => {
+  b.addEventListener('click', () => {
+    document.getElementById('csFltRow').querySelectorAll('.flt').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    csActiveFilter = b.dataset.cf;
+    csVisible = 6;
+    renderCaseStudies();
+  });
+});
+document.getElementById('csShowMoreBtn').addEventListener('click', () => {
+  csVisible += 6;
+  renderCaseStudies();
+});
+renderCaseStudies();
 
 function openCS(id){
   const cs = CASE_STUDIES.find(c=>c.id===id);
@@ -1289,26 +1849,17 @@ function openCS(id){
       <span class="cs-modal-tag">${cs.industry}</span>
       <h2>${cs.name}</h2>
       <div class="cs-modal-meta">${cs.location} &nbsp;·&nbsp; ${cs.version}</div>
-
       <div class="cs-section-label">🔴 The Challenge</div>
       <p>${cs.challenge}</p>
-
       <div class="cs-section-label">🔧 The Solution</div>
       <p>${cs.solution}</p>
       <div class="cs-modal-modules">${cs.modules.map(m=>`<span>${m}</span>`).join('')}</div>
-
       <div class="cs-section-label">✅ Key Results</div>
       <div class="cs-kpis-row">
-        ${cs.kpis.map(k=>`
-          <div class="cs-kpi-big">
-            <strong>${k.val}</strong>
-            <span>${k.label}</span>
-          </div>`).join('')}
+        ${cs.kpis.map(k=>`<div class="cs-kpi-big"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
       </div>
-
       <div class="cs-section-label">💡 Outcome</div>
       <p>${cs.outcome}</p>
-
       <div class="cs-cta-modal">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 24px;">📅 Discuss a Similar Project</a>
         <a href="https://wa.me/201005061349" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 22px;">💬 WhatsApp</a>
@@ -1325,30 +1876,7 @@ function closeCS(){
 document.getElementById('csModal').addEventListener('click',function(e){if(e.target===this)closeCS();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();});
 
-// Render case study cards
-(function(){
-  const grid = document.getElementById('caseStudiesGrid');
-  grid.innerHTML = CASE_STUDIES.map(cs=>`
-    <div class="cs-card" onclick="openCS('${cs.id}')">
-      <div class="cs-card-img">
-        <img src="${cs.img}" alt="${cs.name}" loading="lazy" onerror="this.style.display='none'">
-        <span class="cs-ind-badge">${cs.industry}</span>
-        <span class="cs-ver-badge">${cs.version}</span>
-      </div>
-      <div class="cs-body">
-        <h3>${cs.name}</h3>
-        <div class="cs-loc">📍 ${cs.location}</div>
-        <div class="cs-challenge">
-          <strong style="font-size:.72rem;color:var(--primary);display:block;margin-bottom:3px;">THE CHALLENGE</strong>
-          ${cs.challenge.length>120 ? cs.challenge.slice(0,120)+'…' : cs.challenge}
-        </div>
-        <div class="cs-results">
-          ${cs.kpis.map(k=>`<div class="cs-kpi"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
-        </div>
-        <span class="cs-read-more">Read Full Case Study →</span>
-      </div>
-    </div>`).join('');
-})();
+
 </script>
 
 <!-- ═══ EXPERIENCE ═══ -->
@@ -1780,33 +2308,6 @@ document.addEventListener('keydown', function(e) {
 
 <script>
 /* ── DATA ─────────────────────────────────── */
-const PROJECTS = [
-  {name:"Silver Tex",img:"./assets/images/Projects/silver_tex.jpg",ver:"Odoo 17 EE",cat:"manufacturing",modules:["Accounting","Supply Chain","Inventory","Sales","CRM","HR"],ind:"Textile"},
-  {name:"BATEC Batiment Technique",img:"./assets/images/Projects/beamconsolidated_logo.jpeg",ver:"Odoo 18 EE",cat:"construction",modules:["Accounting","Sales","Inventory","HR","CRM","Projects"],ind:"Construction"},
-  {name:"Jedoudna Restaurant",img:"./assets/images/Projects/jedoudna.jpg",ver:"Odoo 17 EE",cat:"food",modules:["Accounting","Manufacturing","Sales","POS"],ind:"F&B"},
-  {name:"Fast Forward Logistics",img:"./assets/images/Projects/fastforwardlogistics.png",ver:"Odoo 17 EE",cat:"logistics",modules:["Accounting","Inventory","Supply Chain","HR","POS"],ind:"Logistics"},
-  {name:"Ambiance Furniture",img:"./assets/images/Projects/ambiancefurniture.png",ver:"Odoo 17 EE",cat:"retail",modules:["Accounting","Multi-company","Supply Chain","Manufacturing","HR"],ind:"Furniture"},
-  {name:"Qafa Arabia",img:"./assets/images/Projects/qafa-arabia.jpg",ver:"Odoo 16 EE",cat:"retail",modules:["Accounting","Inventory","Sales","POS","E-Commerce","HR"],ind:"Retail"},
-  {name:"Caryoka",img:"./assets/images/Projects/caryoka.jpg",ver:"Odoo 17 EE",cat:"services",modules:["Accounting","Multi-company","Car Workshop","Supply Chain","HR"],ind:"Automotive"},
-  {name:"Tamakkon Association",img:"./assets/images/Projects/tamakkon.jpg",ver:"Odex ERP",cat:"services",modules:["Finance","HR","Inventory","CRM"],ind:"Non-Profit"},
-  {name:"King Abdulaziz Library",img:"./assets/images/Projects/kapl.png",ver:"Odex ERP",cat:"services",modules:["Finance","HR","Inventory","BI","KPIs"],ind:"Government"},
-  {name:"FAM FOOD Trading",img:"./assets/images/Projects/famfood.png",ver:"Odoo 17 EE",cat:"food",modules:["Accounting","Supply Chain","Manufacturing","HR","CRM"],ind:"Food Trade"},
-  {name:"Selaty AlMuhaseel",img:"./assets/images/Projects/selatyalmuhaseel.avif",ver:"Odoo 17 EE",cat:"retail",modules:["E-Commerce","Inventory","Sales","CRM"],ind:"E-Commerce"},
-  {name:"Ornina Building Contracting",img:"./assets/images/Projects/orninatw.jpg",ver:"Odoo 17 EE",cat:"construction",modules:["Accounting","Supply Chain","Inventory","HR","Projects"],ind:"Contracting"},
-  {name:"12 Cups",img:"./assets/images/Projects/12cups.jpg",ver:"Odoo 17 EE",cat:"food",modules:["Accounting","Supply Chain","Manufacturing","POS","HR"],ind:"Café Chain"},
-  {name:"Emirol Group",img:"./assets/images/Projects/emirogroup.png",ver:"Odoo 17 EE",cat:"food",modules:["Accounting","Supply Chain","Manufacturing","POS","HR"],ind:"F&B"},
-  {name:"Villa Musk Hotel",img:"./assets/images/Projects/villa_musk.jpg",ver:"Odoo 17 EE",cat:"services",modules:["Hotels","Reservations","POS","Accounting","HR"],ind:"Hospitality"},
-  {name:"Almarai Alarabia",img:"./assets/images/Projects/almarai_alarabia.jpeg",ver:"Odoo 18 EE",cat:"food",modules:["Accounting","Supply Chain","Inventory","POS","HR"],ind:"Food"},
-  {name:"Infinity Medicals",img:"./assets/images/Projects/infinitymd.png",ver:"Odoo 17 EE",cat:"services",modules:["Sales","CRM","Maintenance","Contracts"],ind:"Medical"},
-  {name:"Mohammed Bin Laden Co.",img:"./assets/images/Projects/binladin.jpg",ver:"Odoo Support",cat:"construction",modules:["Accounting","Supply Chain","Projects"],ind:"Construction"},
-  {name:"Anasir Alghidha Food",img:"./assets/images/Projects/anasir_alghidha_for_food_products.jpeg",ver:"Odoo 17 EE",cat:"food",modules:["Accounting","Supply Chain","Manufacturing","Sales","POS"],ind:"Food Products"},
-  {name:"Aroma Sense",img:"./assets/images/Projects/aroma-sense.jpeg",ver:"Odoo 17 EE",cat:"retail",modules:["Accounting","Supply Chain","Inventory","Subscriptions"],ind:"Retail"},
-  {name:"Abdul Hameed Khoory",img:"./assets/images/Projects/abdelhameedkhoory.jpg",ver:"Odoo 17 EE",cat:"retail",modules:["Accounting","Multi-company","Supply Chain","HR"],ind:"Trading"},
-  {name:"ALAQ AL-EZDEHAR",img:"./assets/images/Projects/alaqalezdehar.png",ver:"Odoo 17 EE",cat:"construction",modules:["Accounting","Supply Chain","HR","Projects"],ind:"Engineering"},
-  {name:"Cuisine Art Trading",img:"./assets/images/Projects/cuisineart.jpg",ver:"Odoo 16 EE",cat:"food",modules:["Accounting","Supply Chain","Inventory","Sales","POS"],ind:"F&B"},
-  {name:"UltraMade Nutrition",img:"./assets/images/Projects/ultramade.png",ver:"Odoo 17 EE",cat:"manufacturing",modules:["Accounting","Supply Chain","Manufacturing","HR"],ind:"Nutrition"},
-];
-
 const TESTIMONIALS = [
   {name:"Hesham Elmahdy",role:"Co-Founder @OdooTec",img:"./assets/images/recommendations/hesham.jpeg",linkedin:"https://www.linkedin.com/in/heshamelmahdy/",q:"Mohammad was my go-to colleague when I wanted finance and accounting related consulting. He's precise, professional, time sensitive and dependable. Most importantly, I fully trust him. I'd love to work with him again anytime."},
   {name:"Ahmed Hassan Algammal",role:"Vice President of Sales @ Absolute ERP | Market Knowledge, Business Transformation",img:"./assets/images/recommendations/ahmedhassan.jpeg",linkedin:"#",q:"Mohamed has been an integral part of my team as a senior Odoo Implementer for the past five years. He has consistently demonstrated a deep technical understanding of the Odoo ecosystem and a unique ability to translate complex business requirements into functional, scalable solutions. His dedication and consistency over the years make him a rare find in the ERP space."},
@@ -1840,46 +2341,6 @@ const TESTIMONIALS = [
   {name:"Ahmed Ezzat Embaby",role:"Financial Analyst at Ebny Real Estate Development",img:"./assets/images/recommendations/ahmed_ezzat_embaby.jpeg",linkedin:"https://www.linkedin.com/in/ahmed-ezzat-embaby-11607645/",q:"He is a hard worker."},
 ];
 
-/* ── RENDER PROJECTS ─────────────────────── */
-let visible = 9, activeFilter = 'all';
-
-function renderProjects() {
-  const grid = document.getElementById('projGrid');
-  const list = activeFilter === 'all' ? PROJECTS : PROJECTS.filter(p => p.cat === activeFilter);
-  const show = list.slice(0, visible);
-  grid.innerHTML = show.map(p => `
-    <div class="proj-card">
-      <div class="proj-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.style.background='var(--surface2)'">
-        <div class="proj-img-overlay"></div>
-        <span class="proj-badge">${p.ind}</span>
-      </div>
-      <div class="proj-body">
-        <div class="proj-ver">${p.ver}</div>
-        <h3>${p.name}</h3>
-        <div class="proj-tags">
-          ${p.modules.slice(0,4).map(m=>`<span class="ptag">${m}</span>`).join('')}
-          ${p.modules.length>4?`<span class="ptag">+${p.modules.length-4}</span>`:''}
-        </div>
-      </div>
-    </div>`).join('');
-  const btn = document.getElementById('showMoreBtn');
-  const remaining = list.length - visible;
-  btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
-  btn.textContent = `Show More Projects (${remaining} remaining)`;
-}
-
-document.querySelectorAll('.flt').forEach(b => {
-  b.addEventListener('click', () => {
-    document.querySelectorAll('.flt').forEach(x => x.classList.remove('on'));
-    b.classList.add('on');
-    activeFilter = b.dataset.f;
-    visible = 9;
-    renderProjects();
-  });
-});
-document.getElementById('showMoreBtn').addEventListener('click', () => { visible += 9; renderProjects(); });
-renderProjects();
 
 /* ── RENDER TESTIMONIALS ─────────────────── */
 (function(){
