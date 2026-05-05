@@ -2281,39 +2281,19 @@ const REC_CATEGORIES = {
   client:  { label: "Clients",    icon: "🤝" }
 };
 
-// Annotate each testimonial with a category
-const REC_ANNOTATED = [
-  {cat:"odoo",  ...TESTIMONIALS[0]},  // Hesham Elmahdy – OdooTec
-  {cat:"odoo",  ...TESTIMONIALS[1]},  // Ahmed Hassan Algammal – ERP VP
-  {cat:"pm",    ...TESTIMONIALS[2]},  // Ahmed Galal PMP
-  {cat:"client",...TESTIMONIALS[3]},  // Mohamed Khalil – PlatFarm CEO
-  {cat:"odoo",  ...TESTIMONIALS[4]},  // Mohammad Nasab – Odoo Regional
-  {cat:"odoo",  ...TESTIMONIALS[5]},  // Ahmed Abdelhak – Odoo PM
-  {cat:"odoo",  ...TESTIMONIALS[6]},  // Mohsen DIFALLAH – Odoo Dev
-  {cat:"odoo",  ...TESTIMONIALS[7]},  // Muhammad Mahmoud – Odoo Consultant
-  {cat:"finance",...TESTIMONIALS[8]}, // Abdulrahman Gwida – Finance/Odoo
-  {cat:"odoo",  ...TESTIMONIALS[9]},  // Ahmed Elsayed – Odoo Dev
-  {cat:"odoo",  ...TESTIMONIALS[10]}, // Nourhan Hazim – Testing
-  {cat:"odoo",  ...TESTIMONIALS[11]}, // Ayman Tobbala – Odoo Consultant
-  {cat:"pm",    ...TESTIMONIALS[12]}, // Ahmed Rashad – ERP PM
-  {cat:"client",...TESTIMONIALS[13]}, // Yasser AL Samhouri – Finance Manager
-  {cat:"client",...TESTIMONIALS[14]}, // Faical Hafiane – CEO FAMFOOD
-  {cat:"pm",    ...TESTIMONIALS[15]}, // Aya Mohsen – Strategy
-  {cat:"finance",...TESTIMONIALS[16]},// Ahmed Malik – CFO
-  {cat:"odoo",  ...TESTIMONIALS[17]}, // Ahmed Saeed – Odoo Technical
-  {cat:"odoo",  ...TESTIMONIALS[18]}, // Bassant Hossam – Automation
-  {cat:"odoo",  ...TESTIMONIALS[19]}, // Muhammed Abdelfatah – ITI
-  {cat:"odoo",  ...TESTIMONIALS[20]}, // Mohamed Salah Helal – Odoo Dev
-  {cat:"odoo",  ...TESTIMONIALS[21]}, // Mohamed Nayel – Test Eng
-  {cat:"finance",...TESTIMONIALS[22]},// Mostafa Rohaim – JDE
-  {cat:"pm",    ...TESTIMONIALS[23]}, // Heba Allam – HR Manager
-  {cat:"odoo",  ...TESTIMONIALS[24]}, // Yousef Ashraf – Odoo Dev
-  {cat:"client",...TESTIMONIALS[25]}, // Caroline Farid
-  {cat:"odoo",  ...TESTIMONIALS[26]}, // Mohamed Eldabbas
-  {cat:"odoo",  ...TESTIMONIALS[27]}, // Amr Farouk – ERP Support
-  {cat:"finance",...TESTIMONIALS[28]},// Ashif TK – Accounting
-  {cat:"finance",...TESTIMONIALS[29]} // Ahmed Ezzat – Financial Analyst
-];
+// REC_ANNOTATED is built lazily on first open (TESTIMONIALS not yet defined here)
+let REC_ANNOTATED = null;
+
+function buildRecAnnotated() {
+  // Category map by index — matches TESTIMONIALS array order
+  const cats = [
+    "odoo","odoo","pm","client","odoo","odoo","odoo","odoo",
+    "finance","odoo","odoo","odoo","pm","client","client","pm",
+    "finance","odoo","odoo","odoo","odoo","odoo","finance","pm",
+    "odoo","client","odoo","odoo","finance","finance"
+  ];
+  return TESTIMONIALS.map((t, i) => ({ cat: cats[i] || "odoo", ...t }));
+}
 
 let recsLoaded = false;
 let recsActiveFilter = 'all';
@@ -2323,6 +2303,7 @@ function openRecsModal() {
   document.body.style.overflow = 'hidden';
   if (!recsLoaded) {
     recsLoaded = true;
+    REC_ANNOTATED = buildRecAnnotated(); // build now — TESTIMONIALS is defined
     // Build filter tabs
     const filterRow = document.getElementById('recsFilterRow');
     Object.entries(REC_CATEGORIES).forEach(([key, val]) => {
