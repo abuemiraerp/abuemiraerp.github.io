@@ -1037,25 +1037,319 @@ footer {
   </div>
 </section>
 
-<!-- ═══ PROJECTS ═══ -->
+<!-- ═══ CASE STUDIES ═══ -->
 <section id="projects">
   <div class="inner">
-    <div class="eyebrow rev">Track Record</div>
-    <h2 class="sec-title rev rev-d1">60+ ERP Projects Delivered</h2>
-    <p class="sec-desc rev rev-d2">Real Odoo implementations across Saudi Arabia, UAE &amp; Egypt — from startups to government entities.</p>
-    <div class="filter-row rev rev-d3">
-      <button class="flt on" data-f="all">All</button>
-      <button class="flt" data-f="retail">Retail &amp; Trade</button>
-      <button class="flt" data-f="food">Food &amp; Beverage</button>
-      <button class="flt" data-f="manufacturing">Manufacturing</button>
-      <button class="flt" data-f="construction">Construction</button>
-      <button class="flt" data-f="logistics">Logistics</button>
-      <button class="flt" data-f="services">Services</button>
+    <div class="eyebrow rev">Case Studies</div>
+    <h2 class="sec-title rev rev-d1">Featured ERP Implementations</h2>
+    <p class="sec-desc rev rev-d2">6 real projects across different industries — challenges, solutions, and measurable results.</p>
+    <div class="cs-grid rev rev-d2" id="caseStudiesGrid"></div>
+
+    <div style="margin:56px 0 0;border-top:1px solid var(--border);padding-top:48px;">
+      <div class="eyebrow rev">Track Record</div>
+      <h3 class="sec-title rev rev-d1" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:8px;">60+ More Projects Delivered</h3>
+      <p class="sec-desc rev rev-d2" style="margin-bottom:32px;">Odoo implementations across Saudi Arabia, UAE &amp; Egypt — from startups to government entities.</p>
+      <div class="filter-row rev rev-d3">
+        <button class="flt on" data-f="all">All</button>
+        <button class="flt" data-f="retail">Retail &amp; Trade</button>
+        <button class="flt" data-f="food">Food &amp; Beverage</button>
+        <button class="flt" data-f="manufacturing">Manufacturing</button>
+        <button class="flt" data-f="construction">Construction</button>
+        <button class="flt" data-f="logistics">Logistics</button>
+        <button class="flt" data-f="services">Services</button>
+      </div>
+      <div class="proj-grid" id="projGrid"></div>
+      <div class="show-more-wrap rev"><button class="btn-outline" id="showMoreBtn" style="font-size:.85rem;">Show More Projects</button></div>
     </div>
-    <div class="proj-grid" id="projGrid"></div>
-    <div class="show-more-wrap rev"><button class="btn-outline" id="showMoreBtn" style="font-size:.85rem;">Show More Projects</button></div>
   </div>
 </section>
+
+<!-- ═══ CASE STUDY MODAL ═══ -->
+<div id="csModal" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);overflow-y:auto;padding:24px 16px;">
+  <div id="csModalInner" style="max-width:740px;margin:0 auto;background:var(--surface);border-radius:var(--r-xl);overflow:hidden;position:relative;box-shadow:var(--shadow-lg);">
+    <button onclick="closeCS()" style="position:absolute;top:14px;right:16px;z-index:2;background:var(--surface2);border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:var(--text);line-height:34px;">✕</button>
+    <div id="csModalContent"></div>
+  </div>
+</div>
+
+<style>
+/* ── CASE STUDY GRID ── */
+.cs-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:24px;
+  margin-top:36px;
+}
+.cs-card {
+  border-radius:var(--r-xl);
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .28s var(--ease), box-shadow .28s var(--ease);
+}
+.cs-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.cs-card-img {
+  height:160px;
+  background:var(--primary-bg);
+  position:relative;
+  overflow:hidden;
+}
+.cs-card-img img { width:100%;height:100%;object-fit:cover; }
+.cs-ind-badge {
+  position:absolute;top:12px;left:12px;
+  background:var(--primary);color:white;
+  font-size:.68rem;font-weight:700;
+  padding:4px 10px;border-radius:20px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.cs-ver-badge {
+  position:absolute;top:12px;right:12px;
+  background:rgba(0,0,0,.55);color:white;
+  font-size:.65rem;font-weight:600;
+  padding:3px 9px;border-radius:20px;
+}
+.cs-body { padding:20px 22px 24px; }
+.cs-body h3 { font-size:1rem;font-weight:700;color:var(--text);margin:0 0 6px; }
+.cs-body .cs-loc { font-size:.75rem;color:var(--muted);margin-bottom:12px; }
+.cs-challenge {
+  font-size:.8rem;color:var(--text-md);
+  background:var(--surface2);
+  border-left:3px solid var(--primary);
+  padding:9px 12px;border-radius:0 8px 8px 0;
+  margin-bottom:14px;line-height:1.5;
+}
+.cs-results {
+  display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;
+}
+.cs-kpi {
+  flex:1 1 auto;min-width:80px;
+  background:var(--accent-bg);
+  border-radius:10px;padding:8px 10px;text-align:center;
+}
+.cs-kpi strong { display:block;font-size:1rem;font-weight:800;color:var(--accent); }
+.cs-kpi span { font-size:.65rem;color:var(--muted);line-height:1.3; }
+.cs-read-more {
+  font-size:.78rem;font-weight:700;color:var(--primary);
+  display:inline-flex;align-items:center;gap:5px;
+}
+/* ── MODAL CONTENT ── */
+.cs-modal-hero {
+  height:200px;background:var(--primary-bg);overflow:hidden;
+}
+.cs-modal-hero img { width:100%;height:100%;object-fit:cover; }
+.cs-modal-body { padding:28px 32px 36px; }
+.cs-modal-tag {
+  display:inline-block;background:var(--primary);color:white;
+  font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;
+  margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase;
+}
+.cs-modal-body h2 { font-family:var(--font-h);font-size:1.5rem;color:var(--text);margin:0 0 4px; }
+.cs-modal-meta { font-size:.78rem;color:var(--muted);margin-bottom:24px; }
+.cs-section-label {
+  font-size:.7rem;font-weight:800;color:var(--primary);
+  letter-spacing:.08em;text-transform:uppercase;margin:20px 0 8px;
+}
+.cs-modal-body p { font-size:.88rem;color:var(--text-md);line-height:1.7;margin:0; }
+.cs-modal-modules { display:flex;flex-wrap:wrap;gap:7px;margin-top:10px; }
+.cs-modal-modules span {
+  background:var(--primary-bg);color:var(--primary);
+  font-size:.72rem;font-weight:600;padding:4px 11px;border-radius:20px;
+}
+.cs-kpis-row { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px; }
+.cs-kpi-big {
+  background:var(--accent-bg);border-radius:12px;
+  padding:14px 10px;text-align:center;
+}
+.cs-kpi-big strong { display:block;font-size:1.3rem;font-weight:800;color:var(--accent); }
+.cs-kpi-big span { font-size:.7rem;color:var(--muted); }
+.cs-cta-modal {
+  margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;
+}
+@media(max-width:600px){
+  .cs-kpis-row { grid-template-columns:1fr 1fr; }
+  .cs-modal-body { padding:22px 20px 28px; }
+}
+</style>
+
+<script>
+const CASE_STUDIES = [
+  {
+    id:"batec",
+    name:"BATEC Batiment Technique",
+    industry:"Construction",
+    location:"UAE",
+    version:"Odoo 18 EE",
+    img:"./assets/images/Projects/beamconsolidated_logo.jpeg",
+    challenge:"Multi-entity construction company running separate systems per business unit — no unified financial view, project costs tracked manually on spreadsheets, intercompany transactions causing month-end delays of 5+ days.",
+    solution:"Designed a full multi-company Odoo 18 EE setup with shared chart of accounts and cost centers. Implemented Accounting, Sales, Inventory, HR, CRM, and Projects with project-based cost tracking. Configured intercompany rules for automatic journal entries between entities.",
+    modules:["Accounting","Multi-Company","Sales","Inventory","HR","CRM","Projects"],
+    kpis:[
+      {val:"100%","label":"Financial consolidation across all entities"},
+      {val:"5→1 day","label":"Month-end closing time reduced"},
+      {val:"Real-time","label":"Project cost visibility vs. budget"},
+    ],
+    outcome:"Management gained a unified dashboard across all business units for the first time, enabling data-driven decisions on project profitability and resource allocation."
+  },
+  {
+    id:"cups12",
+    name:"12 Cups Coffee",
+    industry:"F&B / Café Chain",
+    location:"Saudi Arabia",
+    version:"Odoo 17 EE",
+    img:"./assets/images/Projects/12cups.jpg",
+    challenge:"Fast-growing multi-branch café brand with no centralized inventory system — food cost variance was unknown, branch managers couldn't track raw material consumption, and POS sales were not linked to manufacturing recipes.",
+    solution:"Implemented Odoo 17 EE covering Accounting, Manufacturing (with Bill of Materials per recipe), Inventory with branch-level tracking, POS integrated per branch, and HR for staff management. Built custom dashboards for food cost % per branch.",
+    modules:["Accounting","Manufacturing","Inventory","POS","Sales","CRM","HR","Projects","Maintenance"],
+    kpis:[
+      {val:"↓ 18%","label":"Food cost variance reduced"},
+      {val:"Live","label":"Branch-level inventory tracking"},
+      {val:"1 view","label":"Centralized performance per branch"},
+    ],
+    outcome:"Owner can now compare branch profitability in real time, identify waste by product category, and make procurement decisions based on actual consumption data."
+  },
+  {
+    id:"ambiance",
+    name:"Ambiance Furniture",
+    industry:"Manufacturing",
+    location:"Egypt",
+    version:"Odoo 17 EE",
+    img:"./assets/images/Projects/ambiancefurniture.png",
+    challenge:"Large furniture manufacturer with fragmented operations — production planning on Excel, no link between sales orders and manufacturing, raw material shortages causing delivery delays averaging 12 days, and HR managed on paper.",
+    solution:"Full Odoo 17 EE implementation with Multi-Company setup, Manufacturing module with work orders and routing, Inventory with reorder rules and BoMs, Sales, CRM, HR with payroll, and Projects for custom order tracking. Migrated 3 years of historical data.",
+    modules:["Accounting","Multi-Company","Manufacturing","Inventory","Sales","CRM","HR","Projects","Planning"],
+    kpis:[
+      {val:"↓ 12→3","label":"Days: avg delivery delay reduced"},
+      {val:"0","label":"Stock-out incidents post go-live (Month 1)"},
+      {val:"70%","label":"Reduction in manual reporting time"},
+    ],
+    outcome:"Production manager now plans work orders directly from confirmed sales orders. Purchasing triggers automatically when stock reaches reorder points — eliminating the most common cause of delays."
+  },
+  {
+    id:"officers",
+    name:"Officers Clubs – Ministry of Interior",
+    industry:"Government",
+    location:"Saudi Arabia",
+    version:"Odoo EE",
+    img:"./assets/images/Projects/tamakkon.jpg",
+    challenge:"Government entity managing multiple officers' clubs across Saudi Arabia — HRMS, finance, procurement, POS, fleet, and maintenance all running on disconnected legacy systems with no central reporting or KPI visibility for leadership.",
+    solution:"Comprehensive ERP covering HRMS (with attendance & payroll), Finance, Supply Chain, Fixed Assets, CRM, POS (per club location), Maintenance, Fleet, and BI with custom KPI dashboards for ministry-level reporting. Full data migration from legacy systems.",
+    modules:["HRMS","Finance","Supply Chain","Assets","CRM","POS","Maintenance","Fleet","BI / KPIs"],
+    kpis:[
+      {val:"8","label":"Club locations integrated in 1 system"},
+      {val:"Live","label":"Ministry-level KPI dashboards"},
+      {val:"100%","label":"Payroll & HR digitized"},
+    ],
+    outcome:"First unified ERP across all officers' clubs — leadership receives automated monthly performance reports instead of manually compiled spreadsheets, saving 40+ hours/month in reporting."
+  },
+  {
+    id:"hittin",
+    name:"Hittin Union Real Estate",
+    industry:"Real Estate",
+    location:"Saudi Arabia",
+    version:"Odoo EE",
+    img:"./assets/images/Projects/villa_musk.jpg",
+    challenge:"Real estate developer with manual property sales tracking, delayed receivables collection, no visibility on contract status, and accounting disconnected from sales — leading to revenue recognition errors and AR aging issues.",
+    solution:"Implemented Accounting, Inventory, Supply Chain, Sales, CRM, and a custom Real Estate module covering property listing, sales contracts, installment schedules, and automatic receivables tracking linked to accounting entries.",
+    modules:["Accounting","Real Estate","Sales","CRM","Inventory","Supply Chain"],
+    kpis:[
+      {val:"Auto","label":"Receivables linked to contracts"},
+      {val:"↓ 60%","label":"Overdue follow-up time saved"},
+      {val:"Live","label":"Property pipeline & sales cycle visibility"},
+    ],
+    outcome:"Sales team tracks each property from listing to handover in one place. Finance automatically generates installment schedules and sends overdue alerts — eliminating manual AR tracking and revenue recognition delays."
+  },
+  {
+    id:"tiba",
+    name:"TIBA 2000 – Logistics & Security",
+    industry:"Logistics",
+    location:"Egypt & GCC",
+    version:"Odoo 17 EE",
+    img:"./assets/images/Projects/fastforwardlogistics.png",
+    challenge:"Logistics and security solutions company operating across borders — separate inventory and purchasing per country, no unified supplier management, and financial reporting requiring manual consolidation between Egypt and GCC operations.",
+    solution:"End-to-end Odoo 17 EE implementation with Accounting configured for multi-currency operations, Supply Chain Management with centralized purchasing, Inventory with warehouse-level tracking, Sales, CRM, and HR across all entities.",
+    modules:["Accounting","Supply Chain","Inventory & Manufacturing","Sales","CRM","HR"],
+    kpis:[
+      {val:"Multi","label":"Currency accounting automated"},
+      {val:"↓ 40%","label":"Procurement cycle time reduced"},
+      {val:"1","label":"Unified supplier database across countries"},
+    ],
+    outcome:"Procurement team now raises POs against a single supplier database, sees real-time stock across all warehouses, and finance closes monthly accounts without manual currency reconciliation."
+  },
+];
+
+function openCS(id){
+  const cs = CASE_STUDIES.find(c=>c.id===id);
+  if(!cs) return;
+  document.getElementById('csModalContent').innerHTML = `
+    <div class="cs-modal-hero">
+      <img src="${cs.img}" alt="${cs.name}" onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none'">
+    </div>
+    <div class="cs-modal-body">
+      <span class="cs-modal-tag">${cs.industry}</span>
+      <h2>${cs.name}</h2>
+      <div class="cs-modal-meta">${cs.location} &nbsp;·&nbsp; ${cs.version}</div>
+
+      <div class="cs-section-label">🔴 The Challenge</div>
+      <p>${cs.challenge}</p>
+
+      <div class="cs-section-label">🔧 The Solution</div>
+      <p>${cs.solution}</p>
+      <div class="cs-modal-modules">${cs.modules.map(m=>`<span>${m}</span>`).join('')}</div>
+
+      <div class="cs-section-label">✅ Key Results</div>
+      <div class="cs-kpis-row">
+        ${cs.kpis.map(k=>`
+          <div class="cs-kpi-big">
+            <strong>${k.val}</strong>
+            <span>${k.label}</span>
+          </div>`).join('')}
+      </div>
+
+      <div class="cs-section-label">💡 Outcome</div>
+      <p>${cs.outcome}</p>
+
+      <div class="cs-cta-modal">
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 24px;">📅 Discuss a Similar Project</a>
+        <a href="https://wa.me/201005061349" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 22px;">💬 WhatsApp</a>
+      </div>
+    </div>`;
+  document.getElementById('csModal').style.display='block';
+  document.body.style.overflow='hidden';
+}
+
+function closeCS(){
+  document.getElementById('csModal').style.display='none';
+  document.body.style.overflow='';
+}
+document.getElementById('csModal').addEventListener('click',function(e){if(e.target===this)closeCS();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();});
+
+// Render case study cards
+(function(){
+  const grid = document.getElementById('caseStudiesGrid');
+  grid.innerHTML = CASE_STUDIES.map(cs=>`
+    <div class="cs-card" onclick="openCS('${cs.id}')">
+      <div class="cs-card-img">
+        <img src="${cs.img}" alt="${cs.name}" loading="lazy" onerror="this.style.display='none'">
+        <span class="cs-ind-badge">${cs.industry}</span>
+        <span class="cs-ver-badge">${cs.version}</span>
+      </div>
+      <div class="cs-body">
+        <h3>${cs.name}</h3>
+        <div class="cs-loc">📍 ${cs.location}</div>
+        <div class="cs-challenge">
+          <strong style="font-size:.72rem;color:var(--primary);display:block;margin-bottom:3px;">THE CHALLENGE</strong>
+          ${cs.challenge.length>120 ? cs.challenge.slice(0,120)+'…' : cs.challenge}
+        </div>
+        <div class="cs-results">
+          ${cs.kpis.map(k=>`<div class="cs-kpi"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
+        </div>
+        <span class="cs-read-more">Read Full Case Study →</span>
+      </div>
+    </div>`).join('');
+})();
+</script>
 
 <!-- ═══ EXPERIENCE ═══ -->
 <section id="experience">
