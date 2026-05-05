@@ -2023,83 +2023,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
       <div>
         <div class="eyebrow rev">Credentials</div>
         <h2 class="sec-title rev rev-d1">Top Certifications</h2>
-        <!-- Tier badges legend -->
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;" class="rev">
-          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:var(--primary);background:var(--primary-bg);border:1px solid var(--border2);border-radius:20px;padding:4px 10px;">🟣 Odoo Official</span>
-          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:#0d6efd;background:#e8f0ff;border:1px solid #b3cefb;border-radius:20px;padding:4px 10px;">🔵 Full Specialization</span>
-          <span style="display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:var(--accent);background:var(--accent-bg);border:1px solid #6ee7b7;border-radius:20px;padding:4px 10px;">🟢 Global Institution</span>
-        </div>
-        <div class="certs-grid rev rev-d2" style="grid-template-columns:repeat(3,1fr);">
 
-          <!-- ── TIER 1: Odoo Official Certifications ── -->
-          <a href="https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view" target="_blank" class="cert-c" title="Odoo Official">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/ODOO18FUNCTIONALCERTIFICATION.jpg" alt="Odoo 18"></div>
-            <div class="cert-info"><strong>Odoo 18 Certified</strong><span>🟣 Official · Functional · 2024</span></div>
-          </a>
-          <a href="https://drive.google.com/file/d/1Rvw0DoedrxI8KHg_90SQTRE3WSpZQ4j/view" target="_blank" class="cert-c" title="Odoo Official">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/Odoo17.jpg" alt="Odoo 17"></div>
-            <div class="cert-info"><strong>Odoo 17 Certified</strong><span>🟣 Official · Functional · 2024</span></div>
-          </a>
-          <a href="https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing" target="_blank" class="cert-c" title="Odoo Official">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/odoo16.png" alt="Odoo 16"></div>
-            <div class="cert-info"><strong>Odoo 16 Certified</strong><span>🟣 Official · Functional · 2023</span></div>
-          </a>
-          <a href="https://drive.google.com/file/d/1__-3N4adBIgh2krCka3_-d6Ot2dQlLWs/view" target="_blank" class="cert-c" title="Odoo + MCIT">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/DEPIODOO.jpg" alt="DEPI Odoo"></div>
-            <div class="cert-info"><strong>DEPI – Odoo Track</strong><span>🟣 MCIT + Odoo · 2024</span></div>
-          </a>
+        <!-- ── FILTER TABS ── -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;" class="rev" id="certFltRow"></div>
 
-          <!-- ── TIER 2: Global Full Specializations – PM & Leadership ── -->
-          <a href="https://www.coursera.org/account/accomplishments/specialization/C7AJNVBLBB5K" target="_blank" class="cert-c" title="Full Specialization – 6 courses">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/CourseraGoogleProjectManagementC7AJNVBLBB5K.jpg" alt="Google PM"></div>
-            <div class="cert-info"><strong>Google Project Management</strong><span>🔵 Specialization · Google · 2026</span></div>
-          </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/R6S7GBR6WKZT" target="_blank" class="cert-c" title="Full Specialization – 9 courses">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/IBMITProjectManagerCourseraR6S7GBR6WKZT.jpg" alt="IBM PM"></div>
-            <div class="cert-info"><strong>IBM IT Project Manager</strong><span>🔵 Specialization · IBM · 2025</span></div>
-          </a>
-          <a href="https://www.credly.com/badges/18980ea7-db63-4065-bd1b-bc39e736ffbd" target="_blank" class="cert-c" title="Selective McKinsey program">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/McKinsey Forward Program.png" alt="McKinsey"></div>
-            <div class="cert-info"><strong>McKinsey Forward</strong><span>🟢 McKinsey & Company · 2023</span></div>
-          </a>
-          <a href="https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61" target="_blank" class="cert-c" title="Full Specialization – Dartmouth">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg" alt="Strategic Leadership"></div>
-            <div class="cert-info"><strong>Strategic Leadership</strong><span>🔵 Specialization · Dartmouth · 2026</span></div>
-          </a>
+        <!-- ── CERTS GRID (rendered by JS) ── -->
+        <div class="certs-grid rev rev-d2" id="topCertsGrid" style="grid-template-columns:repeat(3,1fr);"></div>
 
-          <!-- ── TIER 3: Finance & ERP-Adjacent Specializations ── -->
-          <a href="https://www.coursera.org/account/accomplishments/specialization/5NAVAVEBAMDI" target="_blank" class="cert-c" title="Full Specialization – SAP">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/Coursera5NAVAVEBAMDI-SapConsultant.jpg" alt="SAP"></div>
-            <div class="cert-info"><strong>SAP Technology Consultant</strong><span>🔵 Specialization · SAP · 2026</span></div>
-          </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" target="_blank" class="cert-c" title="Full Specialization – U of Illinois">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/FinancialManagement.jpg" alt="Financial Management"></div>
-            <div class="cert-info"><strong>Financial Management</strong><span>🔵 Specialization · Univ. of Illinois · 2025</span></div>
-          </a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA" target="_blank" class="cert-c" title="Full Specialization – ESSEC">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/StrategicBusinessAnalytics.jpeg" alt="Business Analytics"></div>
-            <div class="cert-info"><strong>Strategic Business Analytics</strong><span>🔵 Specialization · ESSEC · 2025</span></div>
-          </a>
-          <a href="https://www.credly.com/badges/6683d5cb-8f17-46cc-879b-855fa138e091" target="_blank" class="cert-c" title="PMI Badge">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/PracticalApplicationofGenAIforProjectManagers.png" alt="PMI GenAI"></div>
-            <div class="cert-info"><strong>Gen AI for Project Managers</strong><span>🟢 PMI Badge · 2025</span></div>
-          </a>
-          <a href="https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/" target="_blank" class="cert-c" title="Full Track – 365 Financial Analyst">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg" alt="Financial Analyst"></div>
-            <div class="cert-info"><strong>Financial Analyst</strong><span>🔵 Full Track · 365 Financial Analyst · 2025</span></div>
-          </a>
-          <a href="https://ibdl.net/certifications?Logbook=IBDLIPDE1004" target="_blank" class="cert-c" title="Missouri State University – IBDL">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg" alt="Certified Disciplined Entrepreneur"></div>
-            <div class="cert-info"><strong>Certified Disciplined Entrepreneur</strong><span>🟢 Missouri State Univ. · IBDL</span></div>
-          </a>
-          <a href="https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA" target="_blank" class="cert-c" title="Specialization – Coursera">
-            <div class="cert-logo-box"><img src="./assets/images/certificates/EntrepreneurshipMastery.png" alt="Entrepreneurship Mastery"></div>
-            <div class="cert-info"><strong>Entrepreneurship Mastery</strong><span>🔵 Specialization · Coursera · 2025</span></div>
-          </a>
-
-        </div>
         <div style="margin-top:20px;text-align:center;" class="rev">
           <button onclick="openCertsModal()" class="btn-outline" style="font-size:.82rem;padding:10px 24px;cursor:pointer;border:none;">View All 50+ Certifications →</button>
+          <button onclick="openCertsModal(certActiveFilter)" class="btn-outline" id="certFilterViewAll" style="display:none;font-size:.82rem;padding:10px 24px;cursor:pointer;border:none;margin-left:8px;">Add Filter ↗</button>
         </div>
       </div>
     </div>
@@ -2111,10 +2044,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
   <div style="max-width:1100px;margin:0 auto;background:var(--surface);border-radius:var(--r-xl);padding:40px 32px;position:relative;">
     <!-- Close -->
     <button onclick="closeCertsModal()" style="position:absolute;top:16px;right:20px;background:var(--surface2);border:none;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer;color:var(--text);line-height:36px;">✕</button>
-    <div style="text-align:center;margin-bottom:32px;">
+    <div style="text-align:center;margin-bottom:12px;">
       <div class="eyebrow" style="margin-bottom:8px;">All Credentials</div>
       <h2 style="font-family:var(--font-h);font-size:clamp(1.4rem,3vw,2rem);color:var(--text);">50+ Certifications &amp; Credentials</h2>
     </div>
+    <!-- Filter tabs -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0 24px;" id="certsModalFilterRow"></div>
     <div id="certsGrid" style="
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -2124,113 +2059,260 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
 </div>
 
 <script>
-// ── All extra certs (excluding the 8 already shown in Top Certifications) ──
-const extraCerts = [
-  { title:"Odoo 16 Functional Certification", org:"Odoo", date:"July 15, 2023", img:"./assets/images/certificates/odoo16.png", link:"https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing" },
-  { title:"Strategic Leadership: Impact, Change & Decision-Making", org:"Dartmouth College", date:"February 2026", img:"./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg", link:"https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61" },
-  { title:"IBM Project Manager | Google Project Management", org:"Google & IBM", date:"January 2, 2026", img:"./assets/images/certificates/Industry Professional Credentials Track - Specializations- IBM Project Manager | Google Project Management.jpg", link:"https://drive.google.com/file/d/1oBxt4Uut_j_vjxE_nzMl5IiVI_idgQgQ/view?usp=sharing" },
-  { title:"AI Fundamentals with IBM SkillsBuild", org:"Cisco", date:"October 10, 2025", img:"./assets/images/certificates/AIFundamentals.png", link:"https://www.credly.com/badges/887bee78-4af1-4d38-9f79-cef8c1cb91d4/linked_in_profile" },
-  { title:"Artificial Intelligence Fundamentals", org:"IBM SkillsBuild", date:"October 10, 2025", img:"./assets/images/certificates/ArtificialIntelligenceFundamentals.png", link:"https://www.credly.com/badges/3b82af80-440c-4e98-8306-90879fa81bf0/linked_in_profile" },
-  { title:"Financial Analyst", org:"365 Financial Analyst", date:"Oct 22, 2025", img:"./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg", link:"https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/" },
-  { title:"Entrepreneurship Mastery", org:"Coursera", date:"October 1, 2025", img:"./assets/images/certificates/EntrepreneurshipMastery.png", link:"https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA" },
-  { title:"Exercising Leadership: Foundational Principles", org:"EDX", date:"October 25, 2025", img:"./assets/images/certificates/leadership.jpg", link:"https://courses.edx.org/certificates/693f0d2a565f45d789a59c022f4a7889" },
-  { title:"Technology & Entrepreneurship", org:"Arizona State University", date:"October 25, 2025", img:"./assets/images/certificates/Technology&Entrepreneurship.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/65REZK6MAL1Q" },
-  { title:"Finance Industry Transformation and Regulation", org:"FinTech", date:"September 10, 2025", img:"./assets/images/certificates/FinTech-FinanceIndustryTransformationandRegulation.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/2QI6P56ZBG3G" },
-  { title:"Intuit Academy Bookkeeping", org:"Intuit", date:"August 27, 2025", img:"./assets/images/certificates/IntuitAcademyBookkeeping.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/RHJOU667GU4P" },
-  { title:"Strategic Business Analytics", org:"ESSEC Business School", date:"June 30, 2025", img:"./assets/images/certificates/StrategicBusinessAnalytics.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA" },
-  { title:"Cost Accounting", org:"Technical University of Munich (TUM)", date:"Aug 29, 2025", img:"./assets/images/certificates/Coursera02WFNAHJRCSD-Cost-Accounting.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/certificate/02WFNAHJRCSD" },
-  { title:"Business Analysis & Process Management", org:"Coursera Project Network", date:"June 26, 2025", img:"./assets/images/certificates/BusinessAnalysisProcessManagement.jpg", link:"https://coursera.org/share/1662a7138e59ae7dd6d88ca00c955861" },
-  { title:"Financial Analysis - Skills for Success", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialAnalysisSkillsSuccess.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/CJ0R5W645XI7" },
-  { title:"Financial Management", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialManagement.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" },
-  { title:"Introduction to Accounting, Budgeting, and Finance", org:"Thunderbird School of Global Management", date:"June 29, 2025", img:"./assets/images/certificates/IABF_completion_certificate.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" },
-  { title:"Certified Disciplined Entrepreneur", org:"Missouri State University", date:"", img:"./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg", link:"https://ibdl.net/certifications?Logbook=IBDLIPDE1004" },
-  { title:"Scrum Fundamentals Certified", org:"SCRUMstudy", date:"", img:"./assets/images/certificates/ScrumFundamentalsCertified-MohamedEssamAbuEmira-1082488.jpg", link:"https://www.scrumstudy.com/certification/verify?type=SFC&number=1082488" },
-  { title:"Digital Egypt Pioneers – Berlitz Business English", org:"Berlitz Egypt", date:"April – October 2024", img:"./assets/images/certificates/BerlitzEgypt-BusinessEnglishTrack.jpg", link:"https://drive.google.com/file/d/1ABBI_z3Ybgf-ZsYtj3CBrrMP_o0zoYpt/view?usp=sharing" },
-  { title:"Product Management Basics Certification", org:"Pendo", date:"May 19, 2024", img:"./assets/images/certificates/Product Management Basics Certification.png", link:"https://www.credly.com/badges/d9784cb2-0e16-4f58-9b27-422cf201582f/linked_in_profile" },
-  { title:"Digital Strategies for Startups", org:"Almentor", date:"January 2025", img:"./assets/images/certificates/Digital Strategies for Startups-certificate.jpg", link:"https://www.almentor.net/certificate/1dmmue226" },
-  { title:"Data Storytelling", org:"Almentor", date:"December 1, 2024", img:"./assets/images/certificates/Data-Storytelling-certificate.jpg", link:"https://www.almentor.net/certificate/yxyosp22l" },
-  { title:"Generative AI Overview for Project Managers", org:"Project Management Institute", date:"May 25, 2024", img:"./assets/images/certificates/Generative AI Overview for Project Managers.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile" },
-  { title:"Corporate Finance Fundamentals", org:"Corporate Finance Institute", date:"October 28, 2023", img:"./assets/images/certificates/corporatefinanceinstitute.com.png", link:"#" },
-  { title:"Accounting Fundamentals", org:"Corporate Finance Institute", date:"September 16, 2023", img:"./assets/images/certificates/Accounting Fundamentals.png", link:"#" },
-  { title:"ALX AiCE - AI Career Essentials", org:"ALX Africa", date:"May 17, 2024", img:"./assets/images/certificates/alx-aice-ai-career-essentials-certificate-mohamed-essam-abu-emira.jpeg", link:"https://intranet.alxswe.com/certificates/xMYrP8sCT9" },
-  { title:"Founder Academy Completion Certificate", org:"ALX Ventures", date:"December 2024", img:"./assets/images/certificates/109-founder-academy-6-week-certificate-mohamed-essam-abu-emira.png", link:"https://intranet.alxswe.com/certificates/SMCnm2RBT7" },
-  { title:"BSF Intro to Financial Sustainability", org:"Udacity", date:"December 2024", img:"./assets/images/certificates/BSF Intro to Financial Sustainability_ Udacity.jpeg", link:"https://www.udacity.com/certificate/e/af2ab3bc-a911-11ef-a04e-a70e854d0228" },
-  { title:"Virtual Assistant", org:"ALX Africa", date:"September 3, 2024", img:"./assets/images/certificates/72-virtual-assistant-certificate-mohamed-essam.png", link:"https://intranet.alxswe.com/certificates/8LeMT7ncFX" },
-  { title:"Professional Foundations", org:"ALX Africa", date:"August 2024", img:"./assets/images/certificates/Certificate for Professional Foundations.jpeg", link:"#" },
-  { title:"BUS103: Introduction to Financial Accounting", org:"Saylor", date:"June 15, 2024", img:"./assets/images/certificates/Introduction to Financial Accounting.jpeg", link:"https://learn.saylor.org/admin/tool/certificate/index.php?code=9696318376MA" },
-  { title:"Foundations of Project Management", org:"Google", date:"August 25, 2021", img:"./assets/images/certificates/Coursera Foundations of Project Management.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile" },
-  { title:"Accounting: Principles of Financial Accounting", org:"IESE Business School", date:"August 2, 2019", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~8WH6DBW2UGPJ.jpeg", link:"https://www.coursera.org/account/accomplishments/certificate/62N8R9MU2PXR" },
-  { title:"Introduction to Excel", org:"365 Financial Analyst", date:"November 19, 2024", img:"./assets/images/certificates/exlecl.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-D1EB6D86B3/" },
-  { title:"Who Does What in Finance", org:"365 Financial Analyst", date:"April 12, 2020", img:"./assets/images/certificates/f.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-F4FCC6F2EC/" },
-  { title:"Odoo Functional Implementation Guide – Accounting", org:"Udemy", date:"January 30, 2020", img:"./assets/images/certificates/UC-2c445f68-7e9b-45f7-8633-506540795417.jpg", link:"https://www.udemy.com/certificate/UC-90c1cf41-fb92-4479-85c8-9df4130d0abf/" },
-  { title:"Java Programming and Software Engineering Fundamentals", org:"Duke University", date:"April 23, 2020", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~D6HUZLRCKNBR.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/D6HUZLRCKNBR" },
-  { title:"Fundamentals of Financial and Management Accounting", org:"Politecnico di Milano", date:"September 6, 2021", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~62N8R9MU2PXR.jpeg", link:"https://www.coursera.org/account/accomplishments/verify/62N8R9MU2PXR" },
-  { title:"International Computer Drivers License – Level One (ICDL)", org:"ICDL Certification", date:"January 2010", img:"./assets/images/certificates/icdlLevelOne.jpg", link:"#" },
-  { title:"Product Management Certification", org:"SprintUp", date:"April 2025", img:"./assets/images/certificates/SprintUp-Product-Management-Certificate.jpg", link:"https://sprints.ai/en/journeys/learning/1197/90127514/view-certificate" },
-  { title:"Bachelor of Commerce (Accounting)", org:"Faculty of Commerce, Cairo University", date:"May 2012", img:"./assets/images/certificates/Faculty_of_Commerce_Cairo_University.jpg", link:"https://drive.google.com/file/d/1JBADpgJrcm9ZztxZnXYfDSletiV-nAUK/view?usp=sharing" },
-  { title:"Career Development (Level 1-2-3)", org:"National Telecommunication Institute (NTI)", date:"Dec 2024 – Apr 2025", img:"./assets/images/certificates/CareerDevelopment.jpg", link:"https://drive.google.com/file/d/1m9M_nPlsoDsO0Q0IGqPoBy4VOvPkDCWs/view?usp=sharing" },
-  { title:"Project Management Basics", org:"EYouth", date:"June 2025", img:"./assets/images/certificates/ProjectManagementBasics.jpg", link:"https://learning.business.eyouthlearning.com/certificates/fe647ebc5cb74dfaac730d22317cb2d9" },
-  { title:"Introduction to Software Testing", org:"SprintUp", date:"June 2025", img:"./assets/images/certificates/SprintUp-IntroductiontoTesting.jpg", link:"https://sprints.ai/en/journeys/learning/1143/90127514/view-certificate" },
-  { title:"بناء نموذج العمل (Business Model Canvas)", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Business-Model-Canvas.jpg", link:"https://learn.eeic.gov.eg/profile#certificates" },
-  { title:"Finance For Startups", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Finance-For-Startups.jpg", link:"https://learn.eeic.gov.eg/profile#certificates" },
-  { title:"Robusta | CFYE", org:"EYouth Learning", date:"June 29, 2025", img:"./assets/images/certificates/Robusta.jpg", link:"https://drive.google.com/drive/folders/1snm2eNeW8z4plB8CR1jTFmyTRw2zK2mg" },
-  { title:"ITIDA Gigs Freelancing Program", org:"EYouth & ITIDA", date:"June 2025", img:"./assets/images/certificates/ITIDA-Gigs-Program.jpg", link:"https://drive.google.com/file/d/1xxTroqXPTwq18m-83oehEGgnj1KRXMEU/view" },
+/* ══════════════════════════════════════════════
+   CERTIFICATIONS — CATEGORIES & DATA
+   cat: 'odoo' | 'pm' | 'finance' | 'leadership' | 'tech' | 'other'
+══════════════════════════════════════════════ */
+const CERT_CATEGORIES = {
+  all:        { label: "All",            icon: "🎓" },
+  odoo:       { label: "Odoo / ERP",     icon: "🟣" },
+  pm:         { label: "PM / Agile",     icon: "📋" },
+  finance:    { label: "Finance",        icon: "💰" },
+  leadership: { label: "Leadership",     icon: "🏆" },
+  tech:       { label: "Tech / AI",      icon: "💡" },
+  other:      { label: "Other",          icon: "📜" },
+};
+
+/* Top-section featured certs (shown on main page, filterable) */
+const TOP_CERTS = [
+  { title:"Odoo 18 Certified", org:"Odoo Official · Functional · 2024", img:"./assets/images/certificates/ODOO18FUNCTIONALCERTIFICATION.jpg", link:"https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view", cat:"odoo", tier:"🟣" },
+  { title:"Odoo 17 Certified", org:"Odoo Official · Functional · 2024", img:"./assets/images/certificates/Odoo17.jpg", link:"https://drive.google.com/file/d/1Rvw0DoedrxI8KHg_90SQTRE3WSpZQ4j/view", cat:"odoo", tier:"🟣" },
+  { title:"Odoo 16 Certified", org:"Odoo Official · Functional · 2023", img:"./assets/images/certificates/odoo16.png", link:"https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing", cat:"odoo", tier:"🟣" },
+  { title:"DEPI – Odoo Track", org:"MCIT + Odoo · 2024", img:"./assets/images/certificates/DEPIODOO.jpg", link:"https://drive.google.com/file/d/1__-3N4adBIgh2krCka3_-d6Ot2dQlLWs/view", cat:"odoo", tier:"🟣" },
+  { title:"Google Project Management", org:"Specialization · Google · 2026", img:"./assets/images/certificates/CourseraGoogleProjectManagementC7AJNVBLBB5K.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/C7AJNVBLBB5K", cat:"pm", tier:"🔵" },
+  { title:"IBM IT Project Manager", org:"Specialization · IBM · 2025", img:"./assets/images/certificates/IBMITProjectManagerCourseraR6S7GBR6WKZT.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/R6S7GBR6WKZT", cat:"pm", tier:"🔵" },
+  { title:"McKinsey Forward", org:"McKinsey & Company · 2023", img:"./assets/images/certificates/McKinsey Forward Program.png", link:"https://www.credly.com/badges/18980ea7-db63-4065-bd1b-bc39e736ffbd", cat:"leadership", tier:"🟢" },
+  { title:"Strategic Leadership", org:"Specialization · Dartmouth · 2026", img:"./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg", link:"https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61", cat:"leadership", tier:"🔵" },
+  { title:"SAP Technology Consultant", org:"Specialization · SAP · 2026", img:"./assets/images/certificates/Coursera5NAVAVEBAMDI-SapConsultant.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/5NAVAVEBAMDI", cat:"tech", tier:"🔵" },
+  { title:"Financial Management", org:"Specialization · Univ. of Illinois · 2025", img:"./assets/images/certificates/FinancialManagement.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753", cat:"finance", tier:"🔵" },
+  { title:"Strategic Business Analytics", org:"Specialization · ESSEC · 2025", img:"./assets/images/certificates/StrategicBusinessAnalytics.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA", cat:"finance", tier:"🔵" },
+  { title:"Gen AI for Project Managers", org:"PMI Badge · 2025", img:"./assets/images/certificates/PracticalApplicationofGenAIforProjectManagers.png", link:"https://www.credly.com/badges/6683d5cb-8f17-46cc-879b-855fa138e091", cat:"tech", tier:"🟢" },
+  { title:"Financial Analyst", org:"Full Track · 365 Financial Analyst · 2025", img:"./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg", link:"https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/", cat:"finance", tier:"🔵" },
+  { title:"Certified Disciplined Entrepreneur", org:"Missouri State Univ. · IBDL", img:"./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg", link:"https://ibdl.net/certifications?Logbook=IBDLIPDE1004", cat:"leadership", tier:"🟢" },
+  { title:"Entrepreneurship Mastery", org:"Specialization · Coursera · 2025", img:"./assets/images/certificates/EntrepreneurshipMastery.png", link:"https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA", cat:"leadership", tier:"🔵" },
 ];
 
-let certsLoaded = false;
+/* All 50+ certs for the modal */
+const extraCerts = [
+  { title:"Odoo 16 Functional Certification", org:"Odoo", date:"July 15, 2023", img:"./assets/images/certificates/odoo16.png", link:"https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing", cat:"odoo" },
+  { title:"DEPI – Odoo Track", org:"MCIT + Odoo", date:"2024", img:"./assets/images/certificates/DEPIODOO.jpg", link:"https://drive.google.com/file/d/1__-3N4adBIgh2krCka3_-d6Ot2dQlLWs/view", cat:"odoo" },
+  { title:"Odoo 17 Certified", org:"Odoo", date:"2024", img:"./assets/images/certificates/Odoo17.jpg", link:"https://drive.google.com/file/d/1Rvw0DoedrxI8KHg_90SQTRE3WSpZQ4j/view", cat:"odoo" },
+  { title:"Odoo 18 Certified", org:"Odoo", date:"2024", img:"./assets/images/certificates/ODOO18FUNCTIONALCERTIFICATION.jpg", link:"https://drive.google.com/file/d/1cY163fwb6yT8Gn01GPhkmzEMl1f_Q2A_/view", cat:"odoo" },
+  { title:"Odoo Functional Implementation Guide – Accounting", org:"Udemy", date:"January 30, 2020", img:"./assets/images/certificates/UC-2c445f68-7e9b-45f7-8633-506540795417.jpg", link:"https://www.udemy.com/certificate/UC-90c1cf41-fb92-4479-85c8-9df4130d0abf/", cat:"odoo" },
+  { title:"Strategic Leadership: Impact, Change & Decision-Making", org:"Dartmouth College", date:"February 2026", img:"./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg", link:"https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61", cat:"leadership" },
+  { title:"IBM Project Manager | Google Project Management", org:"Google & IBM", date:"January 2, 2026", img:"./assets/images/certificates/Industry Professional Credentials Track - Specializations- IBM Project Manager | Google Project Management.jpg", link:"https://drive.google.com/file/d/1oBxt4Uut_j_vjxE_nzMl5IiVI_idgQgQ/view?usp=sharing", cat:"pm" },
+  { title:"Google Project Management Specialization", org:"Google", date:"2026", img:"./assets/images/certificates/CourseraGoogleProjectManagementC7AJNVBLBB5K.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/C7AJNVBLBB5K", cat:"pm" },
+  { title:"IBM IT Project Manager Specialization", org:"IBM", date:"2025", img:"./assets/images/certificates/IBMITProjectManagerCourseraR6S7GBR6WKZT.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/R6S7GBR6WKZT", cat:"pm" },
+  { title:"Scrum Fundamentals Certified", org:"SCRUMstudy", date:"", img:"./assets/images/certificates/ScrumFundamentalsCertified-MohamedEssamAbuEmira-1082488.jpg", link:"https://www.scrumstudy.com/certification/verify?type=SFC&number=1082488", cat:"pm" },
+  { title:"Project Management Basics", org:"EYouth", date:"June 2025", img:"./assets/images/certificates/ProjectManagementBasics.jpg", link:"https://learning.business.eyouthlearning.com/certificates/fe647ebc5cb74dfaac730d22317cb2d9", cat:"pm" },
+  { title:"Product Management Basics Certification", org:"Pendo", date:"May 19, 2024", img:"./assets/images/certificates/Product Management Basics Certification.png", link:"https://www.credly.com/badges/d9784cb2-0e16-4f58-9b27-422cf201582f/linked_in_profile", cat:"pm" },
+  { title:"Product Management Certification", org:"SprintUp", date:"April 2025", img:"./assets/images/certificates/SprintUp-Product-Management-Certificate.jpg", link:"https://sprints.ai/en/journeys/learning/1197/90127514/view-certificate", cat:"pm" },
+  { title:"Generative AI Overview for Project Managers", org:"Project Management Institute", date:"May 25, 2024", img:"./assets/images/certificates/Generative AI Overview for Project Managers.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile", cat:"pm" },
+  { title:"Foundations of Project Management", org:"Google", date:"August 25, 2021", img:"./assets/images/certificates/Coursera Foundations of Project Management.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile", cat:"pm" },
+  { title:"McKinsey Forward Program", org:"McKinsey & Company", date:"2023", img:"./assets/images/certificates/McKinsey Forward Program.png", link:"https://www.credly.com/badges/18980ea7-db63-4065-bd1b-bc39e736ffbd", cat:"leadership" },
+  { title:"Certified Disciplined Entrepreneur", org:"Missouri State University", date:"", img:"./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg", link:"https://ibdl.net/certifications?Logbook=IBDLIPDE1004", cat:"leadership" },
+  { title:"Entrepreneurship Mastery", org:"Coursera", date:"October 1, 2025", img:"./assets/images/certificates/EntrepreneurshipMastery.png", link:"https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA", cat:"leadership" },
+  { title:"Exercising Leadership: Foundational Principles", org:"EDX / Harvard", date:"October 25, 2025", img:"./assets/images/certificates/leadership.jpg", link:"https://courses.edx.org/certificates/693f0d2a565f45d789a59c022f4a7889", cat:"leadership" },
+  { title:"Technology & Entrepreneurship", org:"Arizona State University", date:"October 25, 2025", img:"./assets/images/certificates/Technology&Entrepreneurship.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/65REZK6MAL1Q", cat:"leadership" },
+  { title:"Founder Academy Completion Certificate", org:"ALX Ventures", date:"December 2024", img:"./assets/images/certificates/109-founder-academy-6-week-certificate-mohamed-essam-abu-emira.png", link:"https://intranet.alxswe.com/certificates/SMCnm2RBT7", cat:"leadership" },
+  { title:"Digital Strategies for Startups", org:"Almentor", date:"January 2025", img:"./assets/images/certificates/Digital Strategies for Startups-certificate.jpg", link:"https://www.almentor.net/certificate/1dmmue226", cat:"leadership" },
+  { title:"Career Development (Level 1-2-3)", org:"National Telecommunication Institute (NTI)", date:"Dec 2024 – Apr 2025", img:"./assets/images/certificates/CareerDevelopment.jpg", link:"https://drive.google.com/file/d/1m9M_nPlsoDsO0Q0IGqPoBy4VOvPkDCWs/view?usp=sharing", cat:"leadership" },
+  { title:"Financial Management Specialization", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialManagement.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753", cat:"finance" },
+  { title:"Strategic Business Analytics", org:"ESSEC Business School", date:"June 30, 2025", img:"./assets/images/certificates/StrategicBusinessAnalytics.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA", cat:"finance" },
+  { title:"Financial Analyst", org:"365 Financial Analyst", date:"Oct 22, 2025", img:"./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg", link:"https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/", cat:"finance" },
+  { title:"Financial Analysis - Skills for Success", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialAnalysisSkillsSuccess.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/CJ0R5W645XI7", cat:"finance" },
+  { title:"Intuit Academy Bookkeeping", org:"Intuit", date:"August 27, 2025", img:"./assets/images/certificates/IntuitAcademyBookkeeping.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/RHJOU667GU4P", cat:"finance" },
+  { title:"Cost Accounting", org:"Technical University of Munich (TUM)", date:"Aug 29, 2025", img:"./assets/images/certificates/Coursera02WFNAHJRCSD-Cost-Accounting.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/certificate/02WFNAHJRCSD", cat:"finance" },
+  { title:"Finance Industry Transformation and Regulation", org:"FinTech", date:"September 10, 2025", img:"./assets/images/certificates/FinTech-FinanceIndustryTransformationandRegulation.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/2QI6P56ZBG3G", cat:"finance" },
+  { title:"Introduction to Accounting, Budgeting, and Finance", org:"Thunderbird School of Global Management", date:"June 29, 2025", img:"./assets/images/certificates/IABF_completion_certificate.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753", cat:"finance" },
+  { title:"Corporate Finance Fundamentals", org:"Corporate Finance Institute", date:"October 28, 2023", img:"./assets/images/certificates/corporatefinanceinstitute.com.png", link:"#", cat:"finance" },
+  { title:"Accounting Fundamentals", org:"Corporate Finance Institute", date:"September 16, 2023", img:"./assets/images/certificates/Accounting Fundamentals.png", link:"#", cat:"finance" },
+  { title:"Business Analysis & Process Management", org:"Coursera Project Network", date:"June 26, 2025", img:"./assets/images/certificates/BusinessAnalysisProcessManagement.jpg", link:"https://coursera.org/share/1662a7138e59ae7dd6d88ca00c955861", cat:"finance" },
+  { title:"Accounting: Principles of Financial Accounting", org:"IESE Business School", date:"August 2, 2019", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~8WH6DBW2UGPJ.jpeg", link:"https://www.coursera.org/account/accomplishments/certificate/62N8R9MU2PXR", cat:"finance" },
+  { title:"Fundamentals of Financial and Management Accounting", org:"Politecnico di Milano", date:"September 6, 2021", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~62N8R9MU2PXR.jpeg", link:"https://www.coursera.org/account/accomplishments/verify/62N8R9MU2PXR", cat:"finance" },
+  { title:"BSF Intro to Financial Sustainability", org:"Udacity", date:"December 2024", img:"./assets/images/certificates/BSF Intro to Financial Sustainability_ Udacity.jpeg", link:"https://www.udacity.com/certificate/e/af2ab3bc-a911-11ef-a04e-a70e854d0228", cat:"finance" },
+  { title:"BUS103: Introduction to Financial Accounting", org:"Saylor", date:"June 15, 2024", img:"./assets/images/certificates/Introduction to Financial Accounting.jpeg", link:"https://learn.saylor.org/admin/tool/certificate/index.php?code=9696318376MA", cat:"finance" },
+  { title:"Who Does What in Finance", org:"365 Financial Analyst", date:"April 12, 2020", img:"./assets/images/certificates/f.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-F4FCC6F2EC/", cat:"finance" },
+  { title:"Finance For Startups", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Finance-For-Startups.jpg", link:"https://learn.eeic.gov.eg/profile#certificates", cat:"finance" },
+  { title:"SAP Technology Consultant", org:"SAP", date:"2026", img:"./assets/images/certificates/Coursera5NAVAVEBAMDI-SapConsultant.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/5NAVAVEBAMDI", cat:"tech" },
+  { title:"Gen AI for Project Managers", org:"PMI", date:"2025", img:"./assets/images/certificates/PracticalApplicationofGenAIforProjectManagers.png", link:"https://www.credly.com/badges/6683d5cb-8f17-46cc-879b-855fa138e091", cat:"tech" },
+  { title:"AI Fundamentals with IBM SkillsBuild", org:"Cisco", date:"October 10, 2025", img:"./assets/images/certificates/AIFundamentals.png", link:"https://www.credly.com/badges/887bee78-4af1-4d38-9f79-cef8c1cb91d4/linked_in_profile", cat:"tech" },
+  { title:"Artificial Intelligence Fundamentals", org:"IBM SkillsBuild", date:"October 10, 2025", img:"./assets/images/certificates/ArtificialIntelligenceFundamentals.png", link:"https://www.credly.com/badges/3b82af80-440c-4e98-8306-90879fa81bf0/linked_in_profile", cat:"tech" },
+  { title:"ALX AiCE - AI Career Essentials", org:"ALX Africa", date:"May 17, 2024", img:"./assets/images/certificates/alx-aice-ai-career-essentials-certificate-mohamed-essam-abu-emira.jpeg", link:"https://intranet.alxswe.com/certificates/xMYrP8sCT9", cat:"tech" },
+  { title:"Java Programming and Software Engineering Fundamentals", org:"Duke University", date:"April 23, 2020", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~D6HUZLRCKNBR.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/D6HUZLRCKNBR", cat:"tech" },
+  { title:"Introduction to Software Testing", org:"SprintUp", date:"June 2025", img:"./assets/images/certificates/SprintUp-IntroductiontoTesting.jpg", link:"https://sprints.ai/en/journeys/learning/1143/90127514/view-certificate", cat:"tech" },
+  { title:"Data Storytelling", org:"Almentor", date:"December 1, 2024", img:"./assets/images/certificates/Data-Storytelling-certificate.jpg", link:"https://www.almentor.net/certificate/yxyosp22l", cat:"tech" },
+  { title:"Introduction to Excel", org:"365 Financial Analyst", date:"November 19, 2024", img:"./assets/images/certificates/exlecl.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-D1EB6D86B3/", cat:"tech" },
+  { title:"Digital Egypt Pioneers – Berlitz Business English", org:"Berlitz Egypt", date:"April – October 2024", img:"./assets/images/certificates/BerlitzEgypt-BusinessEnglishTrack.jpg", link:"https://drive.google.com/file/d/1ABBI_z3Ybgf-ZsYtj3CBrrMP_o0zoYpt/view?usp=sharing", cat:"other" },
+  { title:"Virtual Assistant", org:"ALX Africa", date:"September 3, 2024", img:"./assets/images/certificates/72-virtual-assistant-certificate-mohamed-essam.png", link:"https://intranet.alxswe.com/certificates/8LeMT7ncFX", cat:"other" },
+  { title:"Professional Foundations", org:"ALX Africa", date:"August 2024", img:"./assets/images/certificates/Certificate for Professional Foundations.jpeg", link:"#", cat:"other" },
+  { title:"بناء نموذج العمل (Business Model Canvas)", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Business-Model-Canvas.jpg", link:"https://learn.eeic.gov.eg/profile#certificates", cat:"other" },
+  { title:"Robusta | CFYE", org:"EYouth Learning", date:"June 29, 2025", img:"./assets/images/certificates/Robusta.jpg", link:"https://drive.google.com/drive/folders/1snm2eNeW8z4plB8CR1jTFmyTRw2zK2mg", cat:"other" },
+  { title:"ITIDA Gigs Freelancing Program", org:"EYouth & ITIDA", date:"June 2025", img:"./assets/images/certificates/ITIDA-Gigs-Program.jpg", link:"https://drive.google.com/file/d/1xxTroqXPTwq18m-83oehEGgnj1KRXMEU/view", cat:"other" },
+  { title:"International Computer Drivers License – Level One (ICDL)", org:"ICDL Certification", date:"January 2010", img:"./assets/images/certificates/icdlLevelOne.jpg", link:"#", cat:"other" },
+  { title:"Bachelor of Commerce (Accounting)", org:"Faculty of Commerce, Cairo University", date:"May 2012", img:"./assets/images/certificates/Faculty_of_Commerce_Cairo_University.jpg", link:"https://drive.google.com/file/d/1JBADpgJrcm9ZztxZnXYfDSletiV-nAUK/view?usp=sharing", cat:"other" },
+];
 
-function openCertsModal() {
+/* ══════════════════════════════════════════════
+   TOP CERTS — FILTER TABS (main page)
+══════════════════════════════════════════════ */
+let certActiveFilter = 'all';
+
+function buildTopCertFilterTabs() {
+  const row = document.getElementById('certFltRow');
+  if (!row) return;
+  // Only show tabs that have certs in TOP_CERTS
+  const usedCats = ['all', ...new Set(TOP_CERTS.map(c => c.cat))];
+  row.innerHTML = usedCats.map(k => {
+    const cat = CERT_CATEGORIES[k];
+    const isActive = k === 'all';
+    return `<button
+      onclick="setCertFilter('${k}')"
+      data-cfk="${k}"
+      style="
+        display:inline-flex;align-items:center;gap:6px;
+        padding:7px 16px;border-radius:40px;border:1.5px solid ${isActive ? 'var(--primary)' : 'var(--border2)'};
+        background:${isActive ? 'var(--primary)' : 'transparent'};
+        color:${isActive ? '#fff' : 'var(--text-md)'};
+        font-size:.78rem;font-weight:600;cursor:pointer;
+        transition:all .2s var(--ease);white-space:nowrap;
+      "
+    >${cat.icon} ${cat.label}</button>`;
+  }).join('');
+}
+
+function setCertFilter(cat) {
+  certActiveFilter = cat;
+  // Update tab styles
+  document.querySelectorAll('#certFltRow button').forEach(b => {
+    const active = b.dataset.cfk === cat;
+    b.style.background = active ? 'var(--primary)' : 'transparent';
+    b.style.color = active ? '#fff' : 'var(--text-md)';
+    b.style.borderColor = active ? 'var(--primary)' : 'var(--border2)';
+  });
+  renderTopCerts();
+  // Show "Add Filter ↗" button when filtered
+  const btn = document.getElementById('certFilterViewAll');
+  if (btn) {
+    btn.style.display = cat !== 'all' ? 'inline-flex' : 'none';
+    btn.textContent = `View All ${CERT_CATEGORIES[cat].label} →`;
+    btn.onclick = () => openCertsModal(cat);
+  }
+}
+
+function renderTopCerts() {
+  const grid = document.getElementById('topCertsGrid');
+  if (!grid) return;
+  const filtered = certActiveFilter === 'all'
+    ? TOP_CERTS
+    : TOP_CERTS.filter(c => c.cat === certActiveFilter);
+  const shown = filtered.slice(0, 9); // max 9 in a 3-col grid
+
+  grid.innerHTML = shown.map(cert => `
+    <a href="${cert.link}" ${cert.link !== '#' ? 'target="_blank" rel="noopener"' : ''} class="cert-c" title="${cert.title}">
+      <div class="cert-logo-box"><img src="${cert.img}" alt="${cert.title}" loading="lazy"></div>
+      <div class="cert-info"><strong>${cert.title}</strong><span>${cert.tier} ${cert.org}</span></div>
+    </a>
+  `).join('');
+}
+
+/* ══════════════════════════════════════════════
+   CERTIFICATIONS MODAL — with filter tabs
+══════════════════════════════════════════════ */
+let certsLoaded = false;
+let certsModalActiveFilter = 'all';
+
+function openCertsModal(presetCat) {
+  certsModalActiveFilter = presetCat || 'all';
   const modal = document.getElementById('certsModal');
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  buildModalFilterTabs();
+  renderModalCerts();
+}
 
-  if (!certsLoaded) {
-    certsLoaded = true;
-    const grid = document.getElementById('certsGrid');
-    grid.innerHTML = '';
+function buildModalFilterTabs() {
+  const row = document.getElementById('certsModalFilterRow');
+  if (!row) return;
+  const cats = Object.keys(CERT_CATEGORIES);
+  row.innerHTML = cats.map(k => {
+    const cat = CERT_CATEGORIES[k];
+    const count = k === 'all' ? extraCerts.length : extraCerts.filter(c => c.cat === k).length;
+    const isActive = k === certsModalActiveFilter;
+    return `<button
+      onclick="setModalCertFilter('${k}')"
+      data-cmk="${k}"
+      style="
+        display:inline-flex;align-items:center;gap:6px;
+        padding:7px 16px;border-radius:40px;
+        border:1.5px solid ${isActive ? 'var(--primary)' : 'var(--border2)'};
+        background:${isActive ? 'var(--primary)' : 'var(--surface2)'};
+        color:${isActive ? '#fff' : 'var(--text-md)'};
+        font-size:.78rem;font-weight:600;cursor:pointer;
+        transition:all .2s var(--ease);white-space:nowrap;
+      "
+    >${cat.icon} ${cat.label} <span style="opacity:.6;font-size:.72rem;">(${count})</span></button>`;
+  }).join('');
+}
 
-    extraCerts.forEach((cert, i) => {
-      const card = document.createElement('a');
-      card.href = cert.link !== '#' ? cert.link : 'javascript:void(0)';
-      if (cert.link !== '#') card.target = '_blank';
-      card.rel = 'noopener';
-      card.style.cssText = `
-        display:flex;flex-direction:column;border-radius:var(--r);
-        background:var(--surface2);border:1.5px solid var(--border);
-        overflow:hidden;text-decoration:none;
-        transition:transform .25s var(--ease),box-shadow .25s var(--ease);
-        opacity:0;transform:translateY(20px);
-      `;
-      card.innerHTML = `
-        <div style="height:120px;overflow:hidden;background:#f0f0f0;">
-          <img src="${cert.img}" alt="${cert.title}" loading="lazy"
-               style="width:100%;height:100%;object-fit:cover;"
-               onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none';">
-        </div>
-        <div style="padding:12px 14px;">
-          <strong style="font-size:.78rem;color:var(--text);line-height:1.35;display:block;margin-bottom:4px;">${cert.title}</strong>
-          <span style="font-size:.72rem;color:var(--primary);font-weight:600;display:block;">${cert.org}</span>
-          ${cert.date ? `<span style="font-size:.68rem;color:var(--muted);margin-top:2px;display:block;">${cert.date}</span>` : ''}
-        </div>
-      `;
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-4px)';
-        card.style.boxShadow = 'var(--shadow)';
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-        card.style.boxShadow = 'none';
-      });
-      grid.appendChild(card);
+function setModalCertFilter(cat) {
+  certsModalActiveFilter = cat;
+  document.querySelectorAll('#certsModalFilterRow button').forEach(b => {
+    const active = b.dataset.cmk === cat;
+    b.style.background = active ? 'var(--primary)' : 'var(--surface2)';
+    b.style.color = active ? '#fff' : 'var(--text-md)';
+    b.style.borderColor = active ? 'var(--primary)' : 'var(--border2)';
+  });
+  renderModalCerts();
+}
 
-      // Staggered fade-in animation
-      setTimeout(() => {
-        card.style.transition = 'opacity .4s ease, transform .4s ease, box-shadow .25s var(--ease)';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, i * 35);
+function renderModalCerts() {
+  const grid = document.getElementById('certsGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const list = certsModalActiveFilter === 'all'
+    ? extraCerts
+    : extraCerts.filter(c => c.cat === certsModalActiveFilter);
+
+  list.forEach((cert, i) => {
+    const card = document.createElement('a');
+    card.href = cert.link !== '#' ? cert.link : 'javascript:void(0)';
+    if (cert.link !== '#') card.target = '_blank';
+    card.rel = 'noopener';
+    card.style.cssText = `
+      display:flex;flex-direction:column;border-radius:var(--r);
+      background:var(--surface2);border:1.5px solid var(--border);
+      overflow:hidden;text-decoration:none;
+      transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+      opacity:0;transform:translateY(20px);
+    `;
+    card.innerHTML = `
+      <div style="height:120px;overflow:hidden;background:#f0f0f0;">
+        <img src="${cert.img}" alt="${cert.title}" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none';">
+      </div>
+      <div style="padding:12px 14px;">
+        <strong style="font-size:.78rem;color:var(--text);line-height:1.35;display:block;margin-bottom:4px;">${cert.title}</strong>
+        <span style="font-size:.72rem;color:var(--primary);font-weight:600;display:block;">${cert.org}</span>
+        ${cert.date ? `<span style="font-size:.68rem;color:var(--muted);margin-top:2px;display:block;">${cert.date}</span>` : ''}
+      </div>
+    `;
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-4px)';
+      card.style.boxShadow = 'var(--shadow)';
     });
-  }
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = 'none';
+    });
+    grid.appendChild(card);
+    setTimeout(() => {
+      card.style.transition = 'opacity .4s ease, transform .4s ease, box-shadow .25s var(--ease)';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 30);
+  });
 }
 
 function closeCertsModal() {
@@ -2246,6 +2328,12 @@ document.getElementById('certsModal').addEventListener('click', function(e) {
 // Close on Escape key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeCertsModal();
+});
+
+// Init on load
+document.addEventListener('DOMContentLoaded', function() {
+  buildTopCertFilterTabs();
+  renderTopCerts();
 });
 </script>
 
