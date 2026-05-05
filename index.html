@@ -2215,6 +2215,14 @@ document.addEventListener('keydown', function(e) {
       <div>
         <div class="eyebrow rev">Social Proof</div>
         <h2 class="sec-title rev rev-d1">What Clients &amp;<br>Colleagues Say</h2>
+        <div class="rev rev-d2" style="display:flex;align-items:center;gap:16px;margin-top:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid #fde68a;border-radius:40px;padding:7px 16px;">
+            <span style="color:var(--gold);font-size:.95rem;">★★★★★</span>
+            <span style="font-size:.8rem;font-weight:700;color:var(--gold);">5.0</span>
+            <span style="font-size:.75rem;color:var(--muted);font-weight:600;" id="testCount">· 25+ LinkedIn Recommendations</span>
+          </div>
+          <div style="font-size:.78rem;color:var(--muted);">Verified on <a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);font-weight:700;">LinkedIn ↗</a></div>
+        </div>
       </div>
       <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline rev" style="font-size:.8rem;white-space:nowrap;align-self:flex-end;">All Recommendations →</a>
     </div>
@@ -2230,37 +2238,77 @@ document.addEventListener('keydown', function(e) {
     <div class="eyebrow rev">Insights</div>
     <h2 class="sec-title rev rev-d1">ERP Knowledge Hub</h2>
     <p class="sec-desc rev rev-d2">Practical insights on ERP implementation, financial management, and digital transformation.</p>
-    <div class="blog-grid">
-      <a href="https://medium.com/@abuemira/financial-strategy-for-successful-erp-implementation-08b2bd98b602" target="_blank" class="blog-card rev">
-        <div class="blog-img"><img src="./assets/images/blog-2.jpg" alt="Financial Strategy" loading="lazy"></div>
-        <div class="blog-body">
-          <span class="blog-tag-pill">ERP Implementation</span>
-          <h3>Financial Strategy for Successful ERP Implementation</h3>
-          <p>How a sound financial strategy enhances ERP implementation and drives lasting business success.</p>
-          <div class="blog-meta">Nov 10, 2024 · Medium</div>
-        </div>
-      </a>
-      <a href="https://medium.com/@abuemira/the-role-of-erp-in-financial-management-for-modern-businesses-c94017746811" target="_blank" class="blog-card rev rev-d1">
-        <div class="blog-img"><img src="./assets/images/blog-1.png" alt="ERP Financial Management" loading="lazy"></div>
-        <div class="blog-body">
-          <span class="blog-tag-pill">Financial Management</span>
-          <h3>The Role of ERP in Financial Management for Modern Businesses</h3>
-          <p>How ERP solutions optimize financial management and support better decision-making.</p>
-          <div class="blog-meta">Nov 01, 2024 · Medium</div>
-        </div>
-      </a>
-      <a href="https://medium.com/@abuemira/5-key-challenges-in-erp-implementation-and-how-to-overcome-them-094a73d4d89a" target="_blank" class="blog-card rev rev-d2">
-        <div class="blog-img"><img src="./assets/images/blog-3.png" alt="ERP Challenges" loading="lazy"></div>
-        <div class="blog-body">
-          <span class="blog-tag-pill">ERP Challenges</span>
-          <h3>5 Key Challenges in ERP Implementation &amp; How to Overcome Them</h3>
-          <p>The most common ERP challenges — and proven strategies to overcome them effectively.</p>
-          <div class="blog-meta">Oct 25, 2024 · Medium</div>
-        </div>
+    <div class="blog-grid" id="blogGrid"></div>
+    <div style="text-align:center;margin-top:36px;" class="rev">
+      <a href="https://medium.com/@abuemira" target="_blank" class="btn-outline" style="font-size:.85rem;">
+        📝 View All Articles on Medium →
       </a>
     </div>
   </div>
 </section>
+
+<script>
+/* ── BLOG ARTICLES DATA ──────────────────────
+   To add a new article, just add a new object to this array.
+   img: use ./assets/images/blog-N.jpg or any image path
+   tag: short category label
+   date: publication date string
+   url: full Medium article URL
+─────────────────────────────────────────────── */
+const BLOG_ARTICLES = [
+  {
+    img: "./assets/images/blog-2.jpg",
+    tag: "Financial Strategy",
+    title: "Financial Strategy for Successful ERP Implementation",
+    desc: "How a sound financial strategy enhances ERP implementation and drives lasting business success.",
+    date: "Nov 10, 2024",
+    url: "https://medium.com/@abuemira/financial-strategy-for-successful-erp-implementation-08b2bd98b602"
+  },
+  {
+    img: "./assets/images/blog-1.png",
+    tag: "Financial Management",
+    title: "The Role of ERP in Financial Management for Modern Businesses",
+    desc: "How ERP solutions optimize financial management and support better decision-making.",
+    date: "Nov 01, 2024",
+    url: "https://medium.com/@abuemira/the-role-of-erp-in-financial-management-for-modern-businesses-c94017746811"
+  },
+  {
+    img: "./assets/images/blog-3.png",
+    tag: "ERP Challenges",
+    title: "5 Key Challenges in ERP Implementation & How to Overcome Them",
+    desc: "The most common ERP challenges — and proven strategies to overcome them effectively.",
+    date: "Oct 25, 2024",
+    url: "https://medium.com/@abuemira/5-key-challenges-in-erp-implementation-and-how-to-overcome-them-094a73d4d89a"
+  }
+  // ── ADD NEW ARTICLES HERE ──────────────────
+  // Copy & paste a block like this:
+  // ,{
+  //   img: "./assets/images/blog-4.jpg",
+  //   tag: "Odoo Tips",
+  //   title: "Your Article Title Here",
+  //   desc: "Short description of what the article covers.",
+  //   date: "Jan 2025",
+  //   url: "https://medium.com/@abuemira/your-article-slug"
+  // }
+];
+
+(function renderBlog() {
+  const grid = document.getElementById('blogGrid');
+  grid.innerHTML = BLOG_ARTICLES.map((a, i) => `
+    <a href="${a.url}" target="_blank" rel="noopener" class="blog-card rev${i > 0 ? ' rev-d' + i : ''}">
+      <div class="blog-img"><img src="${a.img}" alt="${a.title}" loading="lazy" onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none'"></div>
+      <div class="blog-body">
+        <span class="blog-tag-pill">${a.tag}</span>
+        <h3>${a.title}</h3>
+        <p>${a.desc}</p>
+        <div class="blog-meta">${a.date} · Medium</div>
+      </div>
+    </a>`).join('');
+
+  // Re-observe new elements for scroll reveal
+  grid.querySelectorAll('.rev').forEach(el => obs.observe(el));
+})();
+</script>
 
 <!-- ═══ CTA / CONTACT ═══ -->
 <section id="contact">
@@ -2286,7 +2334,7 @@ document.addEventListener('keydown', function(e) {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Abu<span>Emira</span></div>
-  <div class="footer-copy">© 2026 Mohamed Essam Abu Emira · Odoo ERP Expert</div>
+  <div class="footer-copy">© <span id="footerYear"></span> Mohamed Essam Abu Emira · Odoo ERP Expert</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="footer-link" title="LinkedIn">in</a>
     <a href="https://github.com/mohamedabuemira/" target="_blank" class="footer-link" title="GitHub">gh</a>
@@ -2359,6 +2407,9 @@ const TESTIMONIALS = [
         </div>
       </div>
     </div>`).join('');
+  // Update count badge dynamically
+  const countEl = document.getElementById('testCount');
+  if(countEl) countEl.textContent = `· ${TESTIMONIALS.length}+ LinkedIn Recommendations`;
 })();
 
 /* ── SCROLL REVEAL ───────────────────────── */
@@ -2403,7 +2454,17 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
+/* ── DYNAMIC FOOTER YEAR ─────────────────── */
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
 /* ── COUNTER ANIMATION ───────────────────── */
+// Set real values immediately so slow connections never show "0"
+document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
+  const target = parseInt(el.dataset.count);
+  const suffix = el.querySelector('span')?.textContent || '';
+  el.innerHTML = `${target}<span>${suffix}</span>`;
+});
+// Then animate when element comes into view
 const counterObs = new IntersectionObserver(entries => {
   if(!entries[0].isIntersecting) return;
   document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
