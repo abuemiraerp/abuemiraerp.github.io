@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Abu Emira | Odoo ERP Expert | 60+ Implementations</title>
+  <title>Abu Emira | Odoo ERP Expert | 60+ Implementations</title>
   <meta name="description" content="Mohamed Essam Abu Emira — Odoo ERP Project Manager & Financial Manager. 12+ years, 60+ implementations across GCC & Egypt.">
   <link rel="shortcut icon" href="./assets/images/abu-emira.jpg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1236,12 +1236,155 @@ footer {
           </a>
         </div>
         <div style="margin-top:20px;text-align:center;" class="rev">
-          <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 24px;">View All 50+ Certifications →</a>
+          <button onclick="openCertsModal()" class="btn-outline" style="font-size:.82rem;padding:10px 24px;cursor:pointer;border:none;">View All 50+ Certifications →</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══ CERTIFICATIONS MODAL ═══ -->
+<div id="certsModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);overflow-y:auto;padding:20px;">
+  <div style="max-width:1100px;margin:0 auto;background:var(--surface);border-radius:var(--r-xl);padding:40px 32px;position:relative;">
+    <!-- Close -->
+    <button onclick="closeCertsModal()" style="position:absolute;top:16px;right:20px;background:var(--surface2);border:none;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer;color:var(--text);line-height:36px;">✕</button>
+    <div style="text-align:center;margin-bottom:32px;">
+      <div class="eyebrow" style="margin-bottom:8px;">All Credentials</div>
+      <h2 style="font-family:var(--font-h);font-size:clamp(1.4rem,3vw,2rem);color:var(--text);">50+ Certifications &amp; Credentials</h2>
+    </div>
+    <div id="certsGrid" style="
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:16px;
+    "></div>
+  </div>
+</div>
+
+<script>
+// ── All extra certs (excluding the 8 already shown in Top Certifications) ──
+const extraCerts = [
+  { title:"Odoo 16 Functional Certification", org:"Odoo", date:"July 15, 2023", img:"./assets/images/certificates/odoo16.png", link:"https://drive.google.com/file/d/1PYWyQwf36lUxbmMTUwoB4TU0M7Juo9vb/view?usp=sharing" },
+  { title:"Strategic Leadership: Impact, Change & Decision-Making", org:"Dartmouth College", date:"February 2026", img:"./assets/images/certificates/CourseraXWGHFNK7X3K3.jpg", link:"https://coursera.org/share/b20c69338bfbcc99dabab3048e047b61" },
+  { title:"IBM Project Manager | Google Project Management", org:"Google & IBM", date:"January 2, 2026", img:"./assets/images/certificates/Industry Professional Credentials Track - Specializations- IBM Project Manager | Google Project Management.jpg", link:"https://drive.google.com/file/d/1oBxt4Uut_j_vjxE_nzMl5IiVI_idgQgQ/view?usp=sharing" },
+  { title:"AI Fundamentals with IBM SkillsBuild", org:"Cisco", date:"October 10, 2025", img:"./assets/images/certificates/AIFundamentals.png", link:"https://www.credly.com/badges/887bee78-4af1-4d38-9f79-cef8c1cb91d4/linked_in_profile" },
+  { title:"Artificial Intelligence Fundamentals", org:"IBM SkillsBuild", date:"October 10, 2025", img:"./assets/images/certificates/ArtificialIntelligenceFundamentals.png", link:"https://www.credly.com/badges/3b82af80-440c-4e98-8306-90879fa81bf0/linked_in_profile" },
+  { title:"Financial Analyst", org:"365 Financial Analyst", date:"Oct 22, 2025", img:"./assets/images/certificates/DD-94F896CA7F-FinancialAnalyst.jpg", link:"https://learn.365financialanalyst.com/certificates/DD-94F896CA7F/" },
+  { title:"Entrepreneurship Mastery", org:"Coursera", date:"October 1, 2025", img:"./assets/images/certificates/EntrepreneurshipMastery.png", link:"https://www.coursera.org/account/accomplishments/badge/JcpeUgP-TuuKXlID_h7rmA" },
+  { title:"Exercising Leadership: Foundational Principles", org:"EDX", date:"October 25, 2025", img:"./assets/images/certificates/leadership.jpg", link:"https://courses.edx.org/certificates/693f0d2a565f45d789a59c022f4a7889" },
+  { title:"Technology & Entrepreneurship", org:"Arizona State University", date:"October 25, 2025", img:"./assets/images/certificates/Technology&Entrepreneurship.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/65REZK6MAL1Q" },
+  { title:"Finance Industry Transformation and Regulation", org:"FinTech", date:"September 10, 2025", img:"./assets/images/certificates/FinTech-FinanceIndustryTransformationandRegulation.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/2QI6P56ZBG3G" },
+  { title:"Intuit Academy Bookkeeping", org:"Intuit", date:"August 27, 2025", img:"./assets/images/certificates/IntuitAcademyBookkeeping.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/RHJOU667GU4P" },
+  { title:"Strategic Business Analytics", org:"ESSEC Business School", date:"June 30, 2025", img:"./assets/images/certificates/StrategicBusinessAnalytics.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/M16UNFRC5WYA" },
+  { title:"Cost Accounting", org:"Technical University of Munich (TUM)", date:"Aug 29, 2025", img:"./assets/images/certificates/Coursera02WFNAHJRCSD-Cost-Accounting.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/certificate/02WFNAHJRCSD" },
+  { title:"Business Analysis & Process Management", org:"Coursera Project Network", date:"June 26, 2025", img:"./assets/images/certificates/BusinessAnalysisProcessManagement.jpg", link:"https://coursera.org/share/1662a7138e59ae7dd6d88ca00c955861" },
+  { title:"Financial Analysis - Skills for Success", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialAnalysisSkillsSuccess.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/CJ0R5W645XI7" },
+  { title:"Financial Management", org:"University of Illinois Urbana-Champaign", date:"June 29, 2025", img:"./assets/images/certificates/FinancialManagement.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" },
+  { title:"Introduction to Accounting, Budgeting, and Finance", org:"Thunderbird School of Global Management", date:"June 29, 2025", img:"./assets/images/certificates/IABF_completion_certificate.jpg", link:"https://www.coursera.org/account/accomplishments/specialization/X78E8GF7W753" },
+  { title:"Certified Disciplined Entrepreneur", org:"Missouri State University", date:"", img:"./assets/images/certificates/Certified Disciplined Entrepreneur/CertifiedDisciplinedEntrepreneurIBDLIPDE1004.jpg", link:"https://ibdl.net/certifications?Logbook=IBDLIPDE1004" },
+  { title:"Scrum Fundamentals Certified", org:"SCRUMstudy", date:"", img:"./assets/images/certificates/ScrumFundamentalsCertified-MohamedEssamAbuEmira-1082488.jpg", link:"https://www.scrumstudy.com/certification/verify?type=SFC&number=1082488" },
+  { title:"Digital Egypt Pioneers – Berlitz Business English", org:"Berlitz Egypt", date:"April – October 2024", img:"./assets/images/certificates/BerlitzEgypt-BusinessEnglishTrack.jpg", link:"https://drive.google.com/file/d/1ABBI_z3Ybgf-ZsYtj3CBrrMP_o0zoYpt/view?usp=sharing" },
+  { title:"Product Management Basics Certification", org:"Pendo", date:"May 19, 2024", img:"./assets/images/certificates/Product Management Basics Certification.png", link:"https://www.credly.com/badges/d9784cb2-0e16-4f58-9b27-422cf201582f/linked_in_profile" },
+  { title:"Digital Strategies for Startups", org:"Almentor", date:"January 2025", img:"./assets/images/certificates/Digital Strategies for Startups-certificate.jpg", link:"https://www.almentor.net/certificate/1dmmue226" },
+  { title:"Data Storytelling", org:"Almentor", date:"December 1, 2024", img:"./assets/images/certificates/Data-Storytelling-certificate.jpg", link:"https://www.almentor.net/certificate/yxyosp22l" },
+  { title:"Generative AI Overview for Project Managers", org:"Project Management Institute", date:"May 25, 2024", img:"./assets/images/certificates/Generative AI Overview for Project Managers.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile" },
+  { title:"Corporate Finance Fundamentals", org:"Corporate Finance Institute", date:"October 28, 2023", img:"./assets/images/certificates/corporatefinanceinstitute.com.png", link:"#" },
+  { title:"Accounting Fundamentals", org:"Corporate Finance Institute", date:"September 16, 2023", img:"./assets/images/certificates/Accounting Fundamentals.png", link:"#" },
+  { title:"ALX AiCE - AI Career Essentials", org:"ALX Africa", date:"May 17, 2024", img:"./assets/images/certificates/alx-aice-ai-career-essentials-certificate-mohamed-essam-abu-emira.jpeg", link:"https://intranet.alxswe.com/certificates/xMYrP8sCT9" },
+  { title:"Founder Academy Completion Certificate", org:"ALX Ventures", date:"December 2024", img:"./assets/images/certificates/109-founder-academy-6-week-certificate-mohamed-essam-abu-emira.png", link:"https://intranet.alxswe.com/certificates/SMCnm2RBT7" },
+  { title:"BSF Intro to Financial Sustainability", org:"Udacity", date:"December 2024", img:"./assets/images/certificates/BSF Intro to Financial Sustainability_ Udacity.jpeg", link:"https://www.udacity.com/certificate/e/af2ab3bc-a911-11ef-a04e-a70e854d0228" },
+  { title:"Virtual Assistant", org:"ALX Africa", date:"September 3, 2024", img:"./assets/images/certificates/72-virtual-assistant-certificate-mohamed-essam.png", link:"https://intranet.alxswe.com/certificates/8LeMT7ncFX" },
+  { title:"Professional Foundations", org:"ALX Africa", date:"August 2024", img:"./assets/images/certificates/Certificate for Professional Foundations.jpeg", link:"#" },
+  { title:"BUS103: Introduction to Financial Accounting", org:"Saylor", date:"June 15, 2024", img:"./assets/images/certificates/Introduction to Financial Accounting.jpeg", link:"https://learn.saylor.org/admin/tool/certificate/index.php?code=9696318376MA" },
+  { title:"Foundations of Project Management", org:"Google", date:"August 25, 2021", img:"./assets/images/certificates/Coursera Foundations of Project Management.png", link:"https://www.credly.com/badges/909a88f5-40c4-415e-bb5e-48933fe04603/linked_in_profile" },
+  { title:"Accounting: Principles of Financial Accounting", org:"IESE Business School", date:"August 2, 2019", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~8WH6DBW2UGPJ.jpeg", link:"https://www.coursera.org/account/accomplishments/certificate/62N8R9MU2PXR" },
+  { title:"Introduction to Excel", org:"365 Financial Analyst", date:"November 19, 2024", img:"./assets/images/certificates/exlecl.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-D1EB6D86B3/" },
+  { title:"Who Does What in Finance", org:"365 Financial Analyst", date:"April 12, 2020", img:"./assets/images/certificates/f.jpg", link:"https://learn.365financialanalyst.com/certificates/CC-F4FCC6F2EC/" },
+  { title:"Odoo Functional Implementation Guide – Accounting", org:"Udemy", date:"January 30, 2020", img:"./assets/images/certificates/UC-2c445f68-7e9b-45f7-8633-506540795417.jpg", link:"https://www.udemy.com/certificate/UC-90c1cf41-fb92-4479-85c8-9df4130d0abf/" },
+  { title:"Java Programming and Software Engineering Fundamentals", org:"Duke University", date:"April 23, 2020", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~D6HUZLRCKNBR.jpeg", link:"https://www.coursera.org/account/accomplishments/specialization/D6HUZLRCKNBR" },
+  { title:"Fundamentals of Financial and Management Accounting", org:"Politecnico di Milano", date:"September 6, 2021", img:"./assets/images/certificates/CERTIFICATE_LANDING_PAGE~62N8R9MU2PXR.jpeg", link:"https://www.coursera.org/account/accomplishments/verify/62N8R9MU2PXR" },
+  { title:"International Computer Drivers License – Level One (ICDL)", org:"ICDL Certification", date:"January 2010", img:"./assets/images/certificates/icdlLevelOne.jpg", link:"#" },
+  { title:"Product Management Certification", org:"SprintUp", date:"April 2025", img:"./assets/images/certificates/SprintUp-Product-Management-Certificate.jpg", link:"https://sprints.ai/en/journeys/learning/1197/90127514/view-certificate" },
+  { title:"Bachelor of Commerce (Accounting)", org:"Faculty of Commerce, Cairo University", date:"May 2012", img:"./assets/images/certificates/Faculty_of_Commerce_Cairo_University.jpg", link:"https://drive.google.com/file/d/1JBADpgJrcm9ZztxZnXYfDSletiV-nAUK/view?usp=sharing" },
+  { title:"Career Development (Level 1-2-3)", org:"National Telecommunication Institute (NTI)", date:"Dec 2024 – Apr 2025", img:"./assets/images/certificates/CareerDevelopment.jpg", link:"https://drive.google.com/file/d/1m9M_nPlsoDsO0Q0IGqPoBy4VOvPkDCWs/view?usp=sharing" },
+  { title:"Project Management Basics", org:"EYouth", date:"June 2025", img:"./assets/images/certificates/ProjectManagementBasics.jpg", link:"https://learning.business.eyouthlearning.com/certificates/fe647ebc5cb74dfaac730d22317cb2d9" },
+  { title:"Introduction to Software Testing", org:"SprintUp", date:"June 2025", img:"./assets/images/certificates/SprintUp-IntroductiontoTesting.jpg", link:"https://sprints.ai/en/journeys/learning/1143/90127514/view-certificate" },
+  { title:"بناء نموذج العمل (Business Model Canvas)", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Business-Model-Canvas.jpg", link:"https://learn.eeic.gov.eg/profile#certificates" },
+  { title:"Finance For Startups", org:"Egypt Entrepreneurship & Innovation Center (EEIC)", date:"June 2025", img:"./assets/images/certificates/Finance-For-Startups.jpg", link:"https://learn.eeic.gov.eg/profile#certificates" },
+  { title:"Robusta | CFYE", org:"EYouth Learning", date:"June 29, 2025", img:"./assets/images/certificates/Robusta.jpg", link:"https://drive.google.com/drive/folders/1snm2eNeW8z4plB8CR1jTFmyTRw2zK2mg" },
+  { title:"ITIDA Gigs Freelancing Program", org:"EYouth & ITIDA", date:"June 2025", img:"./assets/images/certificates/ITIDA-Gigs-Program.jpg", link:"https://drive.google.com/file/d/1xxTroqXPTwq18m-83oehEGgnj1KRXMEU/view" },
+];
+
+let certsLoaded = false;
+
+function openCertsModal() {
+  const modal = document.getElementById('certsModal');
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+
+  if (!certsLoaded) {
+    certsLoaded = true;
+    const grid = document.getElementById('certsGrid');
+    grid.innerHTML = '';
+
+    extraCerts.forEach((cert, i) => {
+      const card = document.createElement('a');
+      card.href = cert.link !== '#' ? cert.link : 'javascript:void(0)';
+      if (cert.link !== '#') card.target = '_blank';
+      card.rel = 'noopener';
+      card.style.cssText = `
+        display:flex;flex-direction:column;border-radius:var(--r);
+        background:var(--surface2);border:1.5px solid var(--border);
+        overflow:hidden;text-decoration:none;
+        transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+        opacity:0;transform:translateY(20px);
+      `;
+      card.innerHTML = `
+        <div style="height:120px;overflow:hidden;background:#f0f0f0;">
+          <img src="${cert.img}" alt="${cert.title}" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none';">
+        </div>
+        <div style="padding:12px 14px;">
+          <strong style="font-size:.78rem;color:var(--text);line-height:1.35;display:block;margin-bottom:4px;">${cert.title}</strong>
+          <span style="font-size:.72rem;color:var(--primary);font-weight:600;display:block;">${cert.org}</span>
+          ${cert.date ? `<span style="font-size:.68rem;color:var(--muted);margin-top:2px;display:block;">${cert.date}</span>` : ''}
+        </div>
+      `;
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+        card.style.boxShadow = 'var(--shadow)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = 'none';
+      });
+      grid.appendChild(card);
+
+      // Staggered fade-in animation
+      setTimeout(() => {
+        card.style.transition = 'opacity .4s ease, transform .4s ease, box-shadow .25s var(--ease)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, i * 35);
+    });
+  }
+}
+
+function closeCertsModal() {
+  document.getElementById('certsModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('certsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeCertsModal();
+});
+
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCertsModal();
+});
+</script>
 
 <!-- ═══ TESTIMONIALS ═══ -->
 <section id="testimonials">
@@ -1321,7 +1464,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Abu<span>Emira</span></div>
-  <div class="footer-copy">© 2025 Mohamed Essam Abu Emira · Odoo ERP Expert</div>
+  <div class="footer-copy">© 2026 Mohamed Essam Abu Emira · Odoo ERP Expert</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="footer-link" title="LinkedIn">in</a>
     <a href="https://github.com/mohamedabuemira/" target="_blank" class="footer-link" title="GitHub">gh</a>
