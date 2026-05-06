@@ -1022,8 +1022,33 @@ footer {
 
 /* ── CONTACT FORM ── */
 .contact-form-wrap {
-  display:grid; grid-template-columns:1fr 1fr; gap:48px;
+  display:grid; grid-template-columns:1fr 1fr; gap:56px;
   align-items:start;
+}
+/* Divider between info and form */
+.contact-form-wrap > div:first-child {
+  border-right: 1px solid var(--border);
+  padding-right: 56px;
+}
+[lang="ar"] .contact-form-wrap > div:first-child {
+  border-right: none;
+  border-left: 1px solid var(--border);
+  padding-right: 0;
+  padding-left: 56px;
+}
+@media(max-width:768px){
+  .contact-form-wrap > div:first-child {
+    border-right: none;
+    border-left: none;
+    padding-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+  }
+  [lang="ar"] .contact-form-wrap > div:first-child {
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 1px solid var(--border);
+  }
 }
 .contact-form-side h3 {
   font-family:var(--font-h); font-size:1.3rem; font-weight:700;
@@ -1074,6 +1099,9 @@ footer {
 @media(max-width:768px){
   .contact-form-wrap { grid-template-columns:1fr; gap:32px; }
   .cta-section-wrap { padding:0 16px 60px !important; }
+  /* RTL mobile: show info first, form second */
+  [lang="ar"] .contact-form-side { order:1; }
+  [lang="ar"] .contact-form-wrap > div:last-child { order:2; }
 }
 /* ── LANG TOGGLE ── */
 .lang-toggle {
@@ -1125,7 +1153,10 @@ footer {
 [lang="ar"] .tl-bullets li { text-align:right; }
 [lang="ar"] .contact-form-wrap { direction:rtl; }
 [lang="ar"] .contact-form-side { text-align:right; }
-[lang="ar"] .contact-info-item { flex-direction:row-reverse; text-align:right; }
+[lang="ar"] .contact-info-item { flex-direction:row; text-align:right; }
+[lang="ar"] .contact-info-item > div { text-align:right; }
+[lang="ar"] .cf-group { direction:rtl; }
+[lang="ar"] .cf-success { direction:rtl; }
 [lang="ar"] .cf-label { text-align:right; }
 [lang="ar"] .cf-input, [lang="ar"] .cf-textarea, [lang="ar"] .cf-btn { font-family:'Cairo','Tajawal',sans-serif; }
 [lang="ar"] .cf-input, [lang="ar"] .cf-textarea { text-align:right; direction:rtl; }
@@ -1242,50 +1273,50 @@ footer {
   <div class="inner">
     <div class="about-grid">
       <div>
-        <div class="eyebrow rev" data-en="My Story" data-ar="قصتي">My Story</div>
-        <h2 class="sec-title rev rev-d1" data-en="From Accountant<br>to ERP Architect" data-ar="من محاسب<br>إلى مهندس ERP">From Accountant<br>to ERP Architect</h2>
+        <div class="eyebrow rev" data-en="My Story" data-ar="مسيرتي المهنية">My Story</div>
+        <h2 class="sec-title rev rev-d1" data-en="From Accountant<br>to ERP Architect" data-ar="من محاسب<br>إلى مدير مشاريع ERP">From Accountant<br>to ERP Architect</h2>
 
         <div class="story-line rev rev-d2">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar"></div></div>
           <div class="story-content">
-            <div class="story-period">2013 – 2019 · Foundation</div>
-            <h4>General &amp; Chief Accountant</h4>
-            <p>Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP.</p>
+            <div class="story-period" data-en="2013 – 2019 · Foundation" data-ar="2013 – 2019 · الأساس">2013 – 2019 · Foundation</div>
+            <h4 data-en="General &amp; Chief Accountant" data-ar="محاسب عام ورئيس حسابات">General &amp; Chief Accountant</h4>
+            <p data-en="Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP." data-ar="ست سنوات في إدارة الدورات المالية الكاملة بشركة النيل للصناعات البلاستيكية. اكتسبت خبرة عميقة في التقارير المالية والمطابقة، وعشت معاناة العمل اليدوي — مما دفعني نحو أنظمة ERP.">Six years managing full financial cycles at Nile for Plastic Industries. Mastered financial reporting, reconciliation, and lived the pain of manual processes — which drove me towards ERP.</p>
           </div>
         </div>
         <div class="story-line rev rev-d3">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar"></div></div>
           <div class="story-content">
-            <div class="story-period">2019 – 2023 · Growth</div>
-            <h4>Discovered Odoo ERP — Never Looked Back</h4>
-            <p>Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries.</p>
+            <div class="story-period" data-en="2019 – 2023 · Growth" data-ar="2019 – 2023 · النمو والتطور">2019 – 2023 · Growth</div>
+            <h4 data-en="Discovered Odoo ERP — Never Looked Back" data-ar="بداية رحلتي مع Odoo ERP">Discovered Odoo ERP — Never Looked Back</h4>
+            <p data-en="Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries." data-ar="انتقلت إلى مجال استشارات ERP، وانضممت إلى OdooTec، وبدأت تطبيق Odoo للشركات في مصر والسعودية. بنيت خبرة متعمقة في أكثر من 15 قطاعاً.">Moved into ERP consulting, joined OdooTec, and started implementing Odoo for businesses across Egypt and Saudi Arabia. Built expertise across 15+ industries.</p>
           </div>
         </div>
         <div class="story-line rev rev-d4">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar" style="background:none"></div></div>
           <div class="story-content">
-            <div class="story-period">2023 – Present · Leadership</div>
-            <h4>ERP Project Manager &amp; Independent Consultant</h4>
-            <p>Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 70+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
+            <div class="story-period" data-en="2023 – Present · Leadership" data-ar="2023 – حتى الآن · القيادة">2023 – Present · Leadership</div>
+            <h4 data-en="ERP Project Manager &amp; Independent Consultant" data-ar="مدير مشاريع ERP ومستشار مستقل">ERP Project Manager &amp; Independent Consultant</h4>
+            <p data-en="Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 70+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice." data-ar="أقود مشاريع ERP متكاملة بصفة مدير مشاريع — حاصل على شهادات Odoo v16/17/18، Google PM، IBM PM، McKinsey Forward. أكثر من 70 مشروعاً في الخليج ومصر. صوت ERP الأول على LinkedIn.">Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 70+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
           </div>
         </div>
 
         <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;" class="rev">
-          <a href="https://docs.google.com/document/d/1ccBEAGXvXJ4mPisMsX01LdLDamh5EI5CYPhSRXfOPb0/edit?usp=sharing" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;">📄 Download CV</a>
+          <a href="https://docs.google.com/document/d/1ccBEAGXvXJ4mPisMsX01LdLDamh5EI5CYPhSRXfOPb0/edit?usp=sharing" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;" data-en="📄 Download CV" data-ar="📄 تحميل السيرة الذاتية">📄 Download CV</a>
           <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 20px;">💼 LinkedIn</a>
         </div>
       </div>
 
       <div>
-        <div class="eyebrow rev" data-en="Core Expertise" data-ar="تخصصاتي">Core Expertise</div>
-        <h2 class="sec-title rev rev-d1" data-en="What I Bring<br>to Your Project" data-ar="ما أقدمه<br>لمشروعك">What I Bring<br>to Your Project</h2>
+        <div class="eyebrow rev" data-en="Core Expertise" data-ar="مجالات التخصص">Core Expertise</div>
+        <h2 class="sec-title rev rev-d1" data-en="What I Bring<br>to Your Project" data-ar="ما أضيفه<br>لمشروعك">What I Bring<br>to Your Project</h2>
         <div class="skills-wrap rev rev-d2">
-          <div class="skill-item"><div class="skill-em">📊</div><div class="skill-name">Accounting &amp; Finance</div><div class="skill-sub">Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting</div></div>
-          <div class="skill-item"><div class="skill-em">🏭</div><div class="skill-name">Supply Chain &amp; MFG</div><div class="skill-sub">Inventory, Manufacturing, Purchase, Warehouse Management</div></div>
-          <div class="skill-item"><div class="skill-em">👥</div><div class="skill-name">HR &amp; Payroll</div><div class="skill-sub">Odoo HR, Attendance Tracking, Payroll Configuration</div></div>
-          <div class="skill-item"><div class="skill-em">💼</div><div class="skill-name">Sales, CRM &amp; POS</div><div class="skill-sub">Sales Pipeline, CRM, Point of Sale, E-Commerce Integration</div></div>
-          <div class="skill-item"><div class="skill-em">🗂️</div><div class="skill-name">Project Management</div><div class="skill-sub">Requirements, UAT, Go-Live, Change Management, Training</div></div>
-          <div class="skill-item"><div class="skill-em">🔄</div><div class="skill-name">Data Migration</div><div class="skill-sub">Legacy ERP to Odoo, Version Upgrades, Data Integrity</div></div>
+          <div class="skill-item"><div class="skill-em">📊</div><div class="skill-name" data-en="Accounting &amp; Finance" data-ar="المحاسبة والمالية">Accounting &amp; Finance</div><div class="skill-sub" data-en="Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting" data-ar="محاسبة Odoo · تقارير مالية · موازنات وتخطيط مالي">Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting</div></div>
+          <div class="skill-item"><div class="skill-em">🏭</div><div class="skill-name" data-en="Supply Chain &amp; MFG" data-ar="سلسلة التوريد والتصنيع">Supply Chain &amp; MFG</div><div class="skill-sub" data-en="Inventory, Manufacturing, Purchase, Warehouse Management" data-ar="إدارة المخزون · التصنيع · المشتريات · إدارة المستودعات">Inventory, Manufacturing, Purchase, Warehouse Management</div></div>
+          <div class="skill-item"><div class="skill-em">👥</div><div class="skill-name" data-en="HR &amp; Payroll" data-ar="الموارد البشرية والرواتب">HR &amp; Payroll</div><div class="skill-sub" data-en="Odoo HR, Attendance Tracking, Payroll Configuration" data-ar="موارد بشرية Odoo · الحضور والانصراف · إعداد الرواتب">Odoo HR, Attendance Tracking, Payroll Configuration</div></div>
+          <div class="skill-item"><div class="skill-em">💼</div><div class="skill-name" data-en="Sales, CRM &amp; POS" data-ar="المبيعات وإدارة العملاء">Sales, CRM &amp; POS</div><div class="skill-sub" data-en="Sales Pipeline, CRM, Point of Sale, E-Commerce Integration" data-ar="خط سير المبيعات · CRM · نقاط البيع · تكامل التجارة الإلكترونية">Sales Pipeline, CRM, Point of Sale, E-Commerce Integration</div></div>
+          <div class="skill-item"><div class="skill-em">🗂️</div><div class="skill-name" data-en="Project Management" data-ar="إدارة مشاريع ERP">Project Management</div><div class="skill-sub" data-en="Requirements, UAT, Go-Live, Change Management, Training" data-ar="تحليل المتطلبات · اختبار القبول · التشغيل الفعلي · إدارة التغيير · التدريب">Requirements, UAT, Go-Live, Change Management, Training</div></div>
+          <div class="skill-item"><div class="skill-em">🔄</div><div class="skill-name" data-en="Data Migration" data-ar="ترحيل البيانات والترقية">Data Migration</div><div class="skill-sub" data-en="Legacy ERP to Odoo, Version Upgrades, Data Integrity" data-ar="الترحيل من الأنظمة القديمة · ترقيات الإصدارات · ضمان سلامة البيانات">Legacy ERP to Odoo, Version Upgrades, Data Integrity</div></div>
         </div>
       </div>
     </div>
@@ -1301,39 +1332,39 @@ footer {
     <div class="services-grid">
       <div class="svc-card rev">
         <div class="svc-icon">🚀</div>
-        <h3>ERP Implementation</h3>
-        <p>Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Start Your Project →</a>
+        <h3 data-en="ERP Implementation" data-ar="تطبيق نظام ERP">ERP Implementation</h3>
+        <p data-en="Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18." data-ar="تطبيق متكامل لـ Odoo من تحليل المتطلبات والإعداد والاختبار والتدريب حتى التشغيل الفعلي والدعم ما بعد الإطلاق.">Full-cycle Odoo deployment — requirements, configuration, testing, training, go-live, and post-live support. Odoo v12 through v18.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Start Your Project →" data-ar="← ابدأ مشروعك">Start Your Project →</a>
       </div>
       <div class="svc-card rev rev-d1">
         <div class="svc-icon">⚙️</div>
-        <h3>ERP Customization &amp; Integration</h3>
-        <p>Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Discuss Customization →</a>
+        <h3 data-en="ERP Customization &amp; Integration" data-ar="تخصيص وتكامل ERP">ERP Customization &amp; Integration</h3>
+        <p data-en="Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools." data-ar="تهيئة Odoo وفق آليات عملك وربطه مع Shopify وأنظمة الحجز وباقي المنصات الخارجية.">Tailor Odoo to your workflows. Integrate with Shopify, eZee PMS, booking engines, and other third-party tools.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Discuss Customization →" data-ar="← ناقش احتياجاتك">Discuss Customization →</a>
       </div>
       <div class="svc-card rev rev-d2">
         <div class="svc-icon">🔁</div>
-        <h3>Data Migration &amp; Upgrade</h3>
-        <p>Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Plan Migration →</a>
+        <h3 data-en="Data Migration &amp; Upgrade" data-ar="ترحيل البيانات والترقية">Data Migration &amp; Upgrade</h3>
+        <p data-en="Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment." data-ar="ترحيل آمن من الأنظمة القديمة أو ترقية إصدار Odoo مع التحقق الكامل من البيانات وضمان عدم فقدان أي سجل.">Safe migration from legacy systems or Odoo version upgrades with full data validation and zero data-loss commitment.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Plan Migration →" data-ar="← خطط لعملية الترحيل">Plan Migration →</a>
       </div>
       <div class="svc-card rev rev-d3">
         <div class="svc-icon">📈</div>
-        <h3>Financial Management</h3>
-        <p>Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Get Financial Advice →</a>
+        <h3 data-en="Financial Management" data-ar="الإدارة المالية">Financial Management</h3>
+        <p data-en="Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo." data-ar="استشارات مالية متخصصة في الموازنات والتخطيط المالي وتحليل التكاليف وربط العمليات المالية بنظام Odoo.">Expert financial consulting — budgeting, forecasting, cost analysis, and integrating financial processes into Odoo.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Get Financial Advice →" data-ar="← احصل على استشارة مالية">Get Financial Advice →</a>
       </div>
       <div class="svc-card rev">
         <div class="svc-icon">🎓</div>
-        <h3>Training &amp; Support</h3>
-        <p>Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Book Training →</a>
+        <h3 data-en="Training &amp; Support" data-ar="التدريب والدعم الفني">Training &amp; Support</h3>
+        <p data-en="Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages." data-ar="تمكين فريقك بتدريب منظم على Odoo للمستخدمين والمشرفين مع حزم دعم وظيفي وتقني مستمر.">Empower your team with structured Odoo training — user, admin, and ongoing functional/technical support packages.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Book Training →" data-ar="← احجز جلسة تدريب">Book Training →</a>
       </div>
       <div class="svc-card rev rev-d1">
         <div class="svc-icon">🔍</div>
-        <h3>ERP Audit &amp; Optimization</h3>
-        <p>Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance.</p>
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost">Request Audit →</a>
+        <h3 data-en="ERP Audit &amp; Optimization" data-ar="مراجعة وتحسين نظام ERP">ERP Audit &amp; Optimization</h3>
+        <p data-en="Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance." data-ar="مراجعة شاملة لإعدادات Odoo الحالية وتشخيص نقاط الضعف والأخطاء وتحسين أداء النظام للحصول على أقصى كفاءة.">Review your existing Odoo setup — identify bottlenecks and misconfiguration, then optimize for peak performance.</p>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-ghost" data-en="Request Audit →" data-ar="← اطلب مراجعة النظام">Request Audit →</a>
       </div>
     </div>
   </div>
@@ -1344,7 +1375,7 @@ footer {
   <div class="inner">
     <div class="eyebrow rev" data-en="Track Record" data-ar="سجل الإنجازات">Track Record</div>
     <h2 class="sec-title rev rev-d1" data-en="70+ ERP Implementations" data-ar="70+ تطبيق ERP ناجح">70+ ERP Implementations</h2>
-    <p class="sec-desc rev rev-d2" style="max-width:780px;">77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more.<br>Click any card for the full case study.</p>
+    <p class="sec-desc rev rev-d2" style="max-width:780px;" data-en="77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more. Click any card for the full case study." data-ar="77 تطبيق ERP موثق في السعودية والإمارات ومصر — يشمل الإنشاءات والمطاعم والتصنيع والتجزئة والقطاع الحكومي وغيرها. اضغط على أي بطاقة للاطلاع على دراسة الحالة كاملة.">77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more.<br>Click any card for the full case study.</p>
 
     <!-- Filter Menu -->
     <div class="cs-filter-wrap rev rev-d2">
@@ -2139,20 +2170,23 @@ function renderCaseStudies() {
         <h3>${cs.name}</h3>
         <div class="cs-loc">📍 ${cs.location}</div>
         <div class="cs-challenge">
-          <strong style="font-size:.72rem;color:var(--primary);display:block;margin-bottom:3px;">THE CHALLENGE</strong>
+          <strong style="font-size:.72rem;color:var(--primary);display:block;margin-bottom:3px;">${document.documentElement.getAttribute('lang')==='ar' ? 'التحدي' : 'THE CHALLENGE'}</strong>
           ${cs.challenge.length > 120 ? cs.challenge.slice(0,120)+'…' : cs.challenge}
         </div>
         <div class="cs-results">
           ${cs.kpis.map(k=>`<div class="cs-kpi"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
         </div>
-        <span class="cs-read-more">Read Full Case Study →</span>
+        <span class="cs-read-more" data-en="Read Full Case Study →" data-ar="← اقرأ دراسة الحالة كاملة">Read Full Case Study →</span>
       </div>
     </div>`).join('');
 
   const btn = document.getElementById('csShowMoreBtn');
   const remaining = list.length - csVisible;
   btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
-  btn.textContent = `Show More Projects (${remaining} remaining)`;
+  const isAr = document.documentElement.getAttribute('lang') === 'ar';
+  btn.textContent = isAr
+    ? `عرض المزيد (${remaining} متبقية)`
+    : `Show More Projects (${remaining} remaining)`;
 }
 
 document.getElementById('csFltRow').querySelectorAll('.flt').forEach(b => {
@@ -2171,6 +2205,7 @@ document.getElementById('csShowMoreBtn').addEventListener('click', () => {
 renderCaseStudies();
 
 function openCS(id){
+  const _ar = document.documentElement.getAttribute('lang')==='ar';
   const cs = CASE_STUDIES.find(c=>c.id===id);
   if(!cs) return;
   document.getElementById('csModalContent').innerHTML = `
@@ -2183,17 +2218,17 @@ function openCS(id){
       <div class="cs-modal-meta">${cs.location} &nbsp;·&nbsp; ${cs.version}</div>
       <div class="cs-section-label">🔴 The Challenge</div>
       <p>${cs.challenge}</p>
-      <div class="cs-section-label">🔧 The Solution</div>
+      <div class="cs-section-label">${_ar ? '🔧 الحل المُطبَّق' : '🔧 The Solution'}</div>
       <p>${cs.solution}</p>
       <div class="cs-modal-modules">${cs.modules.map(m=>`<span>${m}</span>`).join('')}</div>
-      <div class="cs-section-label">✅ Key Results</div>
+      <div class="cs-section-label">${_ar ? '✅ النتائج الرئيسية' : '✅ Key Results'}</div>
       <div class="cs-kpis-row">
         ${cs.kpis.map(k=>`<div class="cs-kpi-big"><strong>${k.val}</strong><span>${k.label}</span></div>`).join('')}
       </div>
-      <div class="cs-section-label">💡 Outcome</div>
+      <div class="cs-section-label">${_ar ? '💡 النتيجة النهائية' : '💡 Outcome'}</div>
       <p>${cs.outcome}</p>
       <div class="cs-cta-modal">
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 24px;">📅 Discuss a Similar Project</a>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 24px;">${_ar ? '📅 ناقش مشروعاً مماثلاً' : '📅 Discuss a Similar Project'}</a>
         <a href="https://wa.me/201005061349" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 22px;">💬 WhatsApp</a>
       </div>
     </div>`;
@@ -2216,15 +2251,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
   <div class="inner">
     <div class="exp-cols">
       <div>
-        <div class="eyebrow rev">Career Path</div>
-        <h2 class="sec-title rev rev-d1">Professional Experience</h2>
+        <div class="eyebrow rev" data-en="Career Path" data-ar="المسيرة المهنية">Career Path</div>
+        <h2 class="sec-title rev rev-d1" data-en="Professional Experience" data-ar="الخبرة والمسيرة المهنية">Professional Experience</h2>
         <div class="tl rev rev-d2">
 
           <!-- 1. Current Position — Self-Employed -->
           <div class="tl-item">
-            <div class="tl-current-badge"><span class="pulse"></span> Current Position</div>
+            <div class="tl-current-badge" data-en="Current Position" data-ar="المنصب الحالي"><span class="pulse"></span> Current Position</div>
             <div class="tl-header">
-              <h4>ERP Operations Manager · Odoo Expert</h4>
+              <h4 data-en="ERP Operations Manager · Odoo Expert" data-ar="مدير عمليات ERP · خبير Odoo">ERP Operations Manager · Odoo Expert</h4>
               <span class="tl-date-badge">Sep 2024 – Present</span>
             </div>
             <div class="tl-co">
@@ -2247,7 +2282,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 2. Expert Company -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4>ERP Consultant · Product Owner</h4>
+              <h4 data-en="ERP Consultant · Product Owner" data-ar="مستشار ERP · مالك المنتج">ERP Consultant · Product Owner</h4>
               <span class="tl-date-badge">Jan 2023 – Sep 2024</span>
             </div>
             <div class="tl-co">
@@ -2270,7 +2305,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 3. OdooTec -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4>Odoo Functional Consultant</h4>
+              <h4 data-en="Odoo Functional Consultant" data-ar="مستشار Odoo وظيفي">Odoo Functional Consultant</h4>
               <span class="tl-date-badge">Feb 2021 – Jan 2023</span>
             </div>
             <div class="tl-co">
@@ -2291,7 +2326,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 4. Ultimate Solutions -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4>ERP Implementation Consultant</h4>
+              <h4 data-en="ERP Implementation Consultant" data-ar="مستشار تطبيق ERP">ERP Implementation Consultant</h4>
               <span class="tl-date-badge">May 2019 – Feb 2021</span>
             </div>
             <div class="tl-co">
@@ -2312,7 +2347,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 5. HMTO -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4>Accountant Manager</h4>
+              <h4 data-en="Accountant Manager" data-ar="مدير حسابات">Accountant Manager</h4>
               <span class="tl-date-badge">Feb 2019 – May 2019</span>
             </div>
             <div class="tl-co">
@@ -2332,7 +2367,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 6. Nile for Plastic -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4>Chief Accountant → General Accountant</h4>
+              <h4 data-en="Chief Accountant → General Accountant" data-ar="رئيس حسابات ← محاسب عام">Chief Accountant → General Accountant</h4>
               <span class="tl-date-badge">Nov 2013 – Feb 2019</span>
             </div>
             <div class="tl-co">
@@ -2845,25 +2880,31 @@ document.addEventListener('keydown', function(e) {
 const BLOG_ARTICLES = [
   {
     img: "./assets/images/blog-2.jpg",
-    tag: "Financial Strategy",
+    tag: "Financial Strategy", tagAr: "الاستراتيجية المالية",
     title: "Financial Strategy for Successful ERP Implementation",
+    titleAr: "الاستراتيجية المالية لتطبيق ERP الناجح",
     desc: "How a sound financial strategy enhances ERP implementation and drives lasting business success.",
+    descAr: "كيف تُعزز الاستراتيجية المالية السليمة نجاح تطبيق ERP وتحقق نمواً مستداماً للأعمال.",
     date: "Nov 10, 2024",
     url: "https://medium.com/@abuemira/financial-strategy-for-successful-erp-implementation-08b2bd98b602"
   },
   {
     img: "./assets/images/blog-1.png",
-    tag: "Financial Management",
+    tag: "Financial Management", tagAr: "الإدارة المالية",
     title: "The Role of ERP in Financial Management for Modern Businesses",
+    titleAr: "دور نظام ERP في الإدارة المالية للشركات الحديثة",
     desc: "How ERP solutions optimize financial management and support better decision-making.",
+    descAr: "كيف تُحسّن أنظمة ERP الإدارة المالية وتدعم اتخاذ القرارات الاستراتيجية.",
     date: "Nov 01, 2024",
     url: "https://medium.com/@abuemira/the-role-of-erp-in-financial-management-for-modern-businesses-c94017746811"
   },
   {
     img: "./assets/images/blog-3.png",
-    tag: "ERP Challenges",
+    tag: "ERP Challenges", tagAr: "تحديات ERP",
     title: "5 Key Challenges in ERP Implementation & How to Overcome Them",
+    titleAr: "5 تحديات رئيسية في تطبيق ERP وكيفية التغلب عليها",
     desc: "The most common ERP challenges — and proven strategies to overcome them effectively.",
+    descAr: "أبرز تحديات تطبيق ERP — واستراتيجيات مجربة للتغلب عليها بفاعلية.",
     date: "Oct 25, 2024",
     url: "https://medium.com/@abuemira/5-key-challenges-in-erp-implementation-and-how-to-overcome-them-094a73d4d89a"
   }
@@ -2879,22 +2920,26 @@ const BLOG_ARTICLES = [
   // }
 ];
 
-(function renderBlog() {
+function renderBlog() {
+  const isAr = document.documentElement.getAttribute('lang') === 'ar';
   const grid = document.getElementById('blogGrid');
   grid.innerHTML = BLOG_ARTICLES.map((a, i) => `
     <a href="${a.url}" target="_blank" rel="noopener" class="blog-card rev${i > 0 ? ' rev-d' + i : ''}">
-      <div class="blog-img"><img src="${a.img}" alt="${a.title}" loading="lazy" onerror="this.parentElement.style.background='var(--primary-bg)';this.style.display='none'"></div>
+      <div class="blog-img" style="background:var(--primary-bg);">
+        <img src="${a.img}" alt="${isAr ? a.titleAr : a.title}" loading="lazy"
+          onerror="this.style.display='none'"
+          style="width:100%;height:100%;object-fit:cover;">
+      </div>
       <div class="blog-body">
-        <span class="blog-tag-pill">${a.tag}</span>
-        <h3>${a.title}</h3>
-        <p>${a.desc}</p>
+        <span class="blog-tag-pill">${isAr ? a.tagAr : a.tag}</span>
+        <h3>${isAr ? a.titleAr : a.title}</h3>
+        <p>${isAr ? a.descAr : a.desc}</p>
         <div class="blog-meta">${a.date} · Medium</div>
       </div>
     </a>`).join('');
-
-  // Re-observe new elements for scroll reveal
   grid.querySelectorAll('.rev').forEach(el => obs.observe(el));
-})();
+}
+renderBlog();
 </script>
 
 <!-- ═══ CONTACT FORM ═══ -->
@@ -2906,27 +2951,27 @@ const BLOG_ARTICLES = [
 
       <!-- Left: Info -->
       <div class="contact-form-side">
-        <h3>Ready to transform your business?</h3>
-        <p>Whether you need a full ERP implementation, an upgrade, optimization, or expert advice — I'm here to help. Fill in the form or reach out directly.</p>
+        <h3 data-en="Ready to transform your business?" data-ar="هل أنت مستعد للتحول الرقمي؟">Ready to transform your business?</h3>
+        <p data-en="Whether you need a full ERP implementation, an upgrade, optimization, or expert advice — I'm here to help." data-ar="سواء كنت تحتاج تطبيقاً لنظام ERP أو ترقية أو استشارة — أنا هنا للمساعدة. أرسل رسالتك أو تواصل معي مباشرةً.">Whether you need a full ERP implementation, an upgrade, optimization, or expert advice — I'm here to help. Fill in the form or reach out directly.</p>
         <div class="contact-info-item">
           <div class="contact-info-icon">📧</div>
-          <div><div style="font-weight:700;margin-bottom:2px;">Email</div><a href="mailto:abuemira91@gmail.com" style="color:var(--primary-lt);">abuemira91@gmail.com</a></div>
+          <div><div style="font-weight:700;margin-bottom:2px;">Email</div><a href="mailto:abuemira91@gmail.com" style="color:var(--primary-lt);direction:ltr;display:inline-block;">abuemira91@gmail.com</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">📱</div>
-          <div><div style="font-weight:700;margin-bottom:2px;">WhatsApp</div><a href="https://wa.me/201005061349" target="_blank" style="color:var(--primary-lt);">+20 100 506 1349</a></div>
+          <div><div style="font-weight:700;margin-bottom:2px;" data-en="WhatsApp" data-ar="واتساب">WhatsApp</div><a href="https://wa.me/201005061349" target="_blank" style="color:var(--primary-lt);direction:ltr;display:inline-block;">+20 100 506 1349</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">📅</div>
-          <div><div style="font-weight:700;margin-bottom:2px;">Book a Call</div><a href="https://calendly.com/abuemira/30min" target="_blank" style="color:var(--primary-lt);">calendly.com/abuemira</a></div>
+          <div><div style="font-weight:700;margin-bottom:2px;">Book a Call</div><a href="https://calendly.com/abuemira/30min" target="_blank" style="color:var(--primary-lt);direction:ltr;display:inline-block;">calendly.com/abuemira</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">💼</div>
-          <div><div style="font-weight:700;margin-bottom:2px;">LinkedIn</div><a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);">linkedin.com/in/abuemira</a></div>
+          <div><div style="font-weight:700;margin-bottom:2px;">LinkedIn</div><a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);direction:ltr;display:inline-block;">linkedin.com/in/abuemira</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">🌐</div>
-          <div><div style="font-weight:700;margin-bottom:2px;">All Links</div><a href="https://linktr.ee/abuemira" target="_blank" style="color:var(--primary-lt);">linktr.ee/abuemira</a></div>
+          <div><div style="font-weight:700;margin-bottom:2px;">All Links</div><a href="https://linktr.ee/abuemira" target="_blank" style="color:var(--primary-lt);direction:ltr;display:inline-block;">linktr.ee/abuemira</a></div>
         </div>
       </div>
 
@@ -2973,7 +3018,7 @@ const BLOG_ARTICLES = [
 <section class="cta-section-wrap" style="background:white; padding:0 48px 80px;">
   <div class="inner">
     <div class="cta-box rev">
-      <div class="cta-eyebrow">✦ Free Consultation</div>
+      <div class="cta-eyebrow" data-en="✦ Free Consultation" data-ar="✦ استشارة مجانية">✦ Free Consultation</div>
       <h2 data-en="Prefer to Talk Directly?" data-ar="تفضّل التحدث مباشرة؟">Prefer to Talk Directly?</h2>
       <p data-en="Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required." data-ar="احجز استشارة مجانية لمدة 30 دقيقة ونحدد معاً المسار الصحيح لمشروع ERP الخاص بك — بدون أي التزام.">Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required.</p>
       <div class="cta-btns">
@@ -3228,7 +3273,7 @@ function setLang(lang) {
     const txt = isAr ? el.dataset.ar : el.dataset.en;
     if (!txt) return;
     // If it's a button/link/label — set innerHTML (allows emojis & <br>)
-    if (['BUTTON','A','LABEL','DIV','P','H2','H3','SPAN'].includes(el.tagName)) {
+    if (['BUTTON','A','LABEL','DIV','P','H2','H3','H4','SPAN'].includes(el.tagName)) {
       // Preserve child elements (dots, spans) for hero-badge
       if (el.classList.contains('hero-badge')) {
         const dot = el.querySelector('.dot');
@@ -3323,6 +3368,64 @@ function setLang(lang) {
   // Certs "View All" button
   const certsBtn = document.querySelector('button[onclick="openCertsModal()"]');
   if (certsBtn) certsBtn.innerHTML = isAr ? 'عرض جميع الشهادات +50 →' : 'View All 50+ Certifications →';
+
+  // Experience section static labels
+  const careerEyebrow = document.querySelector('#experience .eyebrow');
+  if (careerEyebrow) careerEyebrow.textContent = isAr ? 'المسيرة المهنية' : 'Career Path';
+
+  const expTitle = document.querySelector('#experience h2.sec-title');
+  if (expTitle) expTitle.innerHTML = isAr ? 'الخبرة والمسيرة المهنية' : 'Professional Experience';
+
+  const currentBadge = document.querySelector('.tl-current-badge');
+  if (currentBadge) currentBadge.innerHTML = isAr
+    ? '<span class="pulse"></span> المنصب الحالي'
+    : '<span class="pulse"></span> Current Position';
+
+  // "Read Full Case Study" links in grid (re-render)
+  document.querySelectorAll('.cs-read-more').forEach(el => {
+    el.textContent = isAr ? '← اقرأ دراسة الحالة كاملة' : 'Read Full Case Study →';
+  });
+
+  // Show More button (update if visible)
+  const smBtn = document.getElementById('csShowMoreBtn');
+  if (smBtn && smBtn.style.display !== 'none') {
+    const m = smBtn.textContent.match(/\d+/);
+    const n = m ? m[0] : '';
+    smBtn.textContent = isAr ? 'عرض المزيد (' + n + ' متبقية)' : 'Show More Projects (' + n + ' remaining)';
+  }
+
+  // Projects description paragraph
+  const projDesc = document.querySelector('#projects .sec-desc');
+  if (projDesc && projDesc.dataset.ar) {
+    projDesc.innerHTML = isAr ? projDesc.dataset.ar : projDesc.dataset.en;
+  }
+
+  // Re-render blog in correct language
+  if (typeof renderBlog === 'function') renderBlog();
+
+  // Experience section bullets — translate key items
+  const expBullets = {
+    en: [
+      'Leading independent Odoo ERP consultancy for clients across Egypt, Saudi Arabia & GCC — full project lifecycle ownership',
+      'Delivering end-to-end implementations: discovery, design, configuration, UAT, go-live, and ongoing support',
+      'Driving high user adoption through structured training and change management programs',
+      'Documented 50+ functional specifications translating complex business requirements into Odoo solutions',
+      'Improved system performance by 70% through ERP codebase optimization and database restructuring',
+      'Managed 30+ client engagements with Studio customizations and data migrations across 15+ industries',
+    ],
+    ar: [
+      'قيادة استشارات Odoo ERP المستقلة للعملاء في مصر والسعودية والخليج — مع الملكية الكاملة لدورة حياة المشروع',
+      'تسليم تطبيقات متكاملة: من الاكتشاف والتصميم والإعداد واختبار القبول حتى التشغيل الفعلي والدعم المستمر',
+      'تحقيق تبني مرتفع للمستخدمين عبر برامج تدريب منظمة وإدارة فعّالة للتغيير',
+      'توثيق أكثر من 50 مواصفة وظيفية لتحويل متطلبات الأعمال المعقدة إلى حلول Odoo قابلة للتطبيق',
+      'تحسين أداء النظام بنسبة 70% من خلال تحسين قاعدة بيانات ERP وإعادة هيكلتها',
+      'إدارة أكثر من 30 عميلاً مع تخصيصات Odoo Studio وترحيل البيانات عبر 15+ قطاع',
+    ]
+  };
+  document.querySelectorAll('.tl-bullets li').forEach((li, i) => {
+    const txt = isAr ? expBullets.ar[i] : expBullets.en[i];
+    if (txt) li.innerHTML = txt;
+  });
 }
 
 // Init on page load
