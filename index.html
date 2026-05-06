@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="./assets/images/abu-emira.jpg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,600&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PGZH8HT');</script>
 <style>
 /* =============================================
@@ -1075,6 +1075,87 @@ footer {
   .contact-form-wrap { grid-template-columns:1fr; gap:32px; }
   .cta-section-wrap { padding:0 16px 60px !important; }
 }
+/* ── LANG TOGGLE ── */
+.lang-toggle {
+  display:inline-flex; align-items:center; gap:0;
+  background:var(--surface2); border:1.5px solid var(--border2);
+  border-radius:40px; padding:3px; font-size:.72rem; font-weight:700;
+  flex-shrink:0;
+}
+.lang-btn {
+  padding:4px 10px; border-radius:30px; cursor:pointer;
+  color:var(--muted); transition:background .2s, color .2s;
+  border:none; background:none; font-family:var(--font-b);
+  font-size:.72rem; font-weight:700;
+}
+.lang-btn.active {
+  background:var(--primary); color:#fff;
+}
+
+/* ── RTL ARABIC MODE ── */
+[lang="ar"] {
+  direction: rtl;
+  font-family: 'Cairo', 'Tajawal', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+[lang="ar"] nav { flex-direction: row-reverse; }
+[lang="ar"] .nav-links { flex-direction: row-reverse; }
+[lang="ar"] .hero-inner { direction:rtl; }
+[lang="ar"] .hero-h1 { text-align:right; }
+[lang="ar"] .hero-p { text-align:right; }
+[lang="ar"] .hero-btns { justify-content:flex-start; flex-direction:row-reverse; }
+[lang="ar"] .trust-badges { flex-direction:row-reverse; }
+[lang="ar"] .hero-stats { flex-direction:row-reverse; }
+[lang="ar"] .eyebrow { flex-direction:row-reverse; }
+[lang="ar"] .eyebrow::before { display:none; }
+[lang="ar"] .eyebrow::after { content:''; width:20px; height:2px; background:var(--primary-lt); border-radius:1px; }
+[lang="ar"] .story-line { flex-direction:row-reverse; text-align:right; }
+[lang="ar"] .story-line-bar { background:linear-gradient(to bottom, var(--border2), transparent); }
+[lang="ar"] .skills-wrap { direction:rtl; }
+[lang="ar"] .skill-sub { text-align:right; }
+[lang="ar"] .services-grid { direction:rtl; }
+[lang="ar"] .svc-card { text-align:right; }
+[lang="ar"] .about-grid { direction:rtl; }
+[lang="ar"] .tl { padding-left:0; padding-right:30px; }
+[lang="ar"] .tl::before { left:auto; right:5px; }
+[lang="ar"] .tl-dot { left:auto; right:-7px; }
+[lang="ar"] .tl-item { padding-left:0; padding-right:20px; text-align:right; }
+[lang="ar"] .tl-header { flex-direction:row-reverse; }
+[lang="ar"] .tl-co { flex-direction:row-reverse; }
+[lang="ar"] .tl-tags { flex-direction:row-reverse; }
+[lang="ar"] .tl-bullets li { text-align:right; }
+[lang="ar"] .contact-form-wrap { direction:rtl; }
+[lang="ar"] .contact-form-side { text-align:right; }
+[lang="ar"] .contact-info-item { flex-direction:row-reverse; text-align:right; }
+[lang="ar"] .cf-label { text-align:right; }
+[lang="ar"] .cf-input, [lang="ar"] .cf-textarea, [lang="ar"] .cf-btn { font-family:'Cairo','Tajawal',sans-serif; }
+[lang="ar"] .cf-input, [lang="ar"] .cf-textarea { text-align:right; direction:rtl; }
+[lang="ar"] .cta-box { direction:rtl; }
+[lang="ar"] .cta-contact-row { flex-direction:row-reverse; }
+[lang="ar"] footer { flex-direction:row-reverse; }
+[lang="ar"] .test-head { flex-direction:row-reverse; }
+[lang="ar"] .test-author { flex-direction:row-reverse; }
+[lang="ar"] .filter-row { flex-direction:row-reverse; }
+[lang="ar"] .cs-body { text-align:right; }
+[lang="ar"] .cs-challenge { border-left:none; border-right:3px solid var(--primary); border-radius:8px 0 0 8px; }
+[lang="ar"] .cs-modal-body { text-align:right; direction:rtl; }
+[lang="ar"] .cs-modal-modules { flex-direction:row-reverse; }
+[lang="ar"] .cs-cta-modal { flex-direction:row-reverse; }
+[lang="ar"] .sec-title { text-align:right; }
+[lang="ar"] .sec-desc { text-align:right; }
+[lang="ar"] h2.sec-title { text-align:right; }
+[lang="ar"] .show-more-wrap { direction:rtl; }
+[lang="ar"] .blog-body { text-align:right; }
+[lang="ar"] .exp-cols { direction:rtl; }
+[lang="ar"] .certs-grid { direction:rtl; }
+[lang="ar"] .cert-c { flex-direction:row-reverse; }
+
+@media(max-width:768px){
+  [lang="ar"] .hero-btns { flex-direction:column; align-items:center; }
+  [lang="ar"] .hero-h1 { text-align:center; }
+  [lang="ar"] .hero-p { text-align:center; }
+  [lang="ar"] .filter-row { flex-direction:row; }
+}
+
 </style>
 </head>
 <body>
@@ -1083,15 +1164,19 @@ footer {
 <nav id="mainNav">
   <a href="#home" class="nav-logo">Abu<span>Emira</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="https://calendly.com/abuemira/30min" target="_blank" class="nav-cta">Book a Call</a></li>
+    <li><a href="#about" data-en="About" data-ar="عني">About</a></li>
+    <li><a href="#services" data-en="Services" data-ar="خدماتي">Services</a></li>
+    <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+    <li><a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a></li>
+    <li><a href="#testimonials" data-en="Testimonials" data-ar="التوصيات">Testimonials</a></li>
+    <li><a href="#blog" data-en="Blog" data-ar="المقالات">Blog</a></li>
+    <li><a href="https://calendly.com/abuemira/30min" target="_blank" class="nav-cta" data-en="Book a Call" data-ar="احجز مكالمة">Book a Call</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="lang-toggle" id="langToggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">ع</button>
+    </div>
     <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
   </div>
@@ -1101,31 +1186,39 @@ footer {
 <section id="home">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><span class="dot"></span>🏆 LinkedIn Top ERP Voice</div>
-      <h1 class="hero-h1">
+      <div class="hero-badge" data-en="🏆 LinkedIn Top ERP Voice" data-ar="🏆 صوت ERP الأول على LinkedIn"><span class="dot"></span>🏆 LinkedIn Top ERP Voice</div>
+      <h1 class="hero-h1" id="hero-h1-en">
         Odoo ERP<br>
         <em>Project Manager</em><br>
         <span class="line-outline">&amp; Consultant</span>
       </h1>
-      <p class="hero-p">
+      <h1 class="hero-h1" id="hero-h1-ar" style="display:none;">
+        خبير <em>Odoo ERP</em><br>
+        <span class="line-outline">مدير مشاريع ومستشار</span>
+      </h1>
+      <p class="hero-p" id="hero-p-en">
         I turn complex business operations into <strong>streamlined ERP systems</strong> — 
         12+ years delivering successful Odoo implementations across Egypt, Saudi Arabia &amp; the GCC.
       </p>
+      <p class="hero-p" id="hero-p-ar" style="display:none;">
+        أحوّل العمليات التجارية المعقدة إلى <strong>أنظمة ERP فعّالة</strong> —
+        أكثر من 12 عامًا من التطبيقات الناجحة لـ Odoo في مصر والسعودية ودول الخليج.
+      </p>
       <div class="hero-btns">
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary">📅 Book Free Consultation</a>
-        <a href="#projects" class="btn-outline">View 70+ Projects →</a>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" data-en="📅 Book Free Consultation" data-ar="📅 احجز استشارة مجانية">📅 Book Free Consultation</a>
+        <a href="#projects" class="btn-outline" data-en="View 70+ Projects →" data-ar="← استعرض 70+ مشروع">View 70+ Projects →</a>
       </div>
       <div class="trust-badges">
-        <div class="trust-badge">🏆 LinkedIn Top ERP Voice</div>
-        <div class="trust-badge">🟣 Odoo Official Certified</div>
-        <div class="trust-badge">✅ 40+ Certifications</div>
-        <div class="trust-badge">🌍 Egypt · KSA · UAE · GCC</div>
+        <div class="trust-badge" data-en="🏆 LinkedIn Top ERP Voice" data-ar="🏆 صوت ERP الأول على LinkedIn">🏆 LinkedIn Top ERP Voice</div>
+        <div class="trust-badge" data-en="🟣 Odoo Official Certified" data-ar="🟣 شريك Odoo معتمد رسمياً">🟣 Odoo Official Certified</div>
+        <div class="trust-badge" data-en="✅ 40+ Certifications" data-ar="✅ 40+ شهادة احترافية">✅ 40+ Certifications</div>
+        <div class="trust-badge" data-en="🌍 Egypt · KSA · UAE · GCC" data-ar="🌍 مصر · السعودية · الإمارات · الخليج">🌍 Egypt · KSA · UAE · GCC</div>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl">Years Experience</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="70">0<span>+</span></div><div class="hero-stat-lbl">ERP Projects</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl">Certifications</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl">Industries</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="70">0<span>+</span></div><div class="hero-stat-lbl" data-en="ERP Projects" data-ar="مشروع ERP">ERP Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl" data-en="Certifications" data-ar="شهادة احترافية">Certifications</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl" data-en="Industries" data-ar="قطاع صناعي">Industries</div></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -1149,8 +1242,8 @@ footer {
   <div class="inner">
     <div class="about-grid">
       <div>
-        <div class="eyebrow rev">My Story</div>
-        <h2 class="sec-title rev rev-d1">From Accountant<br>to ERP Architect</h2>
+        <div class="eyebrow rev" data-en="My Story" data-ar="قصتي">My Story</div>
+        <h2 class="sec-title rev rev-d1" data-en="From Accountant<br>to ERP Architect" data-ar="من محاسب<br>إلى مهندس ERP">From Accountant<br>to ERP Architect</h2>
 
         <div class="story-line rev rev-d2">
           <div class="story-dot-col"><div class="story-dot"></div><div class="story-line-bar"></div></div>
@@ -1184,8 +1277,8 @@ footer {
       </div>
 
       <div>
-        <div class="eyebrow rev">Core Expertise</div>
-        <h2 class="sec-title rev rev-d1">What I Bring<br>to Your Project</h2>
+        <div class="eyebrow rev" data-en="Core Expertise" data-ar="تخصصاتي">Core Expertise</div>
+        <h2 class="sec-title rev rev-d1" data-en="What I Bring<br>to Your Project" data-ar="ما أقدمه<br>لمشروعك">What I Bring<br>to Your Project</h2>
         <div class="skills-wrap rev rev-d2">
           <div class="skill-item"><div class="skill-em">📊</div><div class="skill-name">Accounting &amp; Finance</div><div class="skill-sub">Odoo Accounting, Financial Reporting, Budgeting &amp; Forecasting</div></div>
           <div class="skill-item"><div class="skill-em">🏭</div><div class="skill-name">Supply Chain &amp; MFG</div><div class="skill-sub">Inventory, Manufacturing, Purchase, Warehouse Management</div></div>
@@ -1202,9 +1295,9 @@ footer {
 <!-- ═══ SERVICES ═══ -->
 <section id="services">
   <div class="inner">
-    <div class="eyebrow rev">What I Do</div>
-    <h2 class="sec-title rev rev-d1">Services &amp; Solutions</h2>
-    <p class="sec-desc rev rev-d2">End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond.</p>
+    <div class="eyebrow rev" data-en="What I Do" data-ar="ماذا أقدم">What I Do</div>
+    <h2 class="sec-title rev rev-d1" data-en="Services &amp; Solutions" data-ar="خدماتي وحلولي">Services &amp; Solutions</h2>
+    <p class="sec-desc rev rev-d2" data-en="End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond." data-ar="استشارات Odoo ERP متكاملة مصممة لاحتياجات عملك — من التحليل حتى التشغيل الفعلي وما بعده.">End-to-end Odoo ERP consulting tailored to your business needs — from discovery to go-live and beyond.</p>
     <div class="services-grid">
       <div class="svc-card rev">
         <div class="svc-icon">🚀</div>
@@ -1249,8 +1342,8 @@ footer {
 <!-- ═══ CASE STUDIES ═══ -->
 <section id="projects">
   <div class="inner">
-    <div class="eyebrow rev">Track Record</div>
-    <h2 class="sec-title rev rev-d1">70+ ERP Implementations</h2>
+    <div class="eyebrow rev" data-en="Track Record" data-ar="سجل الإنجازات">Track Record</div>
+    <h2 class="sec-title rev rev-d1" data-en="70+ ERP Implementations" data-ar="70+ تطبيق ERP ناجح">70+ ERP Implementations</h2>
     <p class="sec-desc rev rev-d2" style="max-width:780px;">77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more.<br>Click any card for the full case study.</p>
 
     <!-- Filter Menu -->
@@ -2260,7 +2353,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
         </div>
       </div>
       <div>
-        <div class="eyebrow rev">Credentials</div>
+        <div class="eyebrow rev" data-en="Credentials" data-ar="الشهادات والمؤهلات">Credentials</div>
         <h2 class="sec-title rev rev-d1">Top Certifications</h2>
 
         <!-- ── FILTER TABS ── -->
@@ -2707,8 +2800,8 @@ document.addEventListener('keydown', function(e) {
   <div class="inner">
     <div class="test-head">
       <div>
-        <div class="eyebrow rev">Social Proof</div>
-        <h2 class="sec-title rev rev-d1">What Clients &amp;<br>Colleagues Say</h2>
+        <div class="eyebrow rev" data-en="Social Proof" data-ar="آراء العملاء">Social Proof</div>
+        <h2 class="sec-title rev rev-d1" data-en="What Clients &amp;<br>Colleagues Say" data-ar="ماذا يقول العملاء<br>والزملاء">What Clients &amp;<br>Colleagues Say</h2>
         <div class="rev rev-d2" style="display:flex;align-items:center;gap:16px;margin-top:12px;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid #fde68a;border-radius:40px;padding:7px 16px;">
             <span style="color:var(--gold);font-size:.95rem;">★★★★★</span>
@@ -2729,9 +2822,9 @@ document.addEventListener('keydown', function(e) {
 <!-- ═══ BLOG ═══ -->
 <section id="blog">
   <div class="inner">
-    <div class="eyebrow rev">Insights</div>
-    <h2 class="sec-title rev rev-d1">ERP Knowledge Hub</h2>
-    <p class="sec-desc rev rev-d2">Practical insights on ERP implementation, financial management, and digital transformation.</p>
+    <div class="eyebrow rev" data-en="Insights" data-ar="مقالات ورؤى">Insights</div>
+    <h2 class="sec-title rev rev-d1" data-en="ERP Knowledge Hub" data-ar="مركز المعرفة ERP">ERP Knowledge Hub</h2>
+    <p class="sec-desc rev rev-d2" data-en="Practical insights on ERP implementation, financial management, and digital transformation." data-ar="رؤى عملية في تطبيق ERP وإدارة الأعمال والتحول الرقمي.">Practical insights on ERP implementation, financial management, and digital transformation.</p>
     <div class="blog-grid" id="blogGrid"></div>
     <div style="text-align:center;margin-top:36px;" class="rev">
       <a href="https://medium.com/@abuemira" target="_blank" class="btn-outline" style="font-size:.85rem;">
@@ -2807,8 +2900,8 @@ const BLOG_ARTICLES = [
 <!-- ═══ CONTACT FORM ═══ -->
 <section id="contact" style="background:var(--bg);">
   <div class="inner">
-    <div class="eyebrow rev">Get In Touch</div>
-    <h2 class="sec-title rev rev-d1">Let's Work Together</h2>
+    <div class="eyebrow rev" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</div>
+    <h2 class="sec-title rev rev-d1" data-en="Let's Work Together" data-ar="لنعمل معاً">Let's Work Together</h2>
     <div class="contact-form-wrap rev rev-d2">
 
       <!-- Left: Info -->
@@ -2840,19 +2933,19 @@ const BLOG_ARTICLES = [
       <!-- Right: Form -->
       <div>
         <div class="cf-group">
-          <label class="cf-label">Full Name *</label>
+          <label class="cf-label" data-en="Full Name *" data-ar="الاسم الكامل *">Full Name *</label>
           <input type="text" class="cf-input" id="cf-name" placeholder="e.g. Ahmed Mohamed">
         </div>
         <div class="cf-group">
-          <label class="cf-label">Email Address *</label>
+          <label class="cf-label" data-en="Email Address *" data-ar="البريد الإلكتروني *">Email Address *</label>
           <input type="email" class="cf-input" id="cf-email" placeholder="your@email.com">
         </div>
         <div class="cf-group">
-          <label class="cf-label">Company / Organization</label>
+          <label class="cf-label" data-en="Company / Organization" data-ar="الشركة / المؤسسة">Company / Organization</label>
           <input type="text" class="cf-input" id="cf-company" placeholder="Your company name">
         </div>
         <div class="cf-group">
-          <label class="cf-label">Service Needed</label>
+          <label class="cf-label" data-en="Service Needed" data-ar="الخدمة المطلوبة">Service Needed</label>
           <select class="cf-input" id="cf-service">
             <option value="">— Select a service —</option>
             <option>ERP Implementation (New)</option>
@@ -2865,11 +2958,11 @@ const BLOG_ARTICLES = [
           </select>
         </div>
         <div class="cf-group">
-          <label class="cf-label">Message *</label>
+          <label class="cf-label" data-en="Message *" data-ar="الرسالة *">Message *</label>
           <textarea class="cf-textarea" id="cf-message" placeholder="Tell me about your project, current challenges, timeline, or any questions you have..."></textarea>
         </div>
-        <button class="cf-btn" id="cf-submit" onclick="submitContactForm()">📨 Send Message</button>
-        <div class="cf-success" id="cf-success">✅ Message sent! I'll get back to you within 24 hours.</div>
+        <button class="cf-btn" id="cf-submit" onclick="submitContactForm()" data-en="📨 Send Message" data-ar="📨 إرسال الرسالة">📨 Send Message</button>
+        <div class="cf-success" id="cf-success" data-en="✅ Message sent! I'll get back to you within 24 hours." data-ar="✅ تم الإرسال! سأرد عليك خلال 24 ساعة.">✅ Message sent! I'll get back to you within 24 hours.</div>
       </div>
 
     </div>
@@ -2881,11 +2974,11 @@ const BLOG_ARTICLES = [
   <div class="inner">
     <div class="cta-box rev">
       <div class="cta-eyebrow">✦ Free Consultation</div>
-      <h2>Prefer to Talk Directly?</h2>
-      <p>Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required.</p>
+      <h2 data-en="Prefer to Talk Directly?" data-ar="تفضّل التحدث مباشرة؟">Prefer to Talk Directly?</h2>
+      <p data-en="Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required." data-ar="احجز استشارة مجانية لمدة 30 دقيقة ونحدد معاً المسار الصحيح لمشروع ERP الخاص بك — بدون أي التزام.">Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required.</p>
       <div class="cta-btns">
-        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white">📅 Book Free Consultation</a>
-        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline">💬 WhatsApp Me</a>
+        <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white" data-en="📅 Book Free Consultation" data-ar="📅 احجز استشارة مجانية">📅 Book Free Consultation</a>
+        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline" data-en="💬 WhatsApp Me" data-ar="💬 واتساب">💬 WhatsApp Me</a>
       </div>
     </div>
   </div>
@@ -2965,7 +3058,7 @@ function showCfError(msg) {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Abu<span>Emira</span></div>
-  <div class="footer-copy">© <span id="footerYear"></span> Mohamed Essam Abu Emira · Odoo ERP Expert</div>
+  <div class="footer-copy" data-en="© {year} Mohamed Essam Abu Emira · Odoo ERP Expert" data-ar="© {year} محمد عصام أبو أميرة · خبير Odoo ERP" id="footer-copy">© <span id="footerYear"></span> Mohamed Essam Abu Emira · Odoo ERP Expert</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="footer-link" title="LinkedIn">in</a>
     <a href="https://github.com/mohamedabuemira/" target="_blank" class="footer-link" title="GitHub">gh</a>
@@ -3114,5 +3207,130 @@ const counterObs = new IntersectionObserver(entries => {
 const statsEl = document.querySelector('.hero-stats');
 if(statsEl) counterObs.observe(statsEl);
 </script>
+
+<script>
+/* ── LANGUAGE TOGGLE ─────────────────────── */
+function setLang(lang) {
+  const isAr = lang === 'ar';
+  const html  = document.documentElement;
+
+  // Set lang & dir
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  localStorage.setItem('lang', lang);
+
+  // Toggle active btn
+  document.getElementById('btn-en').classList.toggle('active', !isAr);
+  document.getElementById('btn-ar').classList.toggle('active',  isAr);
+
+  // Translate all [data-en] / [data-ar] elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const txt = isAr ? el.dataset.ar : el.dataset.en;
+    if (!txt) return;
+    // If it's a button/link/label — set innerHTML (allows emojis & <br>)
+    if (['BUTTON','A','LABEL','DIV','P','H2','H3','SPAN'].includes(el.tagName)) {
+      // Preserve child elements (dots, spans) for hero-badge
+      if (el.classList.contains('hero-badge')) {
+        const dot = el.querySelector('.dot');
+        el.innerHTML = (dot ? dot.outerHTML + ' ' : '') + txt;
+      } else {
+        el.innerHTML = txt;
+      }
+    }
+  });
+
+  // Hero h1 swap
+  const h1en = document.getElementById('hero-h1-en');
+  const h1ar = document.getElementById('hero-h1-ar');
+  if (h1en && h1ar) {
+    h1en.style.display = isAr ? 'none' : '';
+    h1ar.style.display = isAr ? '' : 'none';
+  }
+
+  // Hero paragraph swap
+  const pen = document.getElementById('hero-p-en');
+  const par = document.getElementById('hero-p-ar');
+  if (pen && par) {
+    pen.style.display = isAr ? 'none' : '';
+    par.style.display = isAr ? '' : 'none';
+  }
+
+  // Footer year (keep the year)
+  const footerCopy = document.getElementById('footer-copy');
+  if (footerCopy) {
+    const yr = new Date().getFullYear();
+    const tpl = isAr ? footerCopy.dataset.ar : footerCopy.dataset.en;
+    footerCopy.innerHTML = tpl.replace('{year}', yr);
+  }
+
+  // Contact form placeholders
+  const placeholders = isAr
+    ? { 'cf-name':'مثال: محمد أحمد', 'cf-email':'بريدك@example.com', 'cf-company':'اسم شركتك',
+        'cf-message':'أخبرني عن مشروعك وتحدياتك الحالية...' }
+    : { 'cf-name':'e.g. Ahmed Mohamed', 'cf-email':'your@email.com', 'cf-company':'Your company name',
+        'cf-message':'Tell me about your project, current challenges, timeline, or any questions you have...' };
+  Object.entries(placeholders).forEach(([id, ph]) => {
+    const el = document.getElementById(id);
+    if (el) el.placeholder = ph;
+  });
+
+  // Service select options
+  const svcEl = document.getElementById('cf-service');
+  if (svcEl) {
+    const opts = isAr
+      ? ['— اختر الخدمة —','تطبيق ERP (جديد)','ترقية / هجرة ERP','تخصيص وتكامل ERP','استشارات الإدارة المالية','تدريب ودعم','تدقيق وتحسين ERP','أخرى']
+      : ['— Select a service —','ERP Implementation (New)','ERP Upgrade / Migration','ERP Customization & Integration','Financial Management Consulting','Training & Support','ERP Audit & Optimization','Other'];
+    Array.from(svcEl.options).forEach((opt, i) => { if (opts[i]) opt.text = opts[i]; });
+  }
+
+  // Filter buttons in projects
+  const filterLabels = isAr
+    ? { all:'الكل', construction:'إنشاءات', food:'مطاعم وأغذية', retail:'تجزئة وتجارة',
+        manufacturing:'تصنيع', 'real-estate':'عقارات', logistics:'لوجستيات', government:'حكومي', services:'خدمات' }
+    : { all:'All', construction:'🏗 Construction', food:'🍽 Food & Beverage', retail:'🛍 Retail & Trade',
+        manufacturing:'🏭 Manufacturing', 'real-estate':'🏢 Real Estate', logistics:'🚛 Logistics', government:'🏛 Government', services:'⚙️ Services' };
+
+  document.querySelectorAll('#csFltRow .flt').forEach(btn => {
+    const key = btn.dataset.cf;
+    if (filterLabels[key]) btn.textContent = filterLabels[key];
+  });
+
+  // "Show More" button
+  const showMore = document.getElementById('csShowMoreBtn');
+  if (showMore) showMore.textContent = isAr ? 'عرض المزيد من المشاريع' : 'Show More Projects';
+
+  // "View All Articles" link
+  const blogBtn = document.querySelector('a[href*="medium.com"]');
+  if (blogBtn) blogBtn.textContent = isAr ? '📝 عرض جميع المقالات على Medium →' : '📝 View All Articles on Medium →';
+
+  // About section buttons
+  const cvBtn = document.querySelector('a[href*="docs.google.com"]');
+  if (cvBtn) cvBtn.innerHTML = isAr ? '📄 تحميل السيرة الذاتية' : '📄 Download CV';
+  const liBtn = document.querySelector('a[href="https://www.linkedin.com/in/abuemira"]');
+  if (liBtn && liBtn.textContent.includes('LinkedIn')) liBtn.innerHTML = isAr ? '💼 لينكدإن' : '💼 LinkedIn';
+
+  // Testimonials "All Recommendations" button
+  const recsBtn = document.querySelector('button[onclick="openRecsModal()"]');
+  if (recsBtn) recsBtn.textContent = isAr ? 'كل التوصيات ←' : 'All Recommendations →';
+
+  // Contact info labels
+  const ciLabels = document.querySelectorAll('.contact-info-item > div > div[style]');
+  const ciMap = isAr
+    ? ['البريد الإلكتروني','واتساب','احجز مكالمة','لينكدإن','جميع الروابط']
+    : ['Email','WhatsApp','Book a Call','LinkedIn','All Links'];
+  ciLabels.forEach((el, i) => { if (ciMap[i]) el.textContent = ciMap[i]; });
+
+  // Certs "View All" button
+  const certsBtn = document.querySelector('button[onclick="openCertsModal()"]');
+  if (certsBtn) certsBtn.innerHTML = isAr ? 'عرض جميع الشهادات +50 →' : 'View All 50+ Certifications →';
+}
+
+// Init on page load
+(function(){
+  const saved = localStorage.getItem('lang') || 'en';
+  if (saved === 'ar') setLang('ar');
+})();
+</script>
+
 </body>
 </html>
