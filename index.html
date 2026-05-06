@@ -77,6 +77,10 @@
 [data-theme="dark"] nav {
   background: rgba(15,14,23,.92);
 }
+[data-theme="dark"] .nav-links {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+}
 [data-theme="dark"] .hero-card,
 [data-theme="dark"] .svc-card,
 [data-theme="dark"] .proj-card,
@@ -537,6 +541,7 @@ h2.sec-title {
   border:1.5px solid var(--border);
   color:var(--muted);
   transition:all .2s var(--ease);
+  white-space:nowrap;
 }
 .flt:hover { color:var(--primary); border-color:var(--border2); background:var(--primary-bg); }
 .flt.on { background:var(--primary); border-color:var(--primary); color:white; box-shadow:0 2px 10px rgba(61,43,142,.3); }
@@ -851,26 +856,224 @@ footer {
 .footer-link:hover { border-color:var(--primary-bg); color:var(--primary-bg); background:rgba(237,233,250,.1); }
 
 /* ─── RESPONSIVE ──────────────────────────── */
+
+/* ── Tablet landscape: 1024px ── */
 @media(max-width:1024px){
   .hero-inner { grid-template-columns:1fr; }
   .hero-photo { display:none; }
   .about-grid,.exp-cols { grid-template-columns:1fr; gap:44px; }
   .services-grid,.proj-grid,.blog-grid { grid-template-columns:repeat(2,1fr); }
+  section { padding:80px 36px; }
+  #home { padding:0 36px; }
 }
+
+/* ── Tablet portrait: 768px ── */
 @media(max-width:768px){
-  nav { padding:0 20px; }
-  .nav-links { display:none; flex-direction:column; position:fixed; top:68px; left:0;right:0; background:white; padding:20px; border-bottom:1px solid var(--border); gap:4px; box-shadow:var(--shadow); }
+  /* Nav */
+  nav { padding:0 16px; }
+  .nav-links {
+    display:none; flex-direction:column;
+    position:fixed; top:68px; left:0; right:0;
+    background:var(--surface);
+    padding:16px; border-bottom:1px solid var(--border);
+    gap:4px; box-shadow:var(--shadow);
+    z-index:199;
+  }
   .nav-links.open { display:flex; }
   .nav-toggle { display:flex; }
-  section { padding:64px 20px; }
-  #home { padding:0 20px; }
-  .hero-inner { padding:88px 0 60px; }
-  .hero-stats { gap:0; flex-wrap:wrap; }
-  .hero-stat { flex:1 1 40%; margin-bottom:16px; }
+
+  /* Layout */
+  section { padding:60px 16px; }
+  #home { padding:0 16px; }
+  .inner { padding:0; }
+  .hero-inner { padding:88px 0 56px; gap:32px; }
+
+  /* Hero stats: 2x2 grid */
+  .hero-stats { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:36px; padding-top:24px; }
+  .hero-stat { flex:none; border-right:none !important; margin-right:0 !important; padding-right:0 !important; padding:12px 0; border-bottom:1px solid var(--border); }
+  .hero-stat:nth-child(odd) { border-right:1px solid var(--border) !important; padding-right:16px !important; }
+  .hero-stat:nth-child(3),.hero-stat:nth-child(4) { border-bottom:none; }
+  .hero-stat-num { font-size:2rem; }
+  .hero-stat-lbl { font-size:.68rem; }
+
+  /* Hero buttons stack */
+  .hero-btns { flex-direction:column; gap:10px; }
+  .hero-btns .btn-primary,.hero-btns .btn-outline { width:100%; justify-content:center; text-align:center; }
+
+  /* Grids to single column */
   .services-grid,.proj-grid,.blog-grid { grid-template-columns:1fr; }
-  .cta-box { padding:44px 24px; }
-  .certs-grid,.skills-wrap { grid-template-columns:1fr; }
-  footer { flex-direction:column; text-align:center; }
+  .about-grid,.exp-cols { grid-template-columns:1fr; gap:36px; }
+  .skills-wrap { grid-template-columns:1fr 1fr; }
+  .certs-grid { grid-template-columns:1fr; }
+
+  /* Section titles */
+  h2.sec-title { font-size:clamp(1.7rem,6vw,2.2rem); }
+  .sec-desc { max-width:100% !important; }
+
+  /* Filter row: swipeable horizontal scroll */
+  .filter-row {
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:4px;
+    margin-left:-16px; margin-right:-16px;
+    padding-left:16px; padding-right:16px;
+    gap:6px;
+  }
+  .filter-row::-webkit-scrollbar { display:none; }
+  .flt { flex-shrink:0; padding:6px 14px; font-size:.75rem; }
+
+  /* CTA box */
+  .cta-box { padding:44px 20px; border-radius:20px; }
+  .cta-btns { flex-direction:column; align-items:center; gap:10px; }
+  .cta-btns .btn-white,.cta-btns .btn-white-outline { width:100%; justify-content:center; }
+  .cta-contact-row { gap:16px; flex-direction:column; align-items:center; }
+
+  /* Testimonials */
+  .test-head { flex-direction:column; gap:12px; align-items:flex-start; }
+
+  /* Hero photo: show on mobile as circle above text */
+  .hero-photo { display:flex; justify-content:center; margin-bottom:0; order:-1; }
+  .hero-photo-frame {
+    width:140px; height:140px;
+    border-radius:50%;
+  }
+  .hero-photo-frame::after { display:none; }
+  .hero-card, .hero-tag { display:none; }
+  .hero-inner { text-align:center; }
+  .hero-btns { justify-content:center; }
+  .hero-stats { justify-content:center; }
+  .eyebrow { justify-content:center; }
+
+  /* Case study grid: single col */
+  .cs-grid { grid-template-columns:1fr !important; }
+
+  /* Footer */
+  footer { flex-direction:column; text-align:center; padding:24px 16px; gap:14px; }
+  .footer-links { justify-content:center; }
+}
+
+/* ── Mobile small: 480px ── */
+@media(max-width:480px){
+  section { padding:48px 14px; }
+  #home { padding:0 14px; }
+  nav { padding:0 14px; }
+
+  /* Hero text */
+  .hero-h1 { font-size:clamp(2.2rem,9vw,3rem); }
+  .hero-p { font-size:.93rem; }
+  .hero-badge { font-size:.7rem; }
+
+  /* Skills: single col on very small */
+  .skills-wrap { grid-template-columns:1fr; }
+
+  /* Service cards */
+  .svc-card { padding:24px 18px; }
+
+  /* Experience timeline */
+  .tl { padding-left:20px; }
+
+  /* Certifications modal */
+  #certsModal > div { padding:28px 16px; }
+
+  /* Case study modal */
+  .cs-modal-body { padding:18px 16px 24px; }
+  .cs-kpis-row { grid-template-columns:1fr 1fr; }
+  .cs-modal-body h2 { font-size:1.2rem; }
+
+  /* Stats: tighter */
+  .hero-stat-num { font-size:1.7rem; }
+
+  /* Scroll top & whatsapp float */
+  #scrollTop { right:14px; bottom:90px; }
+  #waFloat { right:14px; bottom:20px; }
+}
+
+/* ── Very small: 360px (older androids) ── */
+@media(max-width:360px){
+  .hero-h1 { font-size:2rem; }
+  section { padding:40px 12px; }
+  #home { padding:0 12px; }
+  .hero-stats { grid-template-columns:1fr 1fr; }
+  .hero-stat-num { font-size:1.5rem; }
+}
+
+/* ── TRUST BADGES ── */
+.trust-badges {
+  display:flex; gap:8px; flex-wrap:wrap;
+  margin-top:20px;
+  animation: fadeUp .7s .38s var(--ease) both;
+}
+.trust-badge {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:.72rem; font-weight:600;
+  color:var(--muted);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:40px;
+  padding:5px 12px;
+  white-space:nowrap;
+}
+@media(max-width:768px){
+  .trust-badges { justify-content:center; overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; }
+  .trust-badge { flex-shrink:0; }
+}
+
+/* ── CONTACT FORM ── */
+.contact-form-wrap {
+  display:grid; grid-template-columns:1fr 1fr; gap:48px;
+  align-items:start;
+}
+.contact-form-side h3 {
+  font-family:var(--font-h); font-size:1.3rem; font-weight:700;
+  color:var(--text); margin-bottom:8px;
+}
+.contact-form-side p { font-size:.88rem; color:var(--muted); line-height:1.7; margin-bottom:24px; }
+.contact-info-item {
+  display:flex; align-items:center; gap:12px;
+  padding:14px 0; border-bottom:1px solid var(--border);
+  font-size:.85rem; color:var(--text-md);
+}
+.contact-info-item:last-child { border-bottom:none; }
+.contact-info-icon {
+  width:38px; height:38px; border-radius:10px;
+  background:var(--primary-bg); display:flex; align-items:center; justify-content:center;
+  font-size:16px; flex-shrink:0;
+}
+.cf-group { display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+.cf-label { font-size:.78rem; font-weight:700; color:var(--text); }
+.cf-input, .cf-textarea {
+  width:100%; padding:11px 14px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r); background:var(--surface);
+  color:var(--text); font-family:var(--font-b); font-size:.88rem;
+  transition:border-color .2s, box-shadow .2s;
+  outline:none;
+}
+.cf-input:focus, .cf-textarea:focus {
+  border-color:var(--primary); box-shadow:0 0 0 3px rgba(61,43,142,.12);
+}
+.cf-textarea { resize:vertical; min-height:120px; line-height:1.6; }
+.cf-btn {
+  width:100%; padding:13px; border-radius:50px;
+  background:var(--primary); color:white;
+  font-family:var(--font-b); font-size:.92rem; font-weight:700;
+  border:none; cursor:pointer;
+  box-shadow:0 4px 20px rgba(61,43,142,.35);
+  transition:background .2s, transform .2s;
+}
+.cf-btn:hover { background:var(--primary-lt); transform:translateY(-2px); }
+.cf-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+.cf-success {
+  display:none; padding:14px; border-radius:var(--r);
+  background:var(--accent-bg); border:1px solid #6ee7b7;
+  color:var(--accent); font-size:.88rem; font-weight:600; text-align:center;
+  margin-top:12px;
+}
+@media(max-width:768px){
+  .contact-form-wrap { grid-template-columns:1fr; gap:32px; }
+  .cta-section-wrap { padding:0 16px 60px !important; }
 }
 </style>
 </head>
@@ -912,6 +1115,12 @@ footer {
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary">📅 Book Free Consultation</a>
         <a href="#projects" class="btn-outline">View 70+ Projects →</a>
       </div>
+      <div class="trust-badges">
+        <div class="trust-badge">🏆 LinkedIn Top ERP Voice</div>
+        <div class="trust-badge">🟣 Odoo Official Certified</div>
+        <div class="trust-badge">✅ 40+ Certifications</div>
+        <div class="trust-badge">🌍 Egypt · KSA · UAE · GCC</div>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl">Years Experience</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="70">0<span>+</span></div><div class="hero-stat-lbl">ERP Projects</div></div>
@@ -930,7 +1139,7 @@ footer {
           <span>Saudi Arabia · UAE · Egypt</span>
         </div>
       </div>
-      <div class="hero-tag">Odoo v12 → v18 ✓</div>
+      <div class="hero-tag">Odoo v12 → v19 ✓</div>
     </div>
   </div>
 </section>
@@ -1170,7 +1379,13 @@ footer {
 }
 @media(max-width:600px){
   .cs-kpis-row { grid-template-columns:1fr 1fr; }
-  .cs-modal-body { padding:22px 20px 28px; }
+  .cs-modal-body { padding:22px 16px 28px; }
+  .cs-grid { grid-template-columns:1fr; }
+  .cs-body { padding:16px 16px 20px; }
+  .cs-results { gap:8px; }
+  .cs-kpi { min-width:70px; padding:6px 8px; }
+  .cs-cta-modal { flex-direction:column; }
+  .cs-cta-modal a,.cs-cta-modal button { width:100%; justify-content:center; text-align:center; }
 }
 </style>
 
@@ -2589,26 +2804,163 @@ const BLOG_ARTICLES = [
 })();
 </script>
 
-<!-- ═══ CTA / CONTACT ═══ -->
-<section id="contact">
+<!-- ═══ CONTACT FORM ═══ -->
+<section id="contact" style="background:var(--bg);">
+  <div class="inner">
+    <div class="eyebrow rev">Get In Touch</div>
+    <h2 class="sec-title rev rev-d1">Let's Work Together</h2>
+    <div class="contact-form-wrap rev rev-d2">
+
+      <!-- Left: Info -->
+      <div class="contact-form-side">
+        <h3>Ready to transform your business?</h3>
+        <p>Whether you need a full ERP implementation, an upgrade, optimization, or expert advice — I'm here to help. Fill in the form or reach out directly.</p>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📧</div>
+          <div><div style="font-weight:700;margin-bottom:2px;">Email</div><a href="mailto:abuemira91@gmail.com" style="color:var(--primary-lt);">abuemira91@gmail.com</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📱</div>
+          <div><div style="font-weight:700;margin-bottom:2px;">WhatsApp</div><a href="https://wa.me/201005061349" target="_blank" style="color:var(--primary-lt);">+20 100 506 1349</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📅</div>
+          <div><div style="font-weight:700;margin-bottom:2px;">Book a Call</div><a href="https://calendly.com/abuemira/30min" target="_blank" style="color:var(--primary-lt);">calendly.com/abuemira</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">💼</div>
+          <div><div style="font-weight:700;margin-bottom:2px;">LinkedIn</div><a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);">linkedin.com/in/abuemira</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🌐</div>
+          <div><div style="font-weight:700;margin-bottom:2px;">All Links</div><a href="https://linktr.ee/abuemira" target="_blank" style="color:var(--primary-lt);">linktr.ee/abuemira</a></div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div>
+        <div class="cf-group">
+          <label class="cf-label">Full Name *</label>
+          <input type="text" class="cf-input" id="cf-name" placeholder="e.g. Ahmed Mohamed">
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Email Address *</label>
+          <input type="email" class="cf-input" id="cf-email" placeholder="your@email.com">
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Company / Organization</label>
+          <input type="text" class="cf-input" id="cf-company" placeholder="Your company name">
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Service Needed</label>
+          <select class="cf-input" id="cf-service">
+            <option value="">— Select a service —</option>
+            <option>ERP Implementation (New)</option>
+            <option>ERP Upgrade / Migration</option>
+            <option>ERP Customization &amp; Integration</option>
+            <option>Financial Management Consulting</option>
+            <option>Training &amp; Support</option>
+            <option>ERP Audit &amp; Optimization</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Message *</label>
+          <textarea class="cf-textarea" id="cf-message" placeholder="Tell me about your project, current challenges, timeline, or any questions you have..."></textarea>
+        </div>
+        <button class="cf-btn" id="cf-submit" onclick="submitContactForm()">📨 Send Message</button>
+        <div class="cf-success" id="cf-success">✅ Message sent! I'll get back to you within 24 hours.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BOX ═══ -->
+<section class="cta-section-wrap" style="background:white; padding:0 48px 80px;">
   <div class="inner">
     <div class="cta-box rev">
-      <div class="cta-eyebrow">✦ Let's Work Together</div>
-      <h2>Ready to Transform<br>Your Business?</h2>
-      <p>Whether you need a new ERP system, an upgrade, or just expert advice — let's talk. Book a free 30-minute consultation and let's figure out the right path forward.</p>
+      <div class="cta-eyebrow">✦ Free Consultation</div>
+      <h2>Prefer to Talk Directly?</h2>
+      <p>Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white">📅 Book Free Consultation</a>
         <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline">💬 WhatsApp Me</a>
       </div>
-      <div class="cta-contact-row">
-        <a href="mailto:abuemira91@gmail.com" class="cta-contact-link">📧 abuemira91@gmail.com</a>
-        <a href="https://wa.me/201005061349" class="cta-contact-link">📱 +20 100 506 1349</a>
-        <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="cta-contact-link">💼 LinkedIn</a>
-        <a href="https://linktr.ee/abuemira" target="_blank" class="cta-contact-link">🌐 All Links</a>
-      </div>
     </div>
   </div>
 </section>
+
+<script>
+async function submitContactForm() {
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+  const btn     = document.getElementById('cf-submit');
+  const success = document.getElementById('cf-success');
+  const errBox  = document.getElementById('cf-error');
+
+  // Validation
+  if (!name || !email || !message) {
+    showCfError('Please fill in your name, email, and message.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showCfError('Please enter a valid email address.');
+    return;
+  }
+
+  const company = document.getElementById('cf-company').value.trim();
+  const service = document.getElementById('cf-service').value;
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Sending...';
+  if (errBox) errBox.style.display = 'none';
+
+  try {
+    const res = await fetch('https://formspree.io/f/xpqbldnq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        company: company || '—',
+        service: service || '—',
+        message,
+        _subject: 'Portfolio Inquiry: ' + (service || 'General') + ' — from ' + name
+      })
+    });
+
+    if (res.ok) {
+      // Clear form
+      ['cf-name','cf-email','cf-company','cf-message'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('cf-service').value = '';
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    } else {
+      const data = await res.json();
+      showCfError(data.error || 'Something went wrong. Please try WhatsApp or email directly.');
+    }
+  } catch(e) {
+    showCfError('Network error. Please try WhatsApp or email directly.');
+  }
+
+  btn.disabled = false;
+  btn.textContent = '📨 Send Message';
+}
+
+function showCfError(msg) {
+  let errBox = document.getElementById('cf-error');
+  if (!errBox) {
+    errBox = document.createElement('div');
+    errBox.id = 'cf-error';
+    errBox.style.cssText = 'display:none;padding:12px 14px;border-radius:10px;background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;font-size:.85rem;margin-top:10px;';
+    document.getElementById('cf-submit').after(errBox);
+  }
+  errBox.textContent = '⚠️ ' + msg;
+  errBox.style.display = 'block';
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
