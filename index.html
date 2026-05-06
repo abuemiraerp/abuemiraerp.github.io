@@ -1152,10 +1152,16 @@ footer {
 [lang="ar"] .tl::before { left:auto; right:5px; }
 [lang="ar"] .tl-dot { left:auto; right:-7px; }
 [lang="ar"] .tl-item { padding-left:0; padding-right:20px; text-align:right; }
-[lang="ar"] .tl-header { flex-direction:row-reverse; }
-[lang="ar"] .tl-co { flex-direction:row-reverse; }
+/* RTL: title on right, date on left — let browser handle with direction:rtl */
+[lang="ar"] .tl-header { direction:rtl; flex-direction:row; }
+[lang="ar"] .tl-header h4 { text-align:right; }
+/* Company row: logo then name reading right-to-left */
+[lang="ar"] .tl-co { flex-direction:row; direction:rtl; }
 [lang="ar"] .tl-tags { flex-direction:row-reverse; }
-[lang="ar"] .tl-bullets li { text-align:right; }
+[lang="ar"] .tl-bullets { padding-left:0; padding-right:14px; }
+[lang="ar"] .tl-bullets li { text-align:right; direction:rtl; }
+[lang="ar"] .tl-current-badge { direction:rtl; }
+[lang="ar"] .tl-date-badge { direction:ltr; }
 [lang="ar"] .contact-form-wrap { direction:rtl; }
 [lang="ar"] .contact-form-side { text-align:right; }
 [lang="ar"] .contact-info-item { flex-direction:row; text-align:right; }
@@ -2234,7 +2240,7 @@ function openCS(id){
       <p>${cs.outcome}</p>
       <div class="cs-cta-modal">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 24px;">${_ar ? '📅 ناقش مشروعاً مماثلاً' : '📅 Discuss a Similar Project'}</a>
-        <a href="https://wa.me/201005061349" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 22px;">💬 WhatsApp</a>
+        <a href="https://wa.me/201005061349" target="_blank" class="btn-outline" style="font-size:.82rem;padding:10px 22px;display:inline-flex;align-items:center;gap:7px;"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> WhatsApp</a>
       </div>
     </div>`;
   document.getElementById('csModal').style.display='block';
@@ -2300,7 +2306,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
               <li>Managed 30+ client engagements with Studio customizations and data migrations across 15+ industries</li>
             </ul>
             <div class="tl-tags">
-              <span class="tl-tag">Odoo Studio</span>
+              <span class="tl-tag">Odex</span>
               <span class="tl-tag">Data Migration</span>
               <span class="tl-tag">UAT</span>
               <span class="tl-tag">JIRA</span>
@@ -3028,7 +3034,7 @@ renderBlog();
       <p data-en="Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required." data-ar="احجز استشارة مجانية لمدة 30 دقيقة ونحدد معاً المسار الصحيح لمشروع ERP الخاص بك — بدون أي التزام.">Book a free 30-minute consultation and let's figure out the right ERP path for your business — no commitment required.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-white" data-en="📅 Book Free Consultation" data-ar="📅 احجز استشارة مجانية">📅 Book Free Consultation</a>
-        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline" data-en="💬 WhatsApp Me" data-ar="💬 واتساب">💬 WhatsApp Me</a>
+        <a href="https://wa.me/201005061349" target="_blank" class="btn-white-outline" style="display:inline-flex;align-items:center;gap:8px;" data-en="<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> WhatsApp Me" data-ar="<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> واتساب"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> WhatsApp Me</a>
       </div>
     </div>
   </div>
@@ -3108,7 +3114,7 @@ function showCfError(msg) {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Abu<span>Emira</span></div>
-  <div class="footer-copy" data-en="© {year} Mohamed Essam Abu Emira · Odoo ERP Expert" data-ar="© {year} محمد عصام أبو أميرة · خبير Odoo ERP" id="footer-copy">© <span id="footerYear"></span> Mohamed Essam Abu Emira · Odoo ERP Expert</div>
+  <div class="footer-copy" data-en="© {year} Mohamed Essam Abu Emira · Odoo ERP Expert" data-ar="© {year} محمد عصام أبو عميرة · خبير Odoo ERP" id="footer-copy">© <span id="footerYear"></span> Mohamed Essam Abu Emira · Odoo ERP Expert</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/abuemira" target="_blank" class="footer-link" title="LinkedIn">in</a>
     <a href="https://github.com/mohamedabuemira/" target="_blank" class="footer-link" title="GitHub">gh</a>
@@ -3433,7 +3439,7 @@ function setLang(lang) {
       'Driving high user adoption through structured training and change management programs',
       'Documented <strong>50+ functional specifications</strong> translating complex business requirements into Odoo solutions',
       'Improved system performance by <strong>70%</strong> through ERP codebase optimization and database restructuring',
-      'Managed 30+ client engagements with Studio customizations and data migrations across 15+ industries',
+      'Managed 30+ client engagements with Odex customizations and data migrations across 15+ industries',
       'Designed and optimized Odoo modules across 3+ enterprise projects (v14–v17)',
       'Delivered customized demos, business flow analysis, implementation plans, and user training',
       'Provided functional ERP support across ONYX PRO and MOTAKAMEL PLUS platforms',
@@ -3448,7 +3454,7 @@ function setLang(lang) {
       'تحقيق تبني مرتفع للمستخدمين عبر برامج تدريب منظمة وإدارة فعّالة للتغيير',
       'توثيق أكثر من <strong>50 مواصفة وظيفية</strong> لتحويل متطلبات الأعمال المعقدة إلى حلول Odoo',
       'تحسين أداء النظام بنسبة <strong>70%</strong> من خلال تحسين كود ERP وإعادة هيكلة قاعدة البيانات',
-      'إدارة أكثر من 30 عميلاً مع تخصيصات Odoo Studio وترحيل البيانات عبر أكثر من 15 قطاعاً',
+      'إدارة أكثر من 30 عميلاً مع تخصيصات Odex وترحيل البيانات عبر أكثر من 15 قطاعاً',
       'تصميم وتحسين وحدات Odoo في أكثر من 3 مشاريع مؤسسية (v14–v17)',
       'تقديم عروض توضيحية مخصصة وتحليل تدفق الأعمال وخطط التنفيذ وتدريب المستخدمين',
       'تقديم الدعم الوظيفي لمنصتي ONYX PRO وMOTAKAMEL PLUS',
