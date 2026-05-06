@@ -697,16 +697,21 @@ h2.sec-title {
   display:flex; justify-content:space-between; align-items:flex-end;
   margin-bottom:44px;
 }
-.marquee-outer { overflow:hidden; }
+.marquee-outer { overflow:hidden; direction:ltr; }
 .marquee-track {
   display:flex; gap:20px; width:max-content;
   animation:scroll-left 44s linear infinite;
+  direction:ltr;
 }
 .marquee-track:hover { animation-play-state:paused; }
 @keyframes scroll-left {
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
 }
+/* Force LTR on marquee regardless of page direction */
+[lang="ar"] .marquee-outer { direction:ltr; }
+[lang="ar"] .marquee-track { direction:ltr; }
+[lang="ar"] .test-card { direction:rtl; text-align:right; }
 .test-card {
   width:320px; flex-shrink:0;
   background:var(--surface2); border:1.5px solid var(--border);
@@ -2282,7 +2287,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCS();})
           <!-- 2. Expert Company -->
           <div class="tl-item">
             <div class="tl-header">
-              <h4 data-en="ERP Consultant · Product Owner" data-ar="مستشار ERP · مالك المنتج">ERP Consultant · Product Owner</h4>
+              <h4 data-en="ERP Consultant · Product Owner" data-ar="مستشار ERP · مدير المنتج">ERP Consultant · Product Owner</h4>
               <span class="tl-date-badge">Jan 2023 – Sep 2024</span>
             </div>
             <div class="tl-co">
@@ -3369,6 +3374,23 @@ function setLang(lang) {
   const certsBtn = document.querySelector('button[onclick="openCertsModal()"]');
   if (certsBtn) certsBtn.innerHTML = isAr ? 'عرض جميع الشهادات +50 →' : 'View All 50+ Certifications →';
 
+  // Testimonials count badge
+  const countEl = document.getElementById('testCount');
+  if (countEl) {
+    const n = typeof TESTIMONIALS !== 'undefined' ? TESTIMONIALS.length : 30;
+    countEl.textContent = isAr
+      ? `· +${n} توصية على LinkedIn`
+      : `· ${n}+ LinkedIn Recommendations`;
+  }
+
+  // Verified on LinkedIn link
+  const verifiedEl = document.querySelector('#testimonials .rev-d2 div:last-child');
+  if (verifiedEl) {
+    verifiedEl.innerHTML = isAr
+      ? `موثق على <a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);font-weight:700;">LinkedIn ↗</a>`
+      : `Verified on <a href="https://www.linkedin.com/in/abuemira" target="_blank" style="color:var(--primary-lt);font-weight:700;">LinkedIn ↗</a>`;
+  }
+
   // Experience section static labels
   const careerEyebrow = document.querySelector('#experience .eyebrow');
   if (careerEyebrow) careerEyebrow.textContent = isAr ? 'المسيرة المهنية' : 'Career Path';
@@ -3428,10 +3450,18 @@ function setLang(lang) {
   });
 }
 
-// Init on page load
+// Init on page load — English is default
 (function(){
-  const saved = localStorage.getItem('lang') || 'en';
-  if (saved === 'ar') setLang('ar');
+  const saved = localStorage.getItem('lang');
+  if (saved === 'ar') {
+    setLang('ar');
+  } else {
+    // Ensure EN buttons are active
+    const btnEn = document.getElementById('btn-en');
+    const btnAr = document.getElementById('btn-ar');
+    if (btnEn) btnEn.classList.add('active');
+    if (btnAr) btnAr.classList.remove('active');
+  }
 })();
 </script>
 
