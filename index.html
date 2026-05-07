@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abu Emira | Odoo ERP Expert | 70+ Implementations</title>
-  <meta name="description" content="Mohamed Essam Abu Emira — Odoo ERP Project Manager & Financial Manager. 12+ years, 70+ implementations across GCC & Egypt.">
+  <title>Abu Emira | Odoo ERP Expert | 77+ Implementations</title>
+  <meta name="description" content="Mohamed Essam Abu Emira — Odoo ERP Project Manager & Financial Manager. 12+ years, 77+ implementations across GCC & Egypt.">
   <link rel="shortcut icon" href="./assets/images/abu-emira.jpg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -889,9 +889,9 @@ footer {
   .nav-toggle { display:flex; }
 
   /* Layout */
-  section { padding:60px 16px; }
+  section { padding:60px 16px; overflow-x:hidden; }
   #home { padding:0; overflow-x:hidden; }
-  .inner { padding:0; }
+  .inner { padding:0; max-width:100%; box-sizing:border-box; }
   .hero-inner { padding:88px 0 56px; gap:32px; }
 
   /* Hero stats: 2x2 grid */
@@ -1017,6 +1017,9 @@ footer {
 
   /* Experience timeline */
   .tl { padding-left:20px; }
+  [lang="ar"] .tl { padding-left:0; padding-right:18px; }
+  [lang="ar"] .tl-item { padding-right:14px; padding-left:0; }
+  [lang="ar"] .tl-tag { font-size:.7rem; padding:3px 8px; }
 
   /* Certifications modal */
   #certsModal > div { padding:28px 16px; }
@@ -1231,6 +1234,89 @@ footer {
 [lang="ar"] .cert-c { flex-direction:row-reverse; }
 
 @media(max-width:768px){
+  /* ── Experience section full mobile fix ── */
+  #experience { overflow-x:hidden; }
+  .exp-cols { overflow-x:hidden; width:100%; box-sizing:border-box; }
+
+  .tl { padding-left:20px; overflow:hidden; width:100%; box-sizing:border-box; }
+  .tl::before { left:4px; }
+
+  .tl-item {
+    position:relative;
+    margin-bottom:28px;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .tl-item::before { left:-20px; width:10px; height:10px; }
+
+  .tl-header {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:5px;
+    width:100%;
+    box-sizing:border-box;
+  }
+  .tl-header h4 {
+    font-size:.9rem;
+    line-height:1.4;
+    word-break:break-word;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+  .tl-date-badge { align-self:flex-start; font-size:.65rem; white-space:nowrap; }
+  .tl-current-badge { font-size:.65rem; }
+
+  .tl-co {
+    flex-wrap:wrap;
+    gap:5px;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .tl-co-link {
+    white-space:normal;
+    word-break:break-word;
+    overflow-wrap:break-word;
+    font-size:.75rem;
+    line-height:1.5;
+    max-width:100%;
+  }
+
+  .tl-bullets { padding-left:12px; margin:6px 0 8px; max-width:100%; box-sizing:border-box; }
+  .tl-bullets li {
+    font-size:.78rem;
+    line-height:1.6;
+    word-break:break-word;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+
+  .tl-tags {
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin-top:8px;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .tl-tag { font-size:.68rem; padding:3px 8px; white-space:nowrap; }
+
+  /* ── Arabic RTL mobile timeline fix ── */
+  [lang="ar"] .tl { padding-right:20px; padding-left:0; }
+  [lang="ar"] .tl::before { left:auto; right:4px; }
+  [lang="ar"] .tl-item { padding-right:0; }
+  [lang="ar"] .tl-item::before { left:auto; right:-20px; }
+  [lang="ar"] .tl-header { align-items:flex-end; }
+  [lang="ar"] .tl-header h4 { text-align:right; }
+  [lang="ar"] .tl-date-badge { align-self:flex-end; direction:ltr; }
+  [lang="ar"] .tl-current-badge { align-self:flex-end; }
+  [lang="ar"] .tl-co { direction:rtl; justify-content:flex-end; }
+  [lang="ar"] .tl-bullets { padding-right:12px; padding-left:0; text-align:right; }
+  [lang="ar"] .tl-bullets li { text-align:right; direction:rtl; }
+  [lang="ar"] .tl-tags { flex-direction:row-reverse; justify-content:flex-end; }
+
   [lang="ar"] .hero-btns { flex-direction:column; align-items:center; }
   [lang="ar"] .hero-h1 { text-align:center; }
   [lang="ar"] .hero-p { text-align:center; }
@@ -1287,7 +1373,7 @@ footer {
       </p>
       <div class="hero-btns">
         <a href="https://calendly.com/abuemira/30min" target="_blank" class="btn-primary" data-en="📅 Book Free Consultation" data-ar="📅 احجز استشارة مجانية">📅 Book Free Consultation</a>
-        <a href="#projects" class="btn-outline" data-en="View 70+ Projects →" data-ar="← استعرض 70+ مشروع">View 70+ Projects →</a>
+        <a href="#projects" class="btn-outline" data-en="View 77+ Projects →" data-ar="← استعرض 77+ مشروع">View 77+ Projects →</a>
       </div>
       <div class="trust-badges">
         <div class="trust-badge" data-en="🏆 LinkedIn Top ERP Voice" data-ar="🏆 صوت ERP الأول على LinkedIn">🏆 LinkedIn Top ERP Voice</div>
@@ -1297,7 +1383,7 @@ footer {
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num" data-count="12">0<span>+</span></div><div class="hero-stat-lbl" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="70">0<span>+</span></div><div class="hero-stat-lbl" data-en="ERP Projects" data-ar="مشروع ERP">ERP Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="77">0<span>+</span></div><div class="hero-stat-lbl" data-en="ERP Projects" data-ar="مشروع ERP">ERP Projects</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="50">0<span>+</span></div><div class="hero-stat-lbl" data-en="Certifications" data-ar="شهادة احترافية">Certifications</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="15">0<span>+</span></div><div class="hero-stat-lbl" data-en="Industries" data-ar="قطاع صناعي">Industries</div></div>
       </div>
@@ -1347,7 +1433,7 @@ footer {
           <div class="story-content">
             <div class="story-period" data-en="2023 – Present · Leadership" data-ar="2023 – حتى الآن · القيادة">2023 – Present · Leadership</div>
             <h4 data-en="ERP Project Manager &amp; Independent Consultant" data-ar="مدير مشاريع ERP ومستشار مستقل">ERP Project Manager &amp; Independent Consultant</h4>
-            <p data-en="Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 70+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice." data-ar="أقود مشاريع ERP متكاملة بصفة مدير مشاريع — حاصل على شهادات Odoo v16/17/18، Google PM، IBM PM، McKinsey Forward. أكثر من 70 مشروعاً في الخليج ومصر. صوت ERP الأول على LinkedIn.">Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 70+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
+            <p data-en="Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 77+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice." data-ar="أقود مشاريع ERP متكاملة بصفة مدير مشاريع — حاصل على شهادات Odoo v16/17/18، Google PM، IBM PM، McKinsey Forward. أكثر من 77 مشروعاً في الخليج ومصر. صوت ERP الأول على LinkedIn.">Leading end-to-end implementations as Project Manager — certified Odoo v16/17/18, Google PM, IBM PM, McKinsey Forward. 77+ projects across GCC &amp; Egypt. LinkedIn Top ERP Voice.</p>
           </div>
         </div>
 
@@ -1424,7 +1510,7 @@ footer {
 <section id="projects">
   <div class="inner">
     <div class="eyebrow rev" data-en="Track Record" data-ar="سجل الإنجازات">Track Record</div>
-    <h2 class="sec-title rev rev-d1" data-en="70+ ERP Implementations" data-ar="70+ تطبيق ERP ناجح">70+ ERP Implementations</h2>
+    <h2 class="sec-title rev rev-d1" data-en="77+ ERP Implementations" data-ar="77+ تطبيق ERP ناجح">77+ ERP Implementations</h2>
     <p class="sec-desc rev rev-d2" style="max-width:780px;" data-en="77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more. Click any card for the full case study." data-ar="77 تطبيق ERP موثق في السعودية والإمارات ومصر — يشمل الإنشاءات والمطاعم والتصنيع والتجزئة والقطاع الحكومي وغيرها. اضغط على أي بطاقة للاطلاع على دراسة الحالة كاملة.">77 documented ERP implementations across Saudi Arabia, UAE &amp; Egypt — Spanning Construction, F&amp;B, Manufacturing, Retail, Government &amp; more.<br>Click any card for the full case study.</p>
 
     <!-- Filter Menu -->
@@ -2191,6 +2277,14 @@ const CASE_STUDIES = [
    modules:["Accounting","Purchase","Inventory","Sales","CRM","Manufacturing"],
    kpis:[{val:"Unified",label:"Production & inventory"},{val:"B2B & B2C",label:"Sales automated"},{val:"Real-time",label:"Financial reporting"}],
    outcome:"Coffee filter manufacturing, classification, and sales unified on one platform — raw material tracking, production workflows, and order fulfillment connected across retail and wholesale channels with improved cost control and financial visibility."},
+
+  {id:"alamanahcare",cat:"retail",name:"Alamanah Care Co.",industry:"Retail & Trade / Cotton Products",location:"Libya",version:"Odoo 17 EE",
+   img:"./assets/images/Projects/alamanahcare.png",
+   challenge:"Cotton products retailer and wholesaler operating across B2B and B2C channels with disconnected inventory and sales processes — stock management inaccurate, order fulfillment inefficient, and no real-time financial visibility for informed decision-making.",
+   solution:"End-to-end Odoo 17 EE implementation covering Accounting, Purchase, Inventory, Sales, and CRM — integrating inventory and sales workflows into a unified system with automated sales processes and enhanced customer management across retail and wholesale channels.",
+   modules:["Accounting","Purchase","Inventory","Sales","CRM"],
+   kpis:[{val:"Unified",label:"Inventory & sales system"},{val:"B2B & B2C",label:"Order fulfillment automated"},{val:"Real-time",label:"Financial reporting"}],
+   outcome:"Cotton products retail and wholesale operations unified on Odoo 17 EE — accurate stock management, automated sales workflows, and enhanced customer management connected in one platform with real-time financial visibility enabling better cost control and informed strategic decisions."},
 ];
 
 /* ── CASE STUDIES FILTER + RENDER ───────────── */
