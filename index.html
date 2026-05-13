@@ -1668,6 +1668,24 @@ footer {
   .cs-cta-modal { flex-direction:column; }
   .cs-cta-modal a,.cs-cta-modal button { width:100%; justify-content:center; text-align:center; }
 }
+/* ═══ OUR CLIENTS MARQUEE ═══ */
+
+/* ═══ CLIENTS — 3 ROW MARQUEE ═══ */
+.clients-section{padding:52px 0;overflow:hidden;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.clients-hdr{max-width:1100px;margin:0 auto;padding:0 40px;text-align:center;margin-bottom:28px}
+.cl-wrap{display:flex;flex-direction:column;gap:10px;overflow:hidden;
+  mask-image:linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.cl-track{display:flex;gap:10px;width:max-content;animation:cl-scroll 35s linear infinite}
+.cl-track:hover{animation-play-state:paused}
+@keyframes cl-scroll{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}
+.cl-logo{width:88px;height:88px;flex-shrink:0;border-radius:12px;overflow:hidden;
+  background:var(--bg-card);border:1px solid var(--border);padding:7px;
+  display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cl-logo:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:var(--shadow)}
+.cl-logo img{width:100%;height:100%;object-fit:cover;border-radius:7px}
+@media(max-width:600px){.cl-logo{width:70px;height:70px}.clients-hdr{padding:0 20px}}
+
 </style>
 
 <script>
