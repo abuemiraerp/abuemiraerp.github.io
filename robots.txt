@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abuemiraerp.github.io/sitemap.xml
